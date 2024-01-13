@@ -3,6 +3,7 @@ using System;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240113123121_Test---7")]
+    partial class Test7
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -605,7 +607,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),
+                            Id = new Guid("738e7941-fce5-4fd0-8bc1-a615c67aa73a"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
                             Description = "As of my last knowledge update in January 2022, Energizer is primarily known for its batteries and power-related products, and there is no widely known information about Energizer producing push-button phones. If there have been developments or new product releases since then, I recommend checking the latest information from reliable sources or visiting the official Energizer website for the most up-to-date details on their product offerings.",
@@ -614,7 +616,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("738e7941-fce5-4fd0-8bc1-a615c67aa73a"),
+                            Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
                             Description = "Nokia is a well-known Finnish multinational telecommunications, information technology, and consumer electronics company. Historically, Nokia was a leading mobile phone manufacturer and played a significant role in the early days of the mobile phone industry. Nokia phones were widely popular and known for their durability and reliability.",

@@ -1329,6 +1329,253 @@ namespace Final_project_crud_endpoints.DataBase
                     Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
                     CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
                     LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("06c69235-4012-476e-9daf-6023eaad3bd4"),
+                    Name = "Bluetooth wireless headphones",
+                    Description = "Cut the cords and embrace freedom with our collection of Bluetooth wireless headphones." +
+                    " From over-ear to in-ear options, our curated selection offers convenience and high-quality audio." +
+                    " Explore comfortable designs, advanced features like noise cancellation, and long-lasting battery life." +
+                    " Elevate your listening experience with our thoughtfully chosen Bluetooth wireless headphones," +
+                    " providing the perfect blend of portability and immersive sound for music, calls, and more.",
+                    Current_Subcategory_Id = new Guid("d7f7fc67-7e84-4b72-90eb-99ab9a1fe1a8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("e61649b9-3499-469f-bc75-f9de4857488c"),
+                    Name = "TWS wireless headphones",
+                    Description = "Experience true wireless freedom with our collection of TWS (True Wireless Stereo) headphones." +
+                    " From compact earbuds to stylish charging cases, our curated selection offers seamless connectivity and impressive audio quality." +
+                    " Explore comfortable designs, touch controls, and features like noise isolation for an immersive listening experience." +
+                    " Elevate your audio journey with our carefully chosen TWS wireless headphones," +
+                    " providing the perfect combination of convenience and exceptional sound quality for music, calls, and more.",
+                    Current_Subcategory_Id = new Guid("d7f7fc67-7e84-4b72-90eb-99ab9a1fe1a8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("f4ce55d0-37cb-415c-9a1b-367676a0d696"),
+                    Name = "Wired headphones",
+                    Description = "Stay connected to your music and calls with our range of reliable wired headphones." +
+                    " From classic over-ear designs to comfortable in-ear options, our curated selection prioritizes durability and high-quality audio." +
+                    " Explore features like noise isolation and built-in microphones for added convenience." +
+                    " Elevate your listening experience with our carefully chosen wired headphones, ensuring a reliable and immersive sound for your music, podcasts, and hands-free communication.",
+                    Current_Subcategory_Id = new Guid("d7f7fc67-7e84-4b72-90eb-99ab9a1fe1a8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("4fe68c8c-130d-471a-bac4-eabd7eab4ee3"),    
+                    Name = "Protective glass",
+                    Description = "Safeguard your device with our collection of protective glass solutions." +
+                    " From tempered glass screen protectors to full coverage and anti-glare options, our curated selection offers durable and crystal-clear protection." +
+                    " Explore precise fits for various devices, easy installation, and advanced features such as scratch resistance and fingerprint resistance." +
+                    " Elevate your device's durability with our thoughtfully chosen protective glass, ensuring a clear and shielded screen for smartphones, tablets, and more.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("5eaf8632-b8c7-45c4-b049-70bd6cf34739"),
+                    Name = "Wireless energy harvesting device",
+                    Description = "Step into the future of sustainable technology with our wireless energy harvesting devices." +
+                    " Harnessing ambient energy from the environment, these devices eliminate the need for traditional power sources." +
+                    " Explore innovative solutions that convert light, motion, or radio frequency signals into usable power for various applications." +
+                    " Elevate your approach to energy efficiency with our curated selection of wireless energy harvesting devices, contributing to a greener and more sustainable future.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("7c5cb09e-76ef-4307-9012-fbd1db7e0a26"),
+                    Name = "Protective cover",
+                    Description = "Guard your device in style with our collection of protective covers." +
+                    " From sleek phone cases to durable laptop sleeves, our curated selection offers a blend of fashion and functionality." +
+                    " Explore options that prioritize shock absorption, drop protection, and precise fit for various devices." +
+                    " Elevate your device's defense with our thoughtfully chosen protective covers, ensuring both style and durability for smartphones, laptops, tablets, and more.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("8047875e-f8ea-429c-bef9-5813d22f3a42"),
+                    Name = "Wires for energy collection",
+                    Description = "Optimize energy harvesting with our collection of wires designed for efficient energy collection." +
+                    " From robust cables to specialized wiring solutions, our curated selection caters to various energy-harvesting systems." +
+                    " Explore options with high conductivity and durability, ensuring effective transfer of harvested energy." +
+                    " Elevate your sustainable energy initiatives with our thoughtfully chosen wires for energy collection," +
+                    " providing the essential connectivity for harnessing power from solar, motion, or other sources.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("81a2378e-4dd7-4f06-8ff1-8d390afcd4d0"),
+                    Name = "Powerbank",
+                    Description = "Stay powered on the go with our range of reliable power banks." +
+                    " From compact and portable options to high-capacity choices, our curated selection ensures you're always charged and connected." +
+                    " Explore features like fast charging, multiple ports, and sleek designs." +
+                    " Elevate your mobile experience with our thoughtfully chosen power banks," +
+                    " providing a convenient and efficient way to keep your devices charged, whether you're traveling, commuting, or simply on the move.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("89ff430a-a0cd-41b7-a803-c47fa04c2569"), 
+                    Name = "Phone adapters",
+                    Description = "Ensure seamless charging with our collection of phone adapters." +
+                    " From USB-C to Lightning and micro USB adapters, our curated selection offers compatibility with various devices." +
+                    " Explore fast-charging options, compact designs, and durable materials for reliable power delivery." +
+                    " Elevate your charging experience with our thoughtfully chosen phone adapters, providing the essential connectivity to keep your devices powered up efficiently and conveniently.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("af939c28-8161-411c-a6fe-7193b79e1e6c"),
+                    Name = "Selfie sticks",
+                    Description = "Capture the perfect moments with our selection of selfie sticks." +
+                    " From compact and portable designs to Bluetooth-enabled options," +
+                    " our curated collection ensures you can snap photos and record videos with ease." +
+                    " Explore adjustable lengths, secure phone mounts, and convenient features for effortless selfies." +
+                    " Elevate your photography game with our thoughtfully chosen selfie sticks," +
+                    " providing a fun and versatile tool for capturing memories on your own terms.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("b18e82d5-c4c5-4295-b9fa-99b82101a58f"),
+                    Name = "SD cards",
+                    Description = "Expand your storage capacity with our range of SD cards." +
+                    " From standard to high-capacity options, our curated selection ensures reliable and fast storage solutions for various devices." +
+                    " Explore different storage capacities and read/write speeds to suit your specific needs, whether for cameras, smartphones, or other digital devices." +
+                    " Elevate your storage capabilities with our carefully chosen SD cards, providing the essential memory expansion for capturing, storing, and transferring your data seamlessly.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("d6211952-48af-4029-95b7-d6fc7844429c"), 
+                    Name = "Micro cards",
+                    Description = "Enhance your device's storage capacity with our selection of microSD cards." +
+                    " From standard to high-capacity options, our curated collection offers reliable and fast storage solutions for smartphones, cameras, and other digital devices." +
+                    " Explore different storage capacities and read/write speeds to suit your specific needs." +
+                    " Elevate your storage capabilities with our thoughtfully chosen microSD cards, providing the essential memory expansion for capturing, storing, and transferring your data seamlessly.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("e9281b7d-cb0c-45da-bf83-962bcd4ba656"),
+                    Name = "Gamepad for smartphone",
+                    Description = "Elevate your mobile gaming experience with our smartphone gamepads." +
+                    " From ergonomic designs to customizable controls, our curated selection offers a seamless and immersive gaming experience on your smartphone." +
+                    " Explore Bluetooth-enabled options for wireless connectivity and compatibility with a variety of games." +
+                    " Elevate your gaming sessions with our thoughtfully chosen smartphone gamepads, providing precision control and enhanced gameplay for a wide range of mobile games.",
+                    Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("e59993b4-0e5f-4972-96d6-2b9928af3296"),
+                    Name = "Apple",
+                    Description = "Explore the world of innovation with Apple's cutting-edge products." +
+                    " From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices." +
+                    " Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology." +
+                    " Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
+                    Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("87f60f99-e88a-4a8b-9269-d67d4cc0106e"),
+                    Name = "OPPO",
+                    Description = "Dive into the realm of innovation with OPPO's exceptional lineup of smartphones." +
+                    " From sleek designs to cutting-edge camera technology, OPPO offers a range of devices that prioritize style and functionality." +
+                    " Explore the latest in mobile innovation with OPPO's commitment to delivering impressive features and powerful performance." +
+                    " Elevate your mobile experience with OPPO's thoughtfully crafted smartphones, blending style, innovation, and user-friendly design.",
+                    Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("599c9f12-b1c9-4dc0-8854-1af53d3bc2f0"),
+                    Name = "Samsung",
+                    Description = "Experience the epitome of technology and innovation with Samsung's diverse product range." +
+                    " From flagship smartphones like the Galaxy series to smart TVs, home appliances, and cutting-edge wearables, Samsung offers a comprehensive ecosystem." +
+                    " Discover stunning displays, powerful performance, and advanced features that redefine the way we live and connect." +
+                    " Elevate your digital lifestyle with Samsung's thoughtfully designed products, bringing together quality, innovation, and versatility in every device.",
+                    Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("1201990f-f7fa-486c-a98b-40065fd130cb"),
+                    Name = "Xiaomi",
+                    Description = "Explore the world of innovation with Xiaomi's diverse range of technology products." +
+                    " From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability." +
+                    " Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living." +
+                    " Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
+                    Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("02b84dde-1ae8-4e03-81f9-c164ef536b19"),
+                    Name = "Blackview",
+                    Description = "Experience durability and rugged design with Blackview smartphones." +
+                    " From robust devices to outdoor-friendly models, Blackview offers a range of smartphones that withstand tough conditions." +
+                    " Discover features like water resistance, long-lasting batteries, and reliable performance." +
+                    " Elevate your mobile adventures with Blackview's thoughtfully crafted smartphones.",
+                    Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),    
+                    Name = "Energizer",
+                    Description = "As of my last knowledge update in January 2022," +
+                    " Energizer is primarily known for its batteries and power-related products," +
+                    " and there is no widely known information about Energizer producing push-button phones." +
+                    " If there have been developments or new product releases since then," +
+                    " I recommend checking the latest information from reliable sources or" +
+                    " visiting the official Energizer website for the most up-to-date details on their product offerings.",
+                    Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("738e7941-fce5-4fd0-8bc1-a615c67aa73a"),
+                    Name = "Nokia",
+                    Description = "Nokia is a well-known Finnish multinational telecommunications, information technology, and consumer electronics company." +
+                    " Historically, Nokia was a leading mobile phone manufacturer and played a significant role in the early days of the mobile phone industry." +
+                    " Nokia phones were widely popular and known for their durability and reliability.",
+                    Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
                 }
                 //Subcategories of Smartphones and accessories
             );

@@ -3,6 +3,7 @@ using System;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240113115104_Test---4")]
+    partial class Test4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -557,69 +559,6 @@ namespace Final_project_crud_endpoints.Migrations
                             Description = "Elevate your mobile gaming experience with our smartphone gamepads. From ergonomic designs to customizable controls, our curated selection offers a seamless and immersive gaming experience on your smartphone. Explore Bluetooth-enabled options for wireless connectivity and compatibility with a variety of games. Elevate your gaming sessions with our thoughtfully chosen smartphone gamepads, providing precision control and enhanced gameplay for a wide range of mobile games.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Gamepad for smartphone"
-                        },
-                        new
-                        {
-                            Id = new Guid("e59993b4-0e5f-4972-96d6-2b9928af3296"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Apple"
-                        },
-                        new
-                        {
-                            Id = new Guid("87f60f99-e88a-4a8b-9269-d67d4cc0106e"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Description = "Dive into the realm of innovation with OPPO's exceptional lineup of smartphones. From sleek designs to cutting-edge camera technology, OPPO offers a range of devices that prioritize style and functionality. Explore the latest in mobile innovation with OPPO's commitment to delivering impressive features and powerful performance. Elevate your mobile experience with OPPO's thoughtfully crafted smartphones, blending style, innovation, and user-friendly design.",
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "OPPO"
-                        },
-                        new
-                        {
-                            Id = new Guid("599c9f12-b1c9-4dc0-8854-1af53d3bc2f0"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Description = "Experience the epitome of technology and innovation with Samsung's diverse product range. From flagship smartphones like the Galaxy series to smart TVs, home appliances, and cutting-edge wearables, Samsung offers a comprehensive ecosystem. Discover stunning displays, powerful performance, and advanced features that redefine the way we live and connect. Elevate your digital lifestyle with Samsung's thoughtfully designed products, bringing together quality, innovation, and versatility in every device.",
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Samsung"
-                        },
-                        new
-                        {
-                            Id = new Guid("1201990f-f7fa-486c-a98b-40065fd130cb"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Description = "Explore the world of innovation with Xiaomi's diverse range of technology products. From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability. Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living. Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Xiaomi"
-                        },
-                        new
-                        {
-                            Id = new Guid("02b84dde-1ae8-4e03-81f9-c164ef536b19"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Description = "Experience durability and rugged design with Blackview smartphones. From robust devices to outdoor-friendly models, Blackview offers a range of smartphones that withstand tough conditions. Discover features like water resistance, long-lasting batteries, and reliable performance. Elevate your mobile adventures with Blackview's thoughtfully crafted smartphones.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Blackview"
-                        },
-                        new
-                        {
-                            Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
-                            Description = "As of my last knowledge update in January 2022, Energizer is primarily known for its batteries and power-related products, and there is no widely known information about Energizer producing push-button phones. If there have been developments or new product releases since then, I recommend checking the latest information from reliable sources or visiting the official Energizer website for the most up-to-date details on their product offerings.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Energizer"
-                        },
-                        new
-                        {
-                            Id = new Guid("738e7941-fce5-4fd0-8bc1-a615c67aa73a"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
-                            Description = "Nokia is a well-known Finnish multinational telecommunications, information technology, and consumer electronics company. Historically, Nokia was a leading mobile phone manufacturer and played a significant role in the early days of the mobile phone industry. Nokia phones were widely popular and known for their durability and reliability.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Nokia"
                         });
                 });
 
