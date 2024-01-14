@@ -1576,8 +1576,426 @@ namespace Final_project_crud_endpoints.DataBase
                     Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
                     CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
                     LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
-                }
+                },
+                new Deepcategory
+                { 
+                    Id = new Guid("0f810786-43f5-41f1-929d-89d80b9a9235"),
+                    Name = "Apple",
+                    Description = "Explore the world of innovation with Apple's cutting-edge products." +
+                    " From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices." +
+                    " Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology." +
+                    " Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
+                    Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("14db8bd4-4b22-4726-8058-4b02e2a16b73"),
+                    Name = "Samsung",
+                    Description = "Experience the epitome of technology and innovation with Samsung's diverse product range." +
+                    " From flagship smartphones like the Galaxy series to smart TVs, home appliances, and cutting-edge wearables, Samsung offers a comprehensive ecosystem." +
+                    " Discover stunning displays, powerful performance, and advanced features that redefine the way we live and connect." +
+                    " Elevate your digital lifestyle with Samsung's thoughtfully designed products, bringing together quality, innovation, and versatility in every device.",
+                    Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("838f5b32-13c6-4910-9b43-bb06174d2165"),
+                    Name = "HUAWEI",
+                    Description = "Immerse yourself in innovation with Huawei's diverse range of technology products." +
+                    " From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem." +
+                    " Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living." +
+                    " Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
+                    Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("ca0e67f6-20c4-49f1-8f91-d7cd17e374a3"),
+                    Name = "Xiaomi",
+                    Description = "Explore the world of innovation with Xiaomi's diverse range of technology products." +
+                    " From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability." +
+                    " Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living." +
+                    " Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
+                    Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("cce8806d-26a8-4601-80e5-acbcfc0dc553"),
+                    Name = "AMAZFIT",
+                    Description = "Amazfit is a brand of smartwatches and fitness trackers primarily produced by Huami, a Chinese company that specializes in wearable technology." +
+                    " Amazfit smartwatches are known for their focus on health and fitness features, as well as stylish designs. ",
+                    Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("f8623b5a-756b-4b4e-89ad-3204dd8088d1"), 
+                    Name = "Kieslect",
+                    Description = "Boasting a powerful 2-in-1 calling chip & stable 5.2 Bluetooth connection, Kr Pro provides you an stable, clear and high sound quality phone calls at anytime & anywhere." +
+                    " Conveniently receive & reject phone calls, dial out and store up to 100 contacts on your Kr Pro smart watch!",
+                    Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("320dfc5c-fb01-45d0-9f93-0b71dcc393b6"),
+                    Name = "HUAWEI",
+                    Description = "Immerse yourself in innovation with Huawei's diverse range of technology products." +
+                    " From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem." +
+                    " Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living." +
+                    " Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
+                    Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("8b282235-99da-449e-a0ca-c0a755cf5087"),
+                    Name = "Xiaomi",
+                    Description = "Explore the world of innovation with Xiaomi's diverse range of technology products." +
+                    " From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability." +
+                    " Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living." +
+                    " Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
+                    Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("aacd89bd-f53a-40e6-8cb5-045ac969da2d"),
+                    Name = "Blackview",
+                    Description = "Experience durability and rugged design with Blackview smartphones." +
+                    " From robust devices to outdoor-friendly models, Blackview offers a range of smartphones that withstand tough conditions." +
+                    " Discover features like water resistance, long-lasting batteries, and reliable performance." +
+                    " Elevate your mobile adventures with Blackview's thoughtfully crafted smartphones.",
+                    Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("fc34b77b-6812-41fa-b942-998c92a77854"), 
+                    Name = "Q&Q ",
+                    Description = "Enhance your fitness journey with Q&Q Smart Bracelets." +
+                    " Track activities, monitor health metrics, and stay connected in style with these innovative and functional wearables.",
+                    Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("1f875c75-491b-44e2-976e-a5c4e06c6d93"),    
+                    Name = "Management hub",
+                    Description = "Optimize control and efficiency with a Management Hub." +
+                    " Streamline operations, monitor performance," +
+                    " and make informed decisions seamlessly from this centralized management solution.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("1f92ffa3-5a8e-4eab-a776-b0ced62195fb"),
+                    Name = "Sensors",
+                    Description = "Empower your devices with precision using advanced Sensors." +
+                    " From motion detection to environmental monitoring, our sensors deliver accurate data for enhanced functionality and automation.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("2d4efe70-0f73-40ed-a431-0cecb3fe8601"), 
+                    Name = "Lighting",
+                    Description = "Illuminate intelligently with Smart Lighting." +
+                    " Customize ambiance, control remotely, and save energy through innovative, connected lighting solutions for modern living spaces.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("38e612bc-d08a-49e7-bba7-e89b99860825"),
+                    Name = "IP video surveillance cameras",
+                    Description = "Ensure security with IP Video Surveillance Cameras." +
+                    " Experience high-definition monitoring, remote access," +
+                    " and advanced features for comprehensive and reliable video surveillance in any environment.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("acb0d8a7-79b7-44d8-8082-c786ccddc5d7"),
+                    Name = "Smart locks",
+                    Description = "Upgrade security effortlessly with Smart Locks." +
+                    " Enjoy keyless entry, remote control, and personalized access," +
+                    " enhancing convenience and peace of mind in your connected home or business.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("af4df39e-8846-4424-a3f4-2fd70333485b"),
+                    Name = "Smart electrical sockets",
+                    Description = "Effortlessly manage your devices with Smart Electrical Sockets." +
+                    " Control remotely, set schedules, and monitor energy usage for a smarter, more efficient home or office environment.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("c1abc056-125a-4dc6-b953-620eb65fdea2"),
+                    Name = "Intercoms",
+                    Description = "Enhance communication with Intercom Systems." +
+                    " Streamline interactions, monitor entrances," +
+                    " and ensure seamless connectivity for secure and efficient communication within your home or business.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("e7c9d156-dd96-42bb-b6a0-1884a3a5009f"),
+                    Name = "Smart electric switches",
+                    Description = "Transform your home with Smart Electric Switches." +
+                    " Enjoy remote control, voice activation, and scheduling features for convenient" +
+                    " and energy-efficient lighting and appliance management.",
+                    Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("89e8df38-d10f-4d21-b688-03adde4890b3"),
+                    Name = "Bluetooth wireless headphones",
+                    Description = "Experience wireless freedom with Bluetooth Wireless Headphones." +
+                    " Immerse yourself in high-quality sound, hands-free convenience," +
+                    " and stylish designs for an elevated audio experience on the go.",
+                    Current_Subcategory_Id = new Guid("b0f7748c-02cf-46e3-9c82-412c284240d1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("e041cb2a-39b1-4ee1-95bb-60b806a99822"),
+                    Name = "TWS wireless headphones",
+                    Description = "Experience true wireless freedom with our collection of TWS (True Wireless Stereo) headphones." +
+                    " From compact earbuds to stylish charging cases, our curated selection offers seamless connectivity and impressive audio quality." +
+                    " Explore comfortable designs, touch controls, and features like noise isolation for an immersive listening experience." +
+                    " Elevate your audio journey with our carefully chosen TWS wireless headphones," +
+                    " providing the perfect combination of convenience and exceptional sound quality for music, calls, and more.",
+                    Current_Subcategory_Id = new Guid("b0f7748c-02cf-46e3-9c82-412c284240d1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("a00e3c68-146c-42a9-b794-0538a68c0cc2"),
+                    Name = "Wired headphones",
+                    Description = "Stay connected to your music and calls with our range of reliable wired headphones." +
+                    " From classic over-ear designs to comfortable in-ear options, our curated selection prioritizes durability and high-quality audio." +
+                    " Explore features like noise isolation and built-in microphones for added convenience." +
+                    " Elevate your listening experience with our carefully chosen wired headphones, ensuring a reliable and immersive sound for your music, podcasts, and hands-free communication.",
+                    Current_Subcategory_Id = new Guid("b0f7748c-02cf-46e3-9c82-412c284240d1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                { 
+                    Id = new Guid("1a39bd74-4a89-43df-9fd9-b34710b1d221"),
+                    Name = "Electric scooters",
+                    Description = "Embrace eco-friendly commuting with Electric Scooters." +
+                    " Effortlessly navigate urban landscapes, enjoy efficient travel," +
+                    " and reduce your carbon footprint with these sleek and agile electric vehicles.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("28f7b326-391f-407c-9fb8-ec4b6458ddd5"),
+                    Name = "Mopeds",
+                    Description = "Navigate city streets with ease using Mopeds." +
+                    " Combining efficiency with style, these compact two-wheelers offer a convenient and eco-friendly solution for urban commuting.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("380d07fd-a2a4-4477-ab6f-7b95fafb0c88"),    
+                    Name = "Battery motorcycles",
+                    Description = "Ride into the future with Battery Motorcycles." +
+                    " Silent, eco-friendly, and efficient, these electric two-wheelers provide a thrilling and sustainable alternative for urban commuting and beyond.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("3b23c2f5-658a-4dc7-90d3-d5349c7cf6ef"),
+                    Name = "Gyroboards",
+                    Description = "Experience futuristic transportation with Gyroboards." +
+                    " Effortlessly glide and maneuver, mastering the art of balance for a fun and efficient way to commute in urban environments.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("4a51d1c9-2415-4eb4-8aae-a5bf732ddd89"),
+                    Name = "Electric cars",
+                    Description = "Drive into the future with Electric Cars." +
+                    " Experience sustainable mobility, zero emissions, and cutting-edge technology for a greener and smarter approach to commuting.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("aba63da0-0281-413b-9148-f68e2e0275cc"),
+                    Name = "Electric skates",
+                    Description = "Unleash excitement with Electric Skates." +
+                    " Effortlessly glide, accelerate, and brake with these motorized wonders," +
+                    " offering a thrilling and dynamic way to explore your surroundings.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("b0823bd2-809c-4e25-bfb4-db44fe708dc8"),
+                    Name = "Motorcycles",
+                    Description = "Embrace the open road with Motorcycles." +
+                    " Experience freedom, speed, and the thrill of the ride on these powerful and iconic two-wheelers.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("dc0f0d97-95e1-478f-b6d9-2562e00d2193"),
+                    Name = "Quad bike",
+                    Description = "Conquer off-road adventures with a Quad Bike." +
+                    " Experience versatility, power, and adrenaline as you navigate challenging terrains with this all-terrain vehicle.",
+                    Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
                 //Subcategories of Smartphones and accessories
+                new Deepcategory
+                {
+                    Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
+                     Name = "Apple",
+                    Description = "Explore the world of innovation with Apple's cutting-edge products." +
+                    " From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices." +
+                    " Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology." +
+                    " Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("15a950de-af6e-4f43-9ad0-f25fcb42e8ab"),
+                    Name = "HP",
+                    Description = "Discover cutting-edge technology with HP products." +
+                    " From powerful laptops to innovative printers," +
+                    " HP offers reliable solutions for both personal and professional computing needs.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"), 
+                    Name = "MSI",
+                    Description = "Elevate your gaming and computing experience with MSI." +
+                    " Known for high-performance laptops, motherboards, and graphics cards," +
+                    " MSI delivers cutting-edge technology and sleek design.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("592c0caf-47ac-4095-a39d-b7ffbd4ec886"),
+                    Name = "Acer",
+                    Description = "Experience innovation and reliability with Acer." +
+                    " From powerful laptops to sleek monitors," +
+                    " Acer offers a diverse range of technology solutions for work, play, and creativity.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("68db1da6-3858-4d97-a42b-359c0ad8e332"),
+                    Name = "HUAWEI",
+                    Description = "Immerse yourself in innovation with Huawei's diverse range of technology products." +
+                    " From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem." +
+                    " Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living." +
+                    " Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("8505c965-4e9d-4726-bf56-9be79d7d61e3"),
+                    Name = "Lenovo",
+                    Description = "Empower your digital journey with Lenovo." +
+                    " From versatile laptops to cutting-edge PCs and smart devices," +
+                    " Lenovo delivers innovation, performance, and reliability for a connected world.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),    
+                    Name = "Asus",
+                    Description = "Dive into innovation with ASUS." +
+                    " Known for cutting-edge laptops, motherboards," +
+                    " and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("e9e58617-65d6-4eec-9ec6-64b51559059d"),
+                    Name = "Dell",
+                    Description = "Transform your computing experience with Dell." +
+                    " From powerful laptops to versatile desktops and premium monitors," +
+                    " Dell delivers reliable technology solutions for work and play.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("c3f97827-5dca-4a53-9432-247321f407e5"),
+                    Name = "Honor",
+                    Description = "Discover the perfect blend of style and performance with Honor." +
+                    " From feature-packed smartphones to smartwatches," +
+                    " Honor delivers innovative technology for the digital-savvy lifestyle.",
+                    Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                }
             );
             #endregion
 

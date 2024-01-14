@@ -3,6 +3,7 @@ using System;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240114080433_Test---15")]
+    partial class Test15
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -809,159 +811,6 @@ namespace Final_project_crud_endpoints.Migrations
                             Description = "Stay connected to your music and calls with our range of reliable wired headphones. From classic over-ear designs to comfortable in-ear options, our curated selection prioritizes durability and high-quality audio. Explore features like noise isolation and built-in microphones for added convenience. Elevate your listening experience with our carefully chosen wired headphones, ensuring a reliable and immersive sound for your music, podcasts, and hands-free communication.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Wired headphones"
-                        },
-                        new
-                        {
-                            Id = new Guid("1a39bd74-4a89-43df-9fd9-b34710b1d221"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Embrace eco-friendly commuting with Electric Scooters. Effortlessly navigate urban landscapes, enjoy efficient travel, and reduce your carbon footprint with these sleek and agile electric vehicles.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Electric scooters"
-                        },
-                        new
-                        {
-                            Id = new Guid("28f7b326-391f-407c-9fb8-ec4b6458ddd5"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Navigate city streets with ease using Mopeds. Combining efficiency with style, these compact two-wheelers offer a convenient and eco-friendly solution for urban commuting.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Mopeds"
-                        },
-                        new
-                        {
-                            Id = new Guid("380d07fd-a2a4-4477-ab6f-7b95fafb0c88"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Ride into the future with Battery Motorcycles. Silent, eco-friendly, and efficient, these electric two-wheelers provide a thrilling and sustainable alternative for urban commuting and beyond.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Battery motorcycles"
-                        },
-                        new
-                        {
-                            Id = new Guid("3b23c2f5-658a-4dc7-90d3-d5349c7cf6ef"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Experience futuristic transportation with Gyroboards. Effortlessly glide and maneuver, mastering the art of balance for a fun and efficient way to commute in urban environments.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Gyroboards"
-                        },
-                        new
-                        {
-                            Id = new Guid("4a51d1c9-2415-4eb4-8aae-a5bf732ddd89"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Drive into the future with Electric Cars. Experience sustainable mobility, zero emissions, and cutting-edge technology for a greener and smarter approach to commuting.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Electric cars"
-                        },
-                        new
-                        {
-                            Id = new Guid("aba63da0-0281-413b-9148-f68e2e0275cc"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Unleash excitement with Electric Skates. Effortlessly glide, accelerate, and brake with these motorized wonders, offering a thrilling and dynamic way to explore your surroundings.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Electric skates"
-                        },
-                        new
-                        {
-                            Id = new Guid("b0823bd2-809c-4e25-bfb4-db44fe708dc8"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Embrace the open road with Motorcycles. Experience freedom, speed, and the thrill of the ride on these powerful and iconic two-wheelers.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Motorcycles"
-                        },
-                        new
-                        {
-                            Id = new Guid("dc0f0d97-95e1-478f-b6d9-2562e00d2193"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Description = "Conquer off-road adventures with a Quad Bike. Experience versatility, power, and adrenaline as you navigate challenging terrains with this all-terrain vehicle.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Quad bike"
-                        },
-                        new
-                        {
-                            Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Apple"
-                        },
-                        new
-                        {
-                            Id = new Guid("15a950de-af6e-4f43-9ad0-f25fcb42e8ab"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Discover cutting-edge technology with HP products. From powerful laptops to innovative printers, HP offers reliable solutions for both personal and professional computing needs.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HP"
-                        },
-                        new
-                        {
-                            Id = new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Elevate your gaming and computing experience with MSI. Known for high-performance laptops, motherboards, and graphics cards, MSI delivers cutting-edge technology and sleek design.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "MSI"
-                        },
-                        new
-                        {
-                            Id = new Guid("592c0caf-47ac-4095-a39d-b7ffbd4ec886"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Experience innovation and reliability with Acer. From powerful laptops to sleek monitors, Acer offers a diverse range of technology solutions for work, play, and creativity.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Acer"
-                        },
-                        new
-                        {
-                            Id = new Guid("68db1da6-3858-4d97-a42b-359c0ad8e332"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Immerse yourself in innovation with Huawei's diverse range of technology products. From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem. Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living. Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HUAWEI"
-                        },
-                        new
-                        {
-                            Id = new Guid("8505c965-4e9d-4726-bf56-9be79d7d61e3"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Empower your digital journey with Lenovo. From versatile laptops to cutting-edge PCs and smart devices, Lenovo delivers innovation, performance, and reliability for a connected world.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Lenovo"
-                        },
-                        new
-                        {
-                            Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Dive into innovation with ASUS. Known for cutting-edge laptops, motherboards, and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Asus"
-                        },
-                        new
-                        {
-                            Id = new Guid("e9e58617-65d6-4eec-9ec6-64b51559059d"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Transform your computing experience with Dell. From powerful laptops to versatile desktops and premium monitors, Dell delivers reliable technology solutions for work and play.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Dell"
-                        },
-                        new
-                        {
-                            Id = new Guid("c3f97827-5dca-4a53-9432-247321f407e5"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Description = "Discover the perfect blend of style and performance with Honor. From feature-packed smartphones to smartwatches, Honor delivers innovative technology for the digital-savvy lifestyle.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Honor"
                         });
                 });
 

@@ -3,6 +3,7 @@ using System;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240114101622_Test---18")]
+    partial class Test18
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -884,7 +886,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
+                            Id = new Guid("c3f97827-5dca-4a53-9432-247321f407e5"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
@@ -893,7 +895,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("15a950de-af6e-4f43-9ad0-f25fcb42e8ab"),
+                            Id = new Guid("592c0caf-47ac-4095-a39d-b7ffbd4ec886"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Discover cutting-edge technology with HP products. From powerful laptops to innovative printers, HP offers reliable solutions for both personal and professional computing needs.",
@@ -902,7 +904,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"),
+                            Id = new Guid("e9e58617-65d6-4eec-9ec6-64b51559059d"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Elevate your gaming and computing experience with MSI. Known for high-performance laptops, motherboards, and graphics cards, MSI delivers cutting-edge technology and sleek design.",
@@ -911,7 +913,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("592c0caf-47ac-4095-a39d-b7ffbd4ec886"),
+                            Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Experience innovation and reliability with Acer. From powerful laptops to sleek monitors, Acer offers a diverse range of technology solutions for work, play, and creativity.",
@@ -920,7 +922,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("68db1da6-3858-4d97-a42b-359c0ad8e332"),
+                            Id = new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Immerse yourself in innovation with Huawei's diverse range of technology products. From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem. Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living. Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
@@ -929,7 +931,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("8505c965-4e9d-4726-bf56-9be79d7d61e3"),
+                            Id = new Guid("68db1da6-3858-4d97-a42b-359c0ad8e332"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Empower your digital journey with Lenovo. From versatile laptops to cutting-edge PCs and smart devices, Lenovo delivers innovation, performance, and reliability for a connected world.",
@@ -938,7 +940,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),
+                            Id = new Guid("8505c965-4e9d-4726-bf56-9be79d7d61e3"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Dive into innovation with ASUS. Known for cutting-edge laptops, motherboards, and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
@@ -947,7 +949,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("e9e58617-65d6-4eec-9ec6-64b51559059d"),
+                            Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Transform your computing experience with Dell. From powerful laptops to versatile desktops and premium monitors, Dell delivers reliable technology solutions for work and play.",
@@ -956,7 +958,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c3f97827-5dca-4a53-9432-247321f407e5"),
+                            Id = new Guid("15a950de-af6e-4f43-9ad0-f25fcb42e8ab"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                             Description = "Discover the perfect blend of style and performance with Honor. From feature-packed smartphones to smartwatches, Honor delivers innovative technology for the digital-savvy lifestyle.",
