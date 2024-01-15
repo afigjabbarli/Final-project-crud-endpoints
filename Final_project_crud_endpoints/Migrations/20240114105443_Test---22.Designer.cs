@@ -3,6 +3,7 @@ using System;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240114105443_Test---22")]
+    partial class Test22
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -983,7 +985,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("10fd68cf-6503-4f17-9cb5-0b157093b4d0"),
+                            Id = new Guid("900c0cfb-12e2-4917-a69e-741271adb6ae"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
                             Description = "Explore cutting-edge technology with Samsung. From innovative smartphones to high-quality home appliances, Samsung delivers reliability, style, and innovation for modern lifestyles.",
@@ -1001,7 +1003,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("900c0cfb-12e2-4917-a69e-741271adb6ae"),
+                            Id = new Guid("f6afa27e-a06c-457e-bbad-9d536eedca4d"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
                             Description = "Unleash possibilities with HP. From powerful laptops to innovative printers, HP provides reliable technology solutions for both personal and professional computing needs.",
@@ -1019,7 +1021,7 @@ namespace Final_project_crud_endpoints.Migrations
                         },
                         new
                         {
-                            Id = new Guid("f6afa27e-a06c-457e-bbad-9d536eedca4d"),
+                            Id = new Guid("10fd68cf-6503-4f17-9cb5-0b157093b4d0"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
                             Description = "Experience quality and innovation with Philips. From advanced healthcare technology to consumer electronics, Philips delivers solutions that enhance well-being and simplify everyday life.",
@@ -1074,21 +1076,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.RandomPassword", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Passwords");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Subcategory", b =>

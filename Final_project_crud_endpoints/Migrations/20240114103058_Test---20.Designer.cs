@@ -3,6 +3,7 @@ using System;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240114103058_Test---20")]
+    partial class Test20
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -962,69 +964,6 @@ namespace Final_project_crud_endpoints.Migrations
                             Description = "Discover the perfect blend of style and performance with Honor. From feature-packed smartphones to smartwatches, Honor delivers innovative technology for the digital-savvy lifestyle.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "Honor"
-                        },
-                        new
-                        {
-                            Id = new Guid("c3f67823-5dca-4a53-9432-247321f107e5"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("6f1d8a61-5b88-4e67-a11f-651b3d09a432"),
-                            Description = "Build your computing powerhouse with System Blocks. Customize performance, expandability, and style as you create a tailored PC to meet your specific needs and preferences.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "System blocks"
-                        },
-                        new
-                        {
-                            Id = new Guid("c3f67629-5dca-4a53-9432-247321f507e5"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("6f1d8a61-5b88-4e67-a11f-651b3d09a432"),
-                            Description = "Simplify your computing setup with Monoblocks. Combining a sleek display and powerful components, these all-in-one solutions offer efficiency and style for a streamlined desktop experience.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Monoblocks"
-                        },
-                        new
-                        {
-                            Id = new Guid("10fd68cf-6503-4f17-9cb5-0b157093b4d0"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Description = "Explore cutting-edge technology with Samsung. From innovative smartphones to high-quality home appliances, Samsung delivers reliability, style, and innovation for modern lifestyles.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Samsung"
-                        },
-                        new
-                        {
-                            Id = new Guid("536bf179-64e7-4fd4-a944-1ad6a33ef352"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Description = "Dive into innovation with ASUS. Known for cutting-edge laptops, motherboards, and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Asus"
-                        },
-                        new
-                        {
-                            Id = new Guid("900c0cfb-12e2-4917-a69e-741271adb6ae"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Description = "Unleash possibilities with HP. From powerful laptops to innovative printers, HP provides reliable technology solutions for both personal and professional computing needs.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HP"
-                        },
-                        new
-                        {
-                            Id = new Guid("a039a892-bf21-440b-869f-d8ee4155d18c"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Description = "Transform your computing experience with Dell. From powerful laptops to versatile desktops and premium monitors, Dell delivers reliable technology solutions for work and play.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Dell"
-                        },
-                        new
-                        {
-                            Id = new Guid("f6afa27e-a06c-457e-bbad-9d536eedca4d"),
-                            CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Description = "Experience quality and innovation with Philips. From advanced healthcare technology to consumer electronics, Philips delivers solutions that enhance well-being and simplify everyday life.",
-                            LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Philips"
                         });
                 });
 
@@ -1074,21 +1013,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
-                });
-
-            modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.RandomPassword", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Passwords");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Subcategory", b =>

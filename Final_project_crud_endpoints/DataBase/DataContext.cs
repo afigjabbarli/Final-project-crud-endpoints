@@ -1894,7 +1894,6 @@ namespace Final_project_crud_endpoints.DataBase
                     CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
                     LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
                 },
-                //Subcategories of Smartphones and accessories
                 new Deepcategory
                 {
                     Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
@@ -1995,7 +1994,85 @@ namespace Final_project_crud_endpoints.DataBase
                     Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
                     CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
                     LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("c3f67823-5dca-4a53-9432-247321f107e5"),
+                    Name = "System blocks",
+                    Description = "Build your computing powerhouse with System Blocks." +
+                    " Customize performance, expandability," +
+                    " and style as you create a tailored PC to meet your specific needs and preferences.",
+                    Current_Subcategory_Id = new Guid("6f1d8a61-5b88-4e67-a11f-651b3d09a432"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("c3f67629-5dca-4a53-9432-247321f507e5"),
+                    Name = "Monoblocks",
+                    Description = "Simplify your computing setup with Monoblocks." +
+                    " Combining a sleek display and powerful components," +
+                    " these all-in-one solutions offer efficiency and style for a streamlined desktop experience.",
+                    Current_Subcategory_Id = new Guid("6f1d8a61-5b88-4e67-a11f-651b3d09a432"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("10fd68cf-6503-4f17-9cb5-0b157093b4d0"),
+                    Name = "Samsung",
+                    Description = "Explore cutting-edge technology with Samsung." +
+                    " From innovative smartphones to high-quality home appliances," +
+                    " Samsung delivers reliability, style, and innovation for modern lifestyles.",
+                    Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("536bf179-64e7-4fd4-a944-1ad6a33ef352"),
+                    Name = "Asus",
+                    Description = "Dive into innovation with ASUS." +
+                    " Known for cutting-edge laptops, motherboards," +
+                    " and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
+                    Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("900c0cfb-12e2-4917-a69e-741271adb6ae"),
+                    Name = "HP",
+                    Description = "Unleash possibilities with HP." +
+                    " From powerful laptops to innovative printers," +
+                    " HP provides reliable technology solutions for both personal and professional computing needs.",
+                    Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id= new Guid("a039a892-bf21-440b-869f-d8ee4155d18c"),
+                    Name = "Dell",
+                    Description = "Transform your computing experience with Dell." +
+                    " From powerful laptops to versatile desktops and premium monitors," +
+                    " Dell delivers reliable technology solutions for work and play.",
+                    Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Deepcategory
+                {
+                    Id = new Guid("f6afa27e-a06c-457e-bbad-9d536eedca4d"),
+                    Name = "Philips",
+                    Description = "Experience quality and innovation with Philips." +
+                    " From advanced healthcare technology to consumer electronics," +
+                    " Philips delivers solutions that enhance well-being and simplify everyday life.",
+                    Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
+                    CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
                 }
+                //Subcategories of Smartphones and accessories
             );
             #endregion
 
@@ -2109,6 +2186,7 @@ namespace Final_project_crud_endpoints.DataBase
             );
             #endregion
         }
+        public DbSet<RandomPassword> Passwords { get; set; }
         public DbSet<Product> Products { get; set; }    
         public DbSet<Color> Colors { get; set; }
         public DbSet<Category> Categories { get; set; } 
