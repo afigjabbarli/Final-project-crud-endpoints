@@ -8,8 +8,9 @@ namespace Final_project_crud_endpoints.DataBase.Entities
         
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public decimal Price { get; set; }    
-        public string ManufacturedIn { get; set; } = string.Empty;  
+        public decimal Price { get; set; }
+
+        public List<string> Phisical_image_names { get; set; } = new List<string>();    
         public string TrackingCode { get; set; } = string.Empty;
         private decimal _quantity;
         private bool _isAvailable = true;
@@ -20,7 +21,7 @@ namespace Final_project_crud_endpoints.DataBase.Entities
             set
             {
                 _quantity = value;
-
+                
                 _isAvailable = (_quantity > 0);
             }
         }

@@ -1,4 +1,6 @@
 using Final_project_crud_endpoints.DataBase;
+using Final_project_crud_endpoints.Services.Abstracts;
+using Final_project_crud_endpoints.Services.Concretes;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_crud_endpoints
@@ -22,7 +24,10 @@ namespace Final_project_crud_endpoints
                 var connectionString = builder.Configuration.GetConnectionString("Default");
 
                 ob.UseNpgsql(connectionString);
-            });
+            })
+             .AddScoped<IVerificationService, VerificationService>()
+             .AddScoped<IFileService, FileService>()
+             .AddHttpContextAccessor();
 
             var app = builder.Build();
 
