@@ -1,6 +1,7 @@
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Services.Concretes;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_crud_endpoints
@@ -27,16 +28,34 @@ namespace Final_project_crud_endpoints
             })
              .AddScoped<IVerificationService, VerificationService>()
              .AddScoped<IFileService, FileService>()
-             .AddHttpContextAccessor();
+             .AddHttpContextAccessor()
+
+            .AddCors(options =>
+            {
+                options.AddPolicy("AllowAll",
+                    builder =>
+                    {
+                        builder.AllowAnyOrigin()
+                               .AllowAnyMethod()
+                               .AllowAnyHeader();
+                    });
+            });
+
+            builder.Services.Configure<ApiBehaviorOptions>(c =>
+            {
+                c.SuppressModelStateInvalidFilter = true;
+            });
 
             var app = builder.Build();
-
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseStaticFiles();
+            app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();
 

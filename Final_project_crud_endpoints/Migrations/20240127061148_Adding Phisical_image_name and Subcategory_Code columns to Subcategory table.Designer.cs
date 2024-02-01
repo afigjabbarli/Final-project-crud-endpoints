@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240127061148_Adding Phisical_image_name and Subcategory_Code columns to Subcategory table")]
+    partial class AddingPhisical_image_nameandSubcategory_CodecolumnstoSubcategorytable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -321,10 +323,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.Property<Guid>("Current_Subcategory_Id")
                         .HasColumnType("uuid");
 
-                    b.Property<string>("Deepcategory_Code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
@@ -333,10 +331,6 @@ namespace Final_project_crud_endpoints.Migrations
                         .HasColumnType("timestamp with time zone");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phisical_image_name")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -352,880 +346,720 @@ namespace Final_project_crud_endpoints.Migrations
                             Id = new Guid("ff7f0ed7-33f4-4067-8278-d291bc6cab0b"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Apple",
-                            Phisical_image_name = ""
+                            Name = "Apple"
                         },
                         new
                         {
                             Id = new Guid("fd235119-1ca2-40f2-956e-17b040dd0d3a"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Dive into the realm of innovation with OPPO's exceptional lineup of smartphones. From sleek designs to cutting-edge camera technology, OPPO offers a range of devices that prioritize style and functionality. Explore the latest in mobile innovation with OPPO's commitment to delivering impressive features and powerful performance. Elevate your mobile experience with OPPO's thoughtfully crafted smartphones, blending style, innovation, and user-friendly design.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "OPPO",
-                            Phisical_image_name = ""
+                            Name = "OPPO"
                         },
                         new
                         {
                             Id = new Guid("f54296e5-2946-4e90-bc3c-0de027289e8d"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Experience the epitome of technology and innovation with Samsung's diverse product range. From flagship smartphones like the Galaxy series to smart TVs, home appliances, and cutting-edge wearables, Samsung offers a comprehensive ecosystem. Discover stunning displays, powerful performance, and advanced features that redefine the way we live and connect. Elevate your digital lifestyle with Samsung's thoughtfully designed products, bringing together quality, innovation, and versatility in every device.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Samsung",
-                            Phisical_image_name = ""
+                            Name = "Samsung"
                         },
                         new
                         {
                             Id = new Guid("f5142e73-d14d-421e-8cac-3d5c9e3fdd42"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Xiaomi's diverse range of technology products. From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability. Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living. Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Xiaomi",
-                            Phisical_image_name = ""
+                            Name = "Xiaomi"
                         },
                         new
                         {
                             Id = new Guid("c0e1f0e5-cc6c-4bdf-b23e-840441c9fde2"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Dive into the world of technology with TCL smartphones, where innovation meets style. Explore a range of feature-packed devices that offer stunning displays, powerful cameras, and sleek designs. TCL smartphones deliver a seamless and immersive user experience, combining cutting-edge technology with affordability. Elevate your mobile journey with TCL's thoughtfully crafted smartphones, redefining the way you capture, connect, and communicate.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "TCL",
-                            Phisical_image_name = ""
+                            Name = "TCL"
                         },
                         new
                         {
                             Id = new Guid("ac1807be-c7b3-483a-8a29-48da827ecd1f"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Immerse yourself in innovation with Huawei's diverse range of technology products. From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem. Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living. Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HUAWEI",
-                            Phisical_image_name = ""
+                            Name = "HUAWEI"
                         },
                         new
                         {
                             Id = new Guid("a98d197d-5d1b-46d7-8190-90cea77a73ff"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Discover the legacy of innovation with Motorola's lineup of smartphones. From iconic designs like the Moto G series to the sleek and powerful Moto Edge devices, Motorola offers a range of smartphones that combine style with functionality. Explore advanced camera systems, long-lasting batteries, and near-stock Android experiences. Elevate your mobile journey with Motorola's thoughtfully crafted smartphones, providing reliable performance and a user-friendly interface for everyday use.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Motorola",
-                            Phisical_image_name = ""
+                            Name = "Motorola"
                         },
                         new
                         {
                             Id = new Guid("8c7b2f7f-6122-4770-ba40-23a0c034bcdf"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Experience affordability and innovation with Infinix smartphones. From sleek designs to feature-packed devices, Infinix offers a range of smartphones that prioritize both style and functionality. Explore cutting-edge technology, impressive camera capabilities, and long-lasting batteries that cater to the diverse needs of users. Elevate your mobile experience with Infinix's thoughtfully crafted smartphones, where performance meets affordability in a sleek package.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Infinix",
-                            Phisical_image_name = ""
+                            Name = "Infinix"
                         },
                         new
                         {
                             Id = new Guid("686bdcfd-4a8c-4a46-8f2f-5c0221e26d95"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Immerse yourself in the pure Android experience with Google's smartphones. From the Pixel series, Google delivers devices known for their exceptional camera capabilities, seamless integration with Google services, and regular software updates. Explore cutting-edge technology, clean design, and the convenience of Google Assistant. Elevate your mobile journey with Google's thoughtfully crafted smartphones, where simplicity meets innovation for a pure Android experience.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Google",
-                            Phisical_image_name = ""
+                            Name = "Google"
                         },
                         new
                         {
                             Id = new Guid("4848fc7f-44a6-497a-907c-ae9acb6e88ed"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Discover the latest in mobile technology with Tecno smartphones. From stylish designs to innovative features, Tecno offers a diverse range of smartphones that cater to different user needs. Explore advanced camera systems, long-lasting batteries, and user-friendly interfaces. Elevate your mobile experience with Tecno's thoughtfully crafted smartphones, combining style with functionality.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Tecno",
-                            Phisical_image_name = ""
+                            Name = "Tecno"
                         },
                         new
                         {
                             Id = new Guid("462f1143-3776-42a1-9e70-7adc31fdff93"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Explore cutting-edge technology and performance with ASUS smartphones. From gaming-focused devices to flagship models, ASUS offers a range of smartphones that deliver powerful features and innovative designs. Experience high-quality displays, impressive camera capabilities, and a seamless user interface. Elevate your mobile gaming and entertainment with ASUS's thoughtfully crafted smartphones.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "ASUS",
-                            Phisical_image_name = ""
+                            Name = "ASUS"
                         },
                         new
                         {
                             Id = new Guid("40c96dfe-6df4-420b-9fb2-807cd31535bb"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Immerse yourself in innovation and creativity with Vivo smartphones. From sleek designs to advanced camera technology, Vivo offers a diverse range of smartphones that capture the essence of modern living. Discover features like high-quality audio, vibrant displays, and powerful performance. Elevate your mobile lifestyle with Vivo's thoughtfully crafted smartphones.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Vivo",
-                            Phisical_image_name = ""
+                            Name = "Vivo"
                         },
                         new
                         {
                             Id = new Guid("332253aa-aa2f-4c83-b69b-2ef5afd1395a"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Experience affordability without compromising on performance with Itel smartphones. From budget-friendly models to feature-packed devices, Itel offers a range of smartphones that cater to diverse user needs. Explore reliable performance, long-lasting batteries, and user-friendly interfaces. Elevate your mobile experience with Itel's thoughtfully crafted smartphones, delivering value and functionality.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Itel",
-                            Phisical_image_name = ""
+                            Name = "Itel"
                         },
                         new
                         {
                             Id = new Guid("087d5394-9fb8-46f0-beba-a6c8df2c0114"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Explore the perfect blend of style and innovation with Honor smartphones. From sleek designs to powerful features, Honor offers a range of smartphones that cater to the tech-savvy and fashion-conscious users. Discover advanced camera systems, high-performance processors, and stunning displays. Elevate your mobile lifestyle with Honor's thoughtfully crafted smartphones.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Honor",
-                            Phisical_image_name = ""
+                            Name = "Honor"
                         },
                         new
                         {
                             Id = new Guid("011cd970-d173-45aa-95ba-242b3442809e"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7a92b0cd-7d8d-4ee9-8a82-4f482b4c4a95"),
-                            Deepcategory_Code = "",
                             Description = "Experience durability and rugged design with Blackview smartphones. From robust devices to outdoor-friendly models, Blackview offers a range of smartphones that withstand tough conditions. Discover features like water resistance, long-lasting batteries, and reliable performance. Elevate your mobile adventures with Blackview's thoughtfully crafted smartphones.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Blackview",
-                            Phisical_image_name = ""
+                            Name = "Blackview"
                         },
                         new
                         {
                             Id = new Guid("06c69235-4012-476e-9daf-6023eaad3bd4"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d7f7fc67-7e84-4b72-90eb-99ab9a1fe1a8"),
-                            Deepcategory_Code = "",
                             Description = "Cut the cords and embrace freedom with our collection of Bluetooth wireless headphones. From over-ear to in-ear options, our curated selection offers convenience and high-quality audio. Explore comfortable designs, advanced features like noise cancellation, and long-lasting battery life. Elevate your listening experience with our thoughtfully chosen Bluetooth wireless headphones, providing the perfect blend of portability and immersive sound for music, calls, and more.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Bluetooth wireless headphones",
-                            Phisical_image_name = ""
+                            Name = "Bluetooth wireless headphones"
                         },
                         new
                         {
                             Id = new Guid("e61649b9-3499-469f-bc75-f9de4857488c"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d7f7fc67-7e84-4b72-90eb-99ab9a1fe1a8"),
-                            Deepcategory_Code = "",
                             Description = "Experience true wireless freedom with our collection of TWS (True Wireless Stereo) headphones. From compact earbuds to stylish charging cases, our curated selection offers seamless connectivity and impressive audio quality. Explore comfortable designs, touch controls, and features like noise isolation for an immersive listening experience. Elevate your audio journey with our carefully chosen TWS wireless headphones, providing the perfect combination of convenience and exceptional sound quality for music, calls, and more.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "TWS wireless headphones",
-                            Phisical_image_name = ""
+                            Name = "TWS wireless headphones"
                         },
                         new
                         {
                             Id = new Guid("f4ce55d0-37cb-415c-9a1b-367676a0d696"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d7f7fc67-7e84-4b72-90eb-99ab9a1fe1a8"),
-                            Deepcategory_Code = "",
                             Description = "Stay connected to your music and calls with our range of reliable wired headphones. From classic over-ear designs to comfortable in-ear options, our curated selection prioritizes durability and high-quality audio. Explore features like noise isolation and built-in microphones for added convenience. Elevate your listening experience with our carefully chosen wired headphones, ensuring a reliable and immersive sound for your music, podcasts, and hands-free communication.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Wired headphones",
-                            Phisical_image_name = ""
+                            Name = "Wired headphones"
                         },
                         new
                         {
                             Id = new Guid("4fe68c8c-130d-471a-bac4-eabd7eab4ee3"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Safeguard your device with our collection of protective glass solutions. From tempered glass screen protectors to full coverage and anti-glare options, our curated selection offers durable and crystal-clear protection. Explore precise fits for various devices, easy installation, and advanced features such as scratch resistance and fingerprint resistance. Elevate your device's durability with our thoughtfully chosen protective glass, ensuring a clear and shielded screen for smartphones, tablets, and more.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Protective glass",
-                            Phisical_image_name = ""
+                            Name = "Protective glass"
                         },
                         new
                         {
                             Id = new Guid("5eaf8632-b8c7-45c4-b049-70bd6cf34739"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Step into the future of sustainable technology with our wireless energy harvesting devices. Harnessing ambient energy from the environment, these devices eliminate the need for traditional power sources. Explore innovative solutions that convert light, motion, or radio frequency signals into usable power for various applications. Elevate your approach to energy efficiency with our curated selection of wireless energy harvesting devices, contributing to a greener and more sustainable future.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Wireless energy harvesting device",
-                            Phisical_image_name = ""
+                            Name = "Wireless energy harvesting device"
                         },
                         new
                         {
                             Id = new Guid("7c5cb09e-76ef-4307-9012-fbd1db7e0a26"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Guard your device in style with our collection of protective covers. From sleek phone cases to durable laptop sleeves, our curated selection offers a blend of fashion and functionality. Explore options that prioritize shock absorption, drop protection, and precise fit for various devices. Elevate your device's defense with our thoughtfully chosen protective covers, ensuring both style and durability for smartphones, laptops, tablets, and more.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Protective cover",
-                            Phisical_image_name = ""
+                            Name = "Protective cover"
                         },
                         new
                         {
                             Id = new Guid("8047875e-f8ea-429c-bef9-5813d22f3a42"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Optimize energy harvesting with our collection of wires designed for efficient energy collection. From robust cables to specialized wiring solutions, our curated selection caters to various energy-harvesting systems. Explore options with high conductivity and durability, ensuring effective transfer of harvested energy. Elevate your sustainable energy initiatives with our thoughtfully chosen wires for energy collection, providing the essential connectivity for harnessing power from solar, motion, or other sources.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Wires for energy collection",
-                            Phisical_image_name = ""
+                            Name = "Wires for energy collection"
                         },
                         new
                         {
                             Id = new Guid("81a2378e-4dd7-4f06-8ff1-8d390afcd4d0"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Stay powered on the go with our range of reliable power banks. From compact and portable options to high-capacity choices, our curated selection ensures you're always charged and connected. Explore features like fast charging, multiple ports, and sleek designs. Elevate your mobile experience with our thoughtfully chosen power banks, providing a convenient and efficient way to keep your devices charged, whether you're traveling, commuting, or simply on the move.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Powerbank",
-                            Phisical_image_name = ""
+                            Name = "Powerbank"
                         },
                         new
                         {
                             Id = new Guid("89ff430a-a0cd-41b7-a803-c47fa04c2569"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Ensure seamless charging with our collection of phone adapters. From USB-C to Lightning and micro USB adapters, our curated selection offers compatibility with various devices. Explore fast-charging options, compact designs, and durable materials for reliable power delivery. Elevate your charging experience with our thoughtfully chosen phone adapters, providing the essential connectivity to keep your devices powered up efficiently and conveniently.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Phone adapters",
-                            Phisical_image_name = ""
+                            Name = "Phone adapters"
                         },
                         new
                         {
                             Id = new Guid("af939c28-8161-411c-a6fe-7193b79e1e6c"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Capture the perfect moments with our selection of selfie sticks. From compact and portable designs to Bluetooth-enabled options, our curated collection ensures you can snap photos and record videos with ease. Explore adjustable lengths, secure phone mounts, and convenient features for effortless selfies. Elevate your photography game with our thoughtfully chosen selfie sticks, providing a fun and versatile tool for capturing memories on your own terms.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Selfie sticks",
-                            Phisical_image_name = ""
+                            Name = "Selfie sticks"
                         },
                         new
                         {
                             Id = new Guid("b18e82d5-c4c5-4295-b9fa-99b82101a58f"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Expand your storage capacity with our range of SD cards. From standard to high-capacity options, our curated selection ensures reliable and fast storage solutions for various devices. Explore different storage capacities and read/write speeds to suit your specific needs, whether for cameras, smartphones, or other digital devices. Elevate your storage capabilities with our carefully chosen SD cards, providing the essential memory expansion for capturing, storing, and transferring your data seamlessly.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "SD cards",
-                            Phisical_image_name = ""
+                            Name = "SD cards"
                         },
                         new
                         {
                             Id = new Guid("d6211952-48af-4029-95b7-d6fc7844429c"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Enhance your device's storage capacity with our selection of microSD cards. From standard to high-capacity options, our curated collection offers reliable and fast storage solutions for smartphones, cameras, and other digital devices. Explore different storage capacities and read/write speeds to suit your specific needs. Elevate your storage capabilities with our thoughtfully chosen microSD cards, providing the essential memory expansion for capturing, storing, and transferring your data seamlessly.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Micro cards",
-                            Phisical_image_name = ""
+                            Name = "Micro cards"
                         },
                         new
                         {
                             Id = new Guid("e9281b7d-cb0c-45da-bf83-962bcd4ba656"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("9f2ef2e1-15a5-4c93-bbfb-15a95c50d5e8"),
-                            Deepcategory_Code = "",
                             Description = "Elevate your mobile gaming experience with our smartphone gamepads. From ergonomic designs to customizable controls, our curated selection offers a seamless and immersive gaming experience on your smartphone. Explore Bluetooth-enabled options for wireless connectivity and compatibility with a variety of games. Elevate your gaming sessions with our thoughtfully chosen smartphone gamepads, providing precision control and enhanced gameplay for a wide range of mobile games.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Gamepad for smartphone",
-                            Phisical_image_name = ""
+                            Name = "Gamepad for smartphone"
                         },
                         new
                         {
                             Id = new Guid("e59993b4-0e5f-4972-96d6-2b9928af3296"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Apple",
-                            Phisical_image_name = ""
+                            Name = "Apple"
                         },
                         new
                         {
                             Id = new Guid("87f60f99-e88a-4a8b-9269-d67d4cc0106e"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Deepcategory_Code = "",
                             Description = "Dive into the realm of innovation with OPPO's exceptional lineup of smartphones. From sleek designs to cutting-edge camera technology, OPPO offers a range of devices that prioritize style and functionality. Explore the latest in mobile innovation with OPPO's commitment to delivering impressive features and powerful performance. Elevate your mobile experience with OPPO's thoughtfully crafted smartphones, blending style, innovation, and user-friendly design.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "OPPO",
-                            Phisical_image_name = ""
+                            Name = "OPPO"
                         },
                         new
                         {
                             Id = new Guid("599c9f12-b1c9-4dc0-8854-1af53d3bc2f0"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Deepcategory_Code = "",
                             Description = "Experience the epitome of technology and innovation with Samsung's diverse product range. From flagship smartphones like the Galaxy series to smart TVs, home appliances, and cutting-edge wearables, Samsung offers a comprehensive ecosystem. Discover stunning displays, powerful performance, and advanced features that redefine the way we live and connect. Elevate your digital lifestyle with Samsung's thoughtfully designed products, bringing together quality, innovation, and versatility in every device.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Samsung",
-                            Phisical_image_name = ""
+                            Name = "Samsung"
                         },
                         new
                         {
                             Id = new Guid("1201990f-f7fa-486c-a98b-40065fd130cb"),
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Xiaomi's diverse range of technology products. From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability. Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living. Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
                             LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Xiaomi",
-                            Phisical_image_name = ""
+                            Name = "Xiaomi"
                         },
                         new
                         {
                             Id = new Guid("02b84dde-1ae8-4e03-81f9-c164ef536b19"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("1f9db05a-b5cc-4ea7-8e6d-93e12b5b8d5d"),
-                            Deepcategory_Code = "",
                             Description = "Experience durability and rugged design with Blackview smartphones. From robust devices to outdoor-friendly models, Blackview offers a range of smartphones that withstand tough conditions. Discover features like water resistance, long-lasting batteries, and reliable performance. Elevate your mobile adventures with Blackview's thoughtfully crafted smartphones.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Blackview",
-                            Phisical_image_name = ""
+                            Name = "Blackview"
                         },
                         new
                         {
                             Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
-                            Deepcategory_Code = "",
                             Description = "As of my last knowledge update in January 2022, Energizer is primarily known for its batteries and power-related products, and there is no widely known information about Energizer producing push-button phones. If there have been developments or new product releases since then, I recommend checking the latest information from reliable sources or visiting the official Energizer website for the most up-to-date details on their product offerings.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Energizer",
-                            Phisical_image_name = ""
+                            Name = "Energizer"
                         },
                         new
                         {
                             Id = new Guid("738e7941-fce5-4fd0-8bc1-a615c67aa73a"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("23f8c33a-16fc-4eaa-9c3e-b97e130dce9d"),
-                            Deepcategory_Code = "",
                             Description = "Nokia is a well-known Finnish multinational telecommunications, information technology, and consumer electronics company. Historically, Nokia was a leading mobile phone manufacturer and played a significant role in the early days of the mobile phone industry. Nokia phones were widely popular and known for their durability and reliability.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Nokia",
-                            Phisical_image_name = ""
+                            Name = "Nokia"
                         },
                         new
                         {
                             Id = new Guid("0f810786-43f5-41f1-929d-89d80b9a9235"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Apple",
-                            Phisical_image_name = ""
+                            Name = "Apple"
                         },
                         new
                         {
                             Id = new Guid("14db8bd4-4b22-4726-8058-4b02e2a16b73"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
-                            Deepcategory_Code = "",
                             Description = "Experience the epitome of technology and innovation with Samsung's diverse product range. From flagship smartphones like the Galaxy series to smart TVs, home appliances, and cutting-edge wearables, Samsung offers a comprehensive ecosystem. Discover stunning displays, powerful performance, and advanced features that redefine the way we live and connect. Elevate your digital lifestyle with Samsung's thoughtfully designed products, bringing together quality, innovation, and versatility in every device.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Samsung",
-                            Phisical_image_name = ""
+                            Name = "Samsung"
                         },
                         new
                         {
                             Id = new Guid("838f5b32-13c6-4910-9b43-bb06174d2165"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
-                            Deepcategory_Code = "",
                             Description = "Immerse yourself in innovation with Huawei's diverse range of technology products. From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem. Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living. Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HUAWEI",
-                            Phisical_image_name = ""
+                            Name = "HUAWEI"
                         },
                         new
                         {
                             Id = new Guid("ca0e67f6-20c4-49f1-8f91-d7cd17e374a3"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Xiaomi's diverse range of technology products. From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability. Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living. Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Xiaomi",
-                            Phisical_image_name = ""
+                            Name = "Xiaomi"
                         },
                         new
                         {
                             Id = new Guid("cce8806d-26a8-4601-80e5-acbcfc0dc553"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
-                            Deepcategory_Code = "",
                             Description = "Amazfit is a brand of smartwatches and fitness trackers primarily produced by Huami, a Chinese company that specializes in wearable technology. Amazfit smartwatches are known for their focus on health and fitness features, as well as stylish designs. ",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "AMAZFIT",
-                            Phisical_image_name = ""
+                            Name = "AMAZFIT"
                         },
                         new
                         {
                             Id = new Guid("f8623b5a-756b-4b4e-89ad-3204dd8088d1"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("d4b8a5c2-c4db-4e3f-aa3f-3d389f5a1aeb"),
-                            Deepcategory_Code = "",
                             Description = "Boasting a powerful 2-in-1 calling chip & stable 5.2 Bluetooth connection, Kr Pro provides you an stable, clear and high sound quality phone calls at anytime & anywhere. Conveniently receive & reject phone calls, dial out and store up to 100 contacts on your Kr Pro smart watch!",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Kieslect",
-                            Phisical_image_name = ""
+                            Name = "Kieslect"
                         },
                         new
                         {
                             Id = new Guid("320dfc5c-fb01-45d0-9f93-0b71dcc393b6"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
-                            Deepcategory_Code = "",
                             Description = "Immerse yourself in innovation with Huawei's diverse range of technology products. From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem. Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living. Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HUAWEI",
-                            Phisical_image_name = ""
+                            Name = "HUAWEI"
                         },
                         new
                         {
                             Id = new Guid("8b282235-99da-449e-a0ca-c0a755cf5087"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Xiaomi's diverse range of technology products. From feature-packed smartphones and smart home devices to fitness wearables and more, Xiaomi offers a wide array of products that combine quality with affordability. Discover cutting-edge technology, sleek designs, and user-friendly interfaces that cater to various aspects of modern living. Elevate your tech experience with Xiaomi's thoughtfully crafted products, where innovation meets accessibility.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Xiaomi",
-                            Phisical_image_name = ""
+                            Name = "Xiaomi"
                         },
                         new
                         {
                             Id = new Guid("aacd89bd-f53a-40e6-8cb5-045ac969da2d"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
-                            Deepcategory_Code = "",
                             Description = "Experience durability and rugged design with Blackview smartphones. From robust devices to outdoor-friendly models, Blackview offers a range of smartphones that withstand tough conditions. Discover features like water resistance, long-lasting batteries, and reliable performance. Elevate your mobile adventures with Blackview's thoughtfully crafted smartphones.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Blackview",
-                            Phisical_image_name = ""
+                            Name = "Blackview"
                         },
                         new
                         {
                             Id = new Guid("fc34b77b-6812-41fa-b942-998c92a77854"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("07ff4b23-b509-41e2-b932-37eae200181c"),
-                            Deepcategory_Code = "",
                             Description = "Enhance your fitness journey with Q&Q Smart Bracelets. Track activities, monitor health metrics, and stay connected in style with these innovative and functional wearables.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Q&Q ",
-                            Phisical_image_name = ""
+                            Name = "Q&Q "
                         },
                         new
                         {
                             Id = new Guid("1f875c75-491b-44e2-976e-a5c4e06c6d93"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Optimize control and efficiency with a Management Hub. Streamline operations, monitor performance, and make informed decisions seamlessly from this centralized management solution.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Management hub",
-                            Phisical_image_name = ""
+                            Name = "Management hub"
                         },
                         new
                         {
                             Id = new Guid("1f92ffa3-5a8e-4eab-a776-b0ced62195fb"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Empower your devices with precision using advanced Sensors. From motion detection to environmental monitoring, our sensors deliver accurate data for enhanced functionality and automation.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Sensors",
-                            Phisical_image_name = ""
+                            Name = "Sensors"
                         },
                         new
                         {
                             Id = new Guid("2d4efe70-0f73-40ed-a431-0cecb3fe8601"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Illuminate intelligently with Smart Lighting. Customize ambiance, control remotely, and save energy through innovative, connected lighting solutions for modern living spaces.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Lighting",
-                            Phisical_image_name = ""
+                            Name = "Lighting"
                         },
                         new
                         {
                             Id = new Guid("38e612bc-d08a-49e7-bba7-e89b99860825"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Ensure security with IP Video Surveillance Cameras. Experience high-definition monitoring, remote access, and advanced features for comprehensive and reliable video surveillance in any environment.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "IP video surveillance cameras",
-                            Phisical_image_name = ""
+                            Name = "IP video surveillance cameras"
                         },
                         new
                         {
                             Id = new Guid("acb0d8a7-79b7-44d8-8082-c786ccddc5d7"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Upgrade security effortlessly with Smart Locks. Enjoy keyless entry, remote control, and personalized access, enhancing convenience and peace of mind in your connected home or business.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Smart locks",
-                            Phisical_image_name = ""
+                            Name = "Smart locks"
                         },
                         new
                         {
                             Id = new Guid("af4df39e-8846-4424-a3f4-2fd70333485b"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Effortlessly manage your devices with Smart Electrical Sockets. Control remotely, set schedules, and monitor energy usage for a smarter, more efficient home or office environment.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Smart electrical sockets",
-                            Phisical_image_name = ""
+                            Name = "Smart electrical sockets"
                         },
                         new
                         {
                             Id = new Guid("c1abc056-125a-4dc6-b953-620eb65fdea2"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Enhance communication with Intercom Systems. Streamline interactions, monitor entrances, and ensure seamless connectivity for secure and efficient communication within your home or business.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Intercoms",
-                            Phisical_image_name = ""
+                            Name = "Intercoms"
                         },
                         new
                         {
                             Id = new Guid("e7c9d156-dd96-42bb-b6a0-1884a3a5009f"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("8d60aefa-e6cb-4b90-9e90-0de7d4d01a7b"),
-                            Deepcategory_Code = "",
                             Description = "Transform your home with Smart Electric Switches. Enjoy remote control, voice activation, and scheduling features for convenient and energy-efficient lighting and appliance management.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Smart electric switches",
-                            Phisical_image_name = ""
+                            Name = "Smart electric switches"
                         },
                         new
                         {
                             Id = new Guid("89e8df38-d10f-4d21-b688-03adde4890b3"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("b0f7748c-02cf-46e3-9c82-412c284240d1"),
-                            Deepcategory_Code = "",
                             Description = "Experience wireless freedom with Bluetooth Wireless Headphones. Immerse yourself in high-quality sound, hands-free convenience, and stylish designs for an elevated audio experience on the go.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Bluetooth wireless headphones",
-                            Phisical_image_name = ""
+                            Name = "Bluetooth wireless headphones"
                         },
                         new
                         {
                             Id = new Guid("e041cb2a-39b1-4ee1-95bb-60b806a99822"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("b0f7748c-02cf-46e3-9c82-412c284240d1"),
-                            Deepcategory_Code = "",
                             Description = "Experience true wireless freedom with our collection of TWS (True Wireless Stereo) headphones. From compact earbuds to stylish charging cases, our curated selection offers seamless connectivity and impressive audio quality. Explore comfortable designs, touch controls, and features like noise isolation for an immersive listening experience. Elevate your audio journey with our carefully chosen TWS wireless headphones, providing the perfect combination of convenience and exceptional sound quality for music, calls, and more.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "TWS wireless headphones",
-                            Phisical_image_name = ""
+                            Name = "TWS wireless headphones"
                         },
                         new
                         {
                             Id = new Guid("a00e3c68-146c-42a9-b794-0538a68c0cc2"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("b0f7748c-02cf-46e3-9c82-412c284240d1"),
-                            Deepcategory_Code = "",
                             Description = "Stay connected to your music and calls with our range of reliable wired headphones. From classic over-ear designs to comfortable in-ear options, our curated selection prioritizes durability and high-quality audio. Explore features like noise isolation and built-in microphones for added convenience. Elevate your listening experience with our carefully chosen wired headphones, ensuring a reliable and immersive sound for your music, podcasts, and hands-free communication.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Wired headphones",
-                            Phisical_image_name = ""
+                            Name = "Wired headphones"
                         },
                         new
                         {
                             Id = new Guid("1a39bd74-4a89-43df-9fd9-b34710b1d221"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Embrace eco-friendly commuting with Electric Scooters. Effortlessly navigate urban landscapes, enjoy efficient travel, and reduce your carbon footprint with these sleek and agile electric vehicles.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Electric scooters",
-                            Phisical_image_name = ""
+                            Name = "Electric scooters"
                         },
                         new
                         {
                             Id = new Guid("28f7b326-391f-407c-9fb8-ec4b6458ddd5"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Navigate city streets with ease using Mopeds. Combining efficiency with style, these compact two-wheelers offer a convenient and eco-friendly solution for urban commuting.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Mopeds",
-                            Phisical_image_name = ""
+                            Name = "Mopeds"
                         },
                         new
                         {
                             Id = new Guid("380d07fd-a2a4-4477-ab6f-7b95fafb0c88"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Ride into the future with Battery Motorcycles. Silent, eco-friendly, and efficient, these electric two-wheelers provide a thrilling and sustainable alternative for urban commuting and beyond.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Battery motorcycles",
-                            Phisical_image_name = ""
+                            Name = "Battery motorcycles"
                         },
                         new
                         {
                             Id = new Guid("3b23c2f5-658a-4dc7-90d3-d5349c7cf6ef"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Experience futuristic transportation with Gyroboards. Effortlessly glide and maneuver, mastering the art of balance for a fun and efficient way to commute in urban environments.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Gyroboards",
-                            Phisical_image_name = ""
+                            Name = "Gyroboards"
                         },
                         new
                         {
                             Id = new Guid("4a51d1c9-2415-4eb4-8aae-a5bf732ddd89"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Drive into the future with Electric Cars. Experience sustainable mobility, zero emissions, and cutting-edge technology for a greener and smarter approach to commuting.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Electric cars",
-                            Phisical_image_name = ""
+                            Name = "Electric cars"
                         },
                         new
                         {
                             Id = new Guid("aba63da0-0281-413b-9148-f68e2e0275cc"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Unleash excitement with Electric Skates. Effortlessly glide, accelerate, and brake with these motorized wonders, offering a thrilling and dynamic way to explore your surroundings.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Electric skates",
-                            Phisical_image_name = ""
+                            Name = "Electric skates"
                         },
                         new
                         {
                             Id = new Guid("b0823bd2-809c-4e25-bfb4-db44fe708dc8"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Embrace the open road with Motorcycles. Experience freedom, speed, and the thrill of the ride on these powerful and iconic two-wheelers.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Motorcycles",
-                            Phisical_image_name = ""
+                            Name = "Motorcycles"
                         },
                         new
                         {
                             Id = new Guid("dc0f0d97-95e1-478f-b6d9-2562e00d2193"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("7587c8cc-2cc2-4eb4-8c87-48f540a759e1"),
-                            Deepcategory_Code = "",
                             Description = "Conquer off-road adventures with a Quad Bike. Experience versatility, power, and adrenaline as you navigate challenging terrains with this all-terrain vehicle.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Quad bike",
-                            Phisical_image_name = ""
+                            Name = "Quad bike"
                         },
                         new
                         {
                             Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Explore the world of innovation with Apple's cutting-edge products. From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices. Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology. Elevate your digital experience with Apple's thoughtfully designed products, ensuring a blend of style, performance, and innovation in every device.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Apple",
-                            Phisical_image_name = ""
+                            Name = "Apple"
                         },
                         new
                         {
                             Id = new Guid("15a950de-af6e-4f43-9ad0-f25fcb42e8ab"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Discover cutting-edge technology with HP products. From powerful laptops to innovative printers, HP offers reliable solutions for both personal and professional computing needs.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HP",
-                            Phisical_image_name = ""
+                            Name = "HP"
                         },
                         new
                         {
                             Id = new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Elevate your gaming and computing experience with MSI. Known for high-performance laptops, motherboards, and graphics cards, MSI delivers cutting-edge technology and sleek design.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "MSI",
-                            Phisical_image_name = ""
+                            Name = "MSI"
                         },
                         new
                         {
                             Id = new Guid("592c0caf-47ac-4095-a39d-b7ffbd4ec886"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Experience innovation and reliability with Acer. From powerful laptops to sleek monitors, Acer offers a diverse range of technology solutions for work, play, and creativity.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Acer",
-                            Phisical_image_name = ""
+                            Name = "Acer"
                         },
                         new
                         {
                             Id = new Guid("68db1da6-3858-4d97-a42b-359c0ad8e332"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Immerse yourself in innovation with Huawei's diverse range of technology products. From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem. Discover advanced camera technology, powerful performance, and sleek designs that redefine the possibilities of connected living. Elevate your digital experience with Huawei's thoughtfully designed products, where innovation, craftsmanship, and efficiency converge.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HUAWEI",
-                            Phisical_image_name = ""
+                            Name = "HUAWEI"
                         },
                         new
                         {
                             Id = new Guid("8505c965-4e9d-4726-bf56-9be79d7d61e3"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Empower your digital journey with Lenovo. From versatile laptops to cutting-edge PCs and smart devices, Lenovo delivers innovation, performance, and reliability for a connected world.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Lenovo",
-                            Phisical_image_name = ""
+                            Name = "Lenovo"
                         },
                         new
                         {
                             Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Dive into innovation with ASUS. Known for cutting-edge laptops, motherboards, and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Asus",
-                            Phisical_image_name = ""
+                            Name = "Asus"
                         },
                         new
                         {
                             Id = new Guid("e9e58617-65d6-4eec-9ec6-64b51559059d"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Transform your computing experience with Dell. From powerful laptops to versatile desktops and premium monitors, Dell delivers reliable technology solutions for work and play.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Dell",
-                            Phisical_image_name = ""
+                            Name = "Dell"
                         },
                         new
                         {
                             Id = new Guid("c3f97827-5dca-4a53-9432-247321f407e5"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("0a273bfb-28e6-4d34-a497-6ef2e24e4b5a"),
-                            Deepcategory_Code = "",
                             Description = "Discover the perfect blend of style and performance with Honor. From feature-packed smartphones to smartwatches, Honor delivers innovative technology for the digital-savvy lifestyle.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Honor",
-                            Phisical_image_name = ""
+                            Name = "Honor"
                         },
                         new
                         {
                             Id = new Guid("c3f67823-5dca-4a53-9432-247321f107e5"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("6f1d8a61-5b88-4e67-a11f-651b3d09a432"),
-                            Deepcategory_Code = "",
                             Description = "Build your computing powerhouse with System Blocks. Customize performance, expandability, and style as you create a tailored PC to meet your specific needs and preferences.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "System blocks",
-                            Phisical_image_name = ""
+                            Name = "System blocks"
                         },
                         new
                         {
                             Id = new Guid("c3f67629-5dca-4a53-9432-247321f507e5"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("6f1d8a61-5b88-4e67-a11f-651b3d09a432"),
-                            Deepcategory_Code = "",
                             Description = "Simplify your computing setup with Monoblocks. Combining a sleek display and powerful components, these all-in-one solutions offer efficiency and style for a streamlined desktop experience.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Monoblocks",
-                            Phisical_image_name = ""
+                            Name = "Monoblocks"
                         },
                         new
                         {
                             Id = new Guid("10fd68cf-6503-4f17-9cb5-0b157093b4d0"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Deepcategory_Code = "",
                             Description = "Explore cutting-edge technology with Samsung. From innovative smartphones to high-quality home appliances, Samsung delivers reliability, style, and innovation for modern lifestyles.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Samsung",
-                            Phisical_image_name = ""
+                            Name = "Samsung"
                         },
                         new
                         {
                             Id = new Guid("536bf179-64e7-4fd4-a944-1ad6a33ef352"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Deepcategory_Code = "",
                             Description = "Dive into innovation with ASUS. Known for cutting-edge laptops, motherboards, and gaming peripherals, ASUS combines performance and style to enhance your digital lifestyle.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Asus",
-                            Phisical_image_name = ""
+                            Name = "Asus"
                         },
                         new
                         {
                             Id = new Guid("900c0cfb-12e2-4917-a69e-741271adb6ae"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Deepcategory_Code = "",
                             Description = "Unleash possibilities with HP. From powerful laptops to innovative printers, HP provides reliable technology solutions for both personal and professional computing needs.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "HP",
-                            Phisical_image_name = ""
+                            Name = "HP"
                         },
                         new
                         {
                             Id = new Guid("a039a892-bf21-440b-869f-d8ee4155d18c"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Deepcategory_Code = "",
                             Description = "Transform your computing experience with Dell. From powerful laptops to versatile desktops and premium monitors, Dell delivers reliable technology solutions for work and play.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Dell",
-                            Phisical_image_name = ""
+                            Name = "Dell"
                         },
                         new
                         {
                             Id = new Guid("f6afa27e-a06c-457e-bbad-9d536eedca4d"),
                             CreatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
                             Current_Subcategory_Id = new Guid("2d61c82b-9ba7-4528-9e14-d8de745f32b3"),
-                            Deepcategory_Code = "",
                             Description = "Experience quality and innovation with Philips. From advanced healthcare technology to consumer electronics, Philips delivers solutions that enhance well-being and simplify everyday life.",
                             LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Philips",
-                            Phisical_image_name = ""
+                            Name = "Philips"
                         });
                 });
 

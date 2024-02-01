@@ -11,7 +11,7 @@ namespace Final_project_crud_endpoints.DataBase.Entities
         public decimal Price { get; set; }
 
         public List<string> Phisical_image_names { get; set; } = new List<string>();    
-        public string TrackingCode { get; set; } = string.Empty;
+        public string Product_Code { get; set; } = string.Empty;
         private decimal _quantity;
         private bool _isAvailable = true;
 

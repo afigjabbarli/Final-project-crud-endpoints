@@ -20,7 +20,7 @@ namespace Final_project_crud_endpoints.Services.Concretes
             do
             {
                 decimal hash = _random.Next(1000000, 10000000);
-                random_password = prefix + hash;
+                random_password = prefix + "---" + hash;
             }
             while (_data_context.Passwords.Any(p => p.Password.Equals(random_password)));
             var password = new RandomPassword

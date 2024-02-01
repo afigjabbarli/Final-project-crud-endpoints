@@ -173,7 +173,7 @@ namespace Final_project_crud_endpoints.Services.Concretes
                 {
                     DirectoryInfo directoryInfo = new DirectoryInfo(file_path);
                     FileInfo[] files = directoryInfo.GetFiles();    
-                    var file = files.SingleOrDefault(f => f.Equals(phisical_image_name));
+                    var file = files.SingleOrDefault(f => f.Name.Equals(phisical_image_name));
                     if(file is not null)
                     {
                         file.Delete();
