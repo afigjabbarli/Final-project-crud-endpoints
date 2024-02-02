@@ -3,11 +3,11 @@ using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Subcategory;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
+using Final_project_crud_endpoints.Validations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
 
 namespace Final_project_crud_endpoints.Controllers
 {
@@ -18,11 +18,13 @@ namespace Final_project_crud_endpoints.Controllers
         private readonly DataContext _data_context;
         private readonly IVerificationService _verification_service;
         private readonly IFileService _file_service;
+
         public SubcategoryController(DataContext data_context, IVerificationService verification_service, IFileService file_service)
         {
             _data_context = data_context;
             _verification_service = verification_service;
             _file_service = file_service;
+
         }
         [HttpPost("post")]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -178,7 +180,7 @@ namespace Final_project_crud_endpoints.Controllers
         [Produces(typeof(List<SubcategoryListItemDTO>))]
         public async Task<IActionResult> Search([FromQuery(Name = "query")] string query)
         {
-            if (!IsValidQueryString(query))
+            if (!CustomValidations.IsValidQueryString(query))
             {
                 return BadRequest("The search query is invalid !!!");
             }
@@ -191,17 +193,16 @@ namespace Final_project_crud_endpoints.Controllers
             {
                 Id = sc.Id,
                 Name = sc.Name,
+                Description = sc.Description,
+                Phisical_image_name = _file_service.ReadStaticFiles(sc.Subcategory_Code, Contracts.CustomUploadDirectories.Subcategories, sc.Phisical_image_name),
+                CreatedAt = sc.CreatedAt,
+                LastUpdatedAt = sc.LastUpdatedAt,
+                Subcategory_Code = sc.Subcategory_Code,
+                Current_Category_Id = sc.Current_Category_Id,
             }).ToList();
 
             return Ok(result);
         }
-        private bool IsValidQueryString(string query)
-        {
-            if (!string.IsNullOrWhiteSpace(query))
-            {
-                return Regex.IsMatch(query, "^[a-zA-Z]+$");
-            };
-            return false;
-        }
+
     }
 }

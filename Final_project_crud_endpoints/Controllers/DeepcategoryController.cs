@@ -3,6 +3,7 @@ using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Deepcategory;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
+using Final_project_crud_endpoints.Validations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
@@ -185,7 +186,7 @@ namespace Final_project_crud_endpoints.Controllers
         [Produces(typeof(List<DeepcategoryListItemDTO>))]
         public async Task<IActionResult> Search([FromQuery(Name = "query")] string query)
         {
-            if (!IsValidQueryString(query))
+            if (!CustomValidations.IsValidQueryString(query))
             {
                 return BadRequest("The search query is invalid!");
             }
@@ -198,18 +199,15 @@ namespace Final_project_crud_endpoints.Controllers
             {
                 Id = dc.Id,
                 Name = dc.Name,
+                Description = dc.Description,
+                Phisical_image_name = _file_service.ReadStaticFiles(dc.Deepcategory_Code, CustomUploadDirectories.Deepcategories, dc.Phisical_image_name),
+                CreatedAt = dc.CreatedAt,
+                LastUpdatedAt = dc.LastUpdatedAt,
+                Deepcategory_Code = dc.Deepcategory_Code,
+                Current_Subcategory_Id = dc.Current_Subcategory_Id,
             }).ToList();
 
             return Ok(result);
-        }
-
-        private bool IsValidQueryString(string query)
-        {
-            if (!string.IsNullOrWhiteSpace(query))
-            {
-                return Regex.IsMatch(query, "^[a-zA-Z]+$");
-            };
-            return false;
         }
     }
 }

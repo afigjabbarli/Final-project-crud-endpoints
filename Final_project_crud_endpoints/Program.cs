@@ -1,4 +1,5 @@
 using Final_project_crud_endpoints.DataBase;
+using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Services.Concretes;
 using Microsoft.AspNetCore.Mvc;
@@ -15,9 +16,10 @@ namespace Final_project_crud_endpoints
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+           
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddLogging();
 
             builder.Services
             .AddDbContext<DataContext>(ob =>
@@ -47,7 +49,7 @@ namespace Final_project_crud_endpoints
             });
 
             var app = builder.Build();
-            // Configure the HTTP request pipeline.
+            
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();

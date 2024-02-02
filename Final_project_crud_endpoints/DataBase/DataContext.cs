@@ -1,4 +1,5 @@
-﻿using Final_project_crud_endpoints.DataBase.Entities;
+﻿using Final_project_crud_endpoints.DataBase.Base;
+using Final_project_crud_endpoints.DataBase.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_crud_endpoints.DataBase
@@ -2193,5 +2194,6 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<Category> Categories { get; set; } 
         public DbSet<Subcategory> Subcategories { get; set; }
         public DbSet<Deepcategory> Deepcategories { get; set; }    
+        public DbSet<Brand> Brands { get; set; }
     }
 }
