@@ -30,6 +30,7 @@ namespace Final_project_crud_endpoints
              .AddScoped<IVerificationService, VerificationService>()
              .AddScoped<IFileService, FileService>()
              .AddScoped<IEmailService, EmailService>()  
+             .AddScoped<ISMSService, SMSService>()
              .AddHttpContextAccessor()
 
             .AddCors(options =>

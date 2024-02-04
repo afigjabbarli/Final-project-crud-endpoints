@@ -2194,6 +2194,6 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<Category> Categories { get; set; } 
         public DbSet<Subcategory> Subcategories { get; set; }
         public DbSet<Deepcategory> Deepcategories { get; set; }    
-        public DbSet<Brand> Brands { get; set; }
+        public DbSet<Brand> Brands { get; set; }   
     }
 }
