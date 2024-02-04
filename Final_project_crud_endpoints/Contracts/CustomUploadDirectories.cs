@@ -6,6 +6,7 @@
         Brands = 1,
         Categories = 2,
         Subcategories = 3,
-        Deepcategories = 4
+        Deepcategories = 4,
+        Users = 5
     }
 }

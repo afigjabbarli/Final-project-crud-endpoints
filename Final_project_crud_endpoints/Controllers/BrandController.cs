@@ -1,6 +1,7 @@
 ﻿using Final_project_crud_endpoints.Contracts;
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Brand;
+using Final_project_crud_endpoints.DataBase.DTOs.Email;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Validations;
@@ -8,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
+
 
 namespace Final_project_crud_endpoints.Controllers
 {
@@ -20,13 +21,15 @@ namespace Final_project_crud_endpoints.Controllers
         private readonly IVerificationService _verification_service;
         private readonly IFileService _file_service;
         private readonly ILogger<BrandController> _logger;
+        private readonly IEmailService _email_service;
         public BrandController(DataContext data_context, IVerificationService verification_service,
-            IFileService file_service, ILogger<BrandController> logger)
+            IFileService file_service, ILogger<BrandController> logger, IEmailService email_service)
         {
             _data_context = data_context;
             _verification_service = verification_service;
             _file_service = file_service;
             _logger = logger;
+            _email_service = email_service;
         }
         [HttpPost("post")]
         [ProducesResponseType(statusCode: StatusCodes.Status201Created)]
@@ -243,6 +246,12 @@ namespace Final_project_crud_endpoints.Controllers
                 _logger.LogError(exception, "An error occurred while processing the request.");
                 return StatusCode(500, "An error occurred while processing the request. Please try again later.");
             }
+        }
+        [HttpPost]
+        public async Task<IActionResult> Email(string recipient, string subject, string body)
+        {
+            await _email_service.SendEmailAsync(recipient, subject, body);
+            return Ok();
         }
     }
 }

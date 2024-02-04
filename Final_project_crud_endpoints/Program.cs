@@ -13,7 +13,6 @@ namespace Final_project_crud_endpoints
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
 
             builder.Services.AddControllers();
            
@@ -30,6 +29,7 @@ namespace Final_project_crud_endpoints
             })
              .AddScoped<IVerificationService, VerificationService>()
              .AddScoped<IFileService, FileService>()
+             .AddScoped<IEmailService, EmailService>()  
              .AddHttpContextAccessor()
 
             .AddCors(options =>

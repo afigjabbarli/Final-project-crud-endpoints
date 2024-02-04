@@ -8,7 +8,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
 
 namespace Final_project_crud_endpoints.Controllers
 {
@@ -200,7 +199,8 @@ namespace Final_project_crud_endpoints.Controllers
                 Id = dc.Id,
                 Name = dc.Name,
                 Description = dc.Description,
-                Phisical_image_name = _file_service.ReadStaticFiles(dc.Deepcategory_Code, CustomUploadDirectories.Deepcategories, dc.Phisical_image_name),
+                Phisical_image_name = _file_service
+                .ReadStaticFiles(dc.Deepcategory_Code, CustomUploadDirectories.Deepcategories, dc.Phisical_image_name),
                 CreatedAt = dc.CreatedAt,
                 LastUpdatedAt = dc.LastUpdatedAt,
                 Deepcategory_Code = dc.Deepcategory_Code,
