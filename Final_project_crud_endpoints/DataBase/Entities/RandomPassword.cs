@@ -1,4 +1,4 @@
-﻿using Final_project_crud_endpoints.DataBase.Base;
+﻿using Final_project_crud_endpoints.DataBase.Entities.Base;
 
 namespace Final_project_crud_endpoints.DataBase.Entities
 {

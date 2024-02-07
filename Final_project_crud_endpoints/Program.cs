@@ -2,8 +2,11 @@ using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Services.Concretes;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
+using Twilio.Base;
 
 namespace Final_project_crud_endpoints
 {
@@ -15,7 +18,17 @@ namespace Final_project_crud_endpoints
 
 
             builder.Services.AddControllers();
-           
+
+            builder.Services
+           .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+           .AddCookie(options =>
+           {
+                options.Cookie.Name = "MyCustomCookie";
+                options.LoginPath = "/auth/login";
+                options.LogoutPath = "/auth/logout";
+                options.ExpireTimeSpan = TimeSpan.FromHours(48); 
+           });
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddLogging();
@@ -31,6 +44,9 @@ namespace Final_project_crud_endpoints
              .AddScoped<IFileService, FileService>()
              .AddScoped<IEmailService, EmailService>()  
              .AddScoped<ISMSService, SMSService>()
+             .AddScoped<IActivationService, ActivationService>()    
+             .AddScoped<INotificationService, NotificationService>()
+             .AddScoped<IUserService, UserService>()
              .AddHttpContextAccessor()
 
             .AddCors(options =>
@@ -58,6 +74,10 @@ namespace Final_project_crud_endpoints
             }
 
             app.UseStaticFiles();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseCors("AllowAll");
 
             app.UseHttpsRedirection();

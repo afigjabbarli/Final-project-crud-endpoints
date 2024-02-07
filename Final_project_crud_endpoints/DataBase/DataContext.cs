@@ -1,5 +1,5 @@
-﻿using Final_project_crud_endpoints.DataBase.Base;
-using Final_project_crud_endpoints.DataBase.Entities;
+﻿using Final_project_crud_endpoints.DataBase.Entities;
+using Final_project_crud_endpoints.DataBase.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace Final_project_crud_endpoints.DataBase
@@ -18,10 +18,20 @@ namespace Final_project_crud_endpoints.DataBase
                 .WithMany(c => c.Subcategories)
                 .HasForeignKey(sc => sc.Current_Category_Id);
 
+            modelBuilder.Entity<Email>()
+               .HasOne<User>(e => e.User)
+               .WithMany(u => u.Emails)
+               .HasForeignKey(e => e.UserId);
+
             modelBuilder.Entity<Deepcategory>()
                 .HasOne<Subcategory>(dc => dc.Subcategory)
                 .WithMany(sc => sc.Deepcategories)
                 .HasForeignKey(dc => dc.Current_Subcategory_Id);
+
+            modelBuilder.Entity<User>()
+                .HasOne<ActivationToken>(u => u.ActivationToken)
+                .WithOne(act => act.User)
+                .HasForeignKey<ActivationToken>(act => act.UserId);
 
             #region Category seeding...
             modelBuilder.Entity<Category>().HasData
@@ -38,7 +48,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Category
                 {
-                    Id= new Guid("a1e01df1-f0ef-4e89-a68b-3cd32bfbc04f"),
+                    Id = new Guid("a1e01df1-f0ef-4e89-a68b-3cd32bfbc04f"),
                     Name = "Smart gadgets",
                     Description = "Explore the future with smart gadgets. Experience seamless integration of technology into daily life with innovative devices," +
                     " from smart home solutions to wearables, enhancing convenience, connectivity, and efficiency.",
@@ -329,7 +339,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("e2f1a8b3-58e8-4962-a7b8-9e7c3ecb301c"),
                     Name = "Computer parts",
                     Description = "Build and upgrade with confidence using our comprehensive selection of computer parts. Explore a wide range of components, from powerful processors and graphics cards to reliable storage solutions and high-speed memory." +
@@ -363,7 +373,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("a85e1a45-741c-47b7-8dfb-df7f5e87c76b"),
                     Name = "Computer accessories",
                     Description = "Elevate your computing experience with our extensive range of computer accessories. From ergonomic peripherals like keyboards and mice to essential adapters," +
@@ -374,7 +384,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("77d68ed5-b2cb-41a3-84f0-c6d0cbfb11a0"),
                     Name = "Video game equipment",
                     Description = "Dive into the world of gaming with our cutting-edge video game equipment. From high-performance gaming consoles and controllers to immersive virtual reality systems," +
@@ -395,7 +405,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("042a0d33-d091-4a01-b63c-e676d879d4c8"),
                     Name = "Drawing tablets",
                     Description = "Unleash your creativity with precision using our drawing tablets. Designed for digital artists and professionals, these tablets offer an immersive drawing experience with pressure-sensitive pens and responsive surfaces. " +
@@ -405,7 +415,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("7a28c90b-9a2e-4ab6-8255-7c7e6c653685"),
                     Name = "PlayStation",
                     Description = "Dive into a world of immersive gaming with the PlayStation console series. Whether you're a solo player or enjoy multiplayer experiences, PlayStation delivers cutting-edge technology, stunning graphics, and a vast library of games." +
@@ -415,7 +425,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("17f2c0cc-38d3-452e-88ce-510090de2b92"),
                     Name = "Gaming smartphones",
                     Description = "Unleash the power of gaming on the go with our cutting-edge gaming smartphones. Engineered for high-performance gaming experiences, these devices combine top-tier processors, advanced cooling systems, and immersive displays. " +
@@ -456,7 +466,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("8725ff1b-d64d-4f14-b0c1-663c16fdd554"),
                     Name = "Computer parts",
                     Description = "Upgrade and optimize your computing experience with our comprehensive range of computer parts. Explore powerful processors, high-capacity storage solutions, cutting-edge graphics cards, and fast memory options. " +
@@ -476,7 +486,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("d0d7aa6e-bcb3-4c14-96f9-0a45e9149a67"),
                     Name = "Gaming notebooks",
                     Description = "Unleash gaming excellence on the go with our cutting-edge gaming notebooks. Engineered for portable power, these laptops feature high-performance processors, powerful graphics cards, and high-refresh-rate displays." +
@@ -487,7 +497,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("d1bba8aa-b0d4-42a7-b08f-71b5e7757cb3"),
                     Name = "Xbox",
                     Description = "Dive into the gaming world with the Xbox console series. Designed for unparalleled entertainment, Xbox offers a vast library of games, stunning graphics, and immersive experiences. " +
@@ -498,7 +508,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("7f9e65a1-6c4c-4dbb-a3d1-9e1c2b5b35b0"),
                     Name = "Great kitchen appliances",
                     Description = "Transform your kitchen into a culinary haven with our collection of great kitchen appliances." +
@@ -510,8 +520,8 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
-                    Id= new Guid("e8a4d6b2-0b4f-4372-8292-665ae7d3f29e"),
+                {
+                    Id = new Guid("e8a4d6b2-0b4f-4372-8292-665ae7d3f29e"),
                     Name = "Dishes",
                     Description = "Elevate your dining experience with our exquisite collection of dishes. " +
                     "From elegant dinnerware sets to versatile serving plates, our dishes combine style and functionality." +
@@ -523,7 +533,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Subcategory
                 {
-                    Id= new Guid("45c89a7f-fa4d-4c3d-9f21-827f11a9c834"),
+                    Id = new Guid("45c89a7f-fa4d-4c3d-9f21-827f11a9c834"),
                     Name = "Kitchen equipment for food preparation",
                     Description = "Optimize your food preparation process with our comprehensive collection of kitchen equipment." +
                     " From high-performance blenders and food processors to reliable mixers and efficient chopping tools, our range is designed to enhance your culinary experience." +
@@ -535,7 +545,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Subcategory
                 {
-                    Id= new Guid("2b3fde56-118a-4f41-8a93-6fd157f2c4b5"),
+                    Id = new Guid("2b3fde56-118a-4f41-8a93-6fd157f2c4b5"),
                     Name = "Installed kitchen appliances",
                     Description = "Upgrade your kitchen with our installed kitchen appliances, seamlessly blending form and function." +
                     " From sleek built-in ovens and stylish cooktops to integrated refrigerators and advanced dishwashers, our collection combines modern design with cutting-edge technology." +
@@ -547,7 +557,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Subcategory
                 {
-                    Id= new Guid("c09b1a8d-6922-47d2-8b9c-845c4a3cf79c"),
+                    Id = new Guid("c09b1a8d-6922-47d2-8b9c-845c4a3cf79c"),
                     Name = "Preparation of drink",
                     Description = "Craft the perfect beverage with our premium drink preparation essentials." +
                     " From state-of-the-art coffee makers and efficient tea infusers to innovative blenders for smoothies and cocktails, our collection ensures a delightful drink experience." +
@@ -570,7 +580,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("a1f5c6b3-509d-43a8-8d38-745e20d8f48b"),
                     Name = "Small appliances for the home",
                     Description = "Elevate your home living experience with our curated selection of small appliances." +
@@ -582,7 +592,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("3c718a9b-8d43-4f45-8450-dce3627c3b04"),
                     Name = "Climate technology",
                     Description = "Create a comfortable and controlled environment with our advanced climate technology solutions." +
@@ -629,7 +639,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("8b9c3aef-6154-4c9d-ae56-7a3df134f71b"),
                     Name = "Hairstyle",
                     Description = "Transform your look with our diverse collection of hairstyling tools and products." +
@@ -686,7 +696,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("94bd67a9-3c6a-4d1f-b2b2-0f8915ac5c2a"),
                     Name = "On TV technology",
                     Description = "",
@@ -750,7 +760,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("9e4b6a3d-5e32-4ea7-bff4-34bc47eeef71"),
                     Name = "Camera and cameras",
                     Description = "Unleash your creativity with our comprehensive range of cameras and photography equipment." +
@@ -822,7 +832,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("b8a3d6c9-7fe0-4fbb-9b48-f4c11c0d48a7"),
                     Name = "Studio accessories",
                     Description = "Optimize your creative space with our curated selection of studio accessories." +
@@ -882,7 +892,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Subcategory
-                { 
+                {
                     Id = new Guid("9e7a2c3b-0b15-4f33-ba7d-8cf9e4a1b5a8"),
                     Name = "Measuring and marking tools for construction",
                     Description = "Ensure accuracy and precision in your construction projects with our specialized measuring and marking tools." +
@@ -1372,7 +1382,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id = new Guid("4fe68c8c-130d-471a-bac4-eabd7eab4ee3"),    
+                    Id = new Guid("4fe68c8c-130d-471a-bac4-eabd7eab4ee3"),
                     Name = "Protective glass",
                     Description = "Safeguard your device with our collection of protective glass solutions." +
                     " From tempered glass screen protectors to full coverage and anti-glare options, our curated selection offers durable and crystal-clear protection." +
@@ -1396,7 +1406,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("7c5cb09e-76ef-4307-9012-fbd1db7e0a26"),
+                    Id = new Guid("7c5cb09e-76ef-4307-9012-fbd1db7e0a26"),
                     Name = "Protective cover",
                     Description = "Guard your device in style with our collection of protective covers." +
                     " From sleek phone cases to durable laptop sleeves, our curated selection offers a blend of fashion and functionality." +
@@ -1434,7 +1444,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("89ff430a-a0cd-41b7-a803-c47fa04c2569"), 
+                    Id = new Guid("89ff430a-a0cd-41b7-a803-c47fa04c2569"),
                     Name = "Phone adapters",
                     Description = "Ensure seamless charging with our collection of phone adapters." +
                     " From USB-C to Lightning and micro USB adapters, our curated selection offers compatibility with various devices." +
@@ -1472,7 +1482,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("d6211952-48af-4029-95b7-d6fc7844429c"), 
+                    Id = new Guid("d6211952-48af-4029-95b7-d6fc7844429c"),
                     Name = "Micro cards",
                     Description = "Enhance your device's storage capacity with our selection of microSD cards." +
                     " From standard to high-capacity options, our curated collection offers reliable and fast storage solutions for smartphones, cameras, and other digital devices." +
@@ -1556,7 +1566,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),    
+                    Id = new Guid("99554967-268f-461e-854b-9998bc8ef977"),
                     Name = "Energizer",
                     Description = "As of my last knowledge update in January 2022," +
                     " Energizer is primarily known for its batteries and power-related products," +
@@ -1580,7 +1590,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Deepcategory
-                { 
+                {
                     Id = new Guid("0f810786-43f5-41f1-929d-89d80b9a9235"),
                     Name = "Apple",
                     Description = "Explore the world of innovation with Apple's cutting-edge products." +
@@ -1605,7 +1615,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("838f5b32-13c6-4910-9b43-bb06174d2165"),
+                    Id = new Guid("838f5b32-13c6-4910-9b43-bb06174d2165"),
                     Name = "HUAWEI",
                     Description = "Immerse yourself in innovation with Huawei's diverse range of technology products." +
                     " From flagship smartphones like the P and Mate series to cutting-edge wearables, laptops, and networking solutions, Huawei offers a comprehensive ecosystem." +
@@ -1639,7 +1649,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("f8623b5a-756b-4b4e-89ad-3204dd8088d1"), 
+                    Id = new Guid("f8623b5a-756b-4b4e-89ad-3204dd8088d1"),
                     Name = "Kieslect",
                     Description = "Boasting a powerful 2-in-1 calling chip & stable 5.2 Bluetooth connection, Kr Pro provides you an stable, clear and high sound quality phone calls at anytime & anywhere." +
                     " Conveniently receive & reject phone calls, dial out and store up to 100 contacts on your Kr Pro smart watch!",
@@ -1685,7 +1695,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("fc34b77b-6812-41fa-b942-998c92a77854"), 
+                    Id = new Guid("fc34b77b-6812-41fa-b942-998c92a77854"),
                     Name = "Q&Q ",
                     Description = "Enhance your fitness journey with Q&Q Smart Bracelets." +
                     " Track activities, monitor health metrics, and stay connected in style with these innovative and functional wearables.",
@@ -1695,7 +1705,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id = new Guid("1f875c75-491b-44e2-976e-a5c4e06c6d93"),    
+                    Id = new Guid("1f875c75-491b-44e2-976e-a5c4e06c6d93"),
                     Name = "Management hub",
                     Description = "Optimize control and efficiency with a Management Hub." +
                     " Streamline operations, monitor performance," +
@@ -1716,7 +1726,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("2d4efe70-0f73-40ed-a431-0cecb3fe8601"), 
+                    Id = new Guid("2d4efe70-0f73-40ed-a431-0cecb3fe8601"),
                     Name = "Lighting",
                     Description = "Illuminate intelligently with Smart Lighting." +
                     " Customize ambiance, control remotely, and save energy through innovative, connected lighting solutions for modern living spaces.",
@@ -1748,7 +1758,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("af4df39e-8846-4424-a3f4-2fd70333485b"),
+                    Id = new Guid("af4df39e-8846-4424-a3f4-2fd70333485b"),
                     Name = "Smart electrical sockets",
                     Description = "Effortlessly manage your devices with Smart Electrical Sockets." +
                     " Control remotely, set schedules, and monitor energy usage for a smarter, more efficient home or office environment.",
@@ -1815,7 +1825,7 @@ namespace Final_project_crud_endpoints.DataBase
                     LastUpdatedAt = new DateTime(2024, 1, 13, 0, 0, 0, DateTimeKind.Utc)
                 },
                 new Deepcategory
-                { 
+                {
                     Id = new Guid("1a39bd74-4a89-43df-9fd9-b34710b1d221"),
                     Name = "Electric scooters",
                     Description = "Embrace eco-friendly commuting with Electric Scooters." +
@@ -1837,7 +1847,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id = new Guid("380d07fd-a2a4-4477-ab6f-7b95fafb0c88"),    
+                    Id = new Guid("380d07fd-a2a4-4477-ab6f-7b95fafb0c88"),
                     Name = "Battery motorcycles",
                     Description = "Ride into the future with Battery Motorcycles." +
                     " Silent, eco-friendly, and efficient, these electric two-wheelers provide a thrilling and sustainable alternative for urban commuting and beyond.",
@@ -1847,7 +1857,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("3b23c2f5-658a-4dc7-90d3-d5349c7cf6ef"),
+                    Id = new Guid("3b23c2f5-658a-4dc7-90d3-d5349c7cf6ef"),
                     Name = "Gyroboards",
                     Description = "Experience futuristic transportation with Gyroboards." +
                     " Effortlessly glide and maneuver, mastering the art of balance for a fun and efficient way to commute in urban environments.",
@@ -1899,7 +1909,7 @@ namespace Final_project_crud_endpoints.DataBase
                 new Deepcategory
                 {
                     Id = new Guid("0d2689e3-cce8-4ef7-b152-a193594a0e0e"),
-                     Name = "Apple",
+                    Name = "Apple",
                     Description = "Explore the world of innovation with Apple's cutting-edge products." +
                     " From the iconic iPhone series to sleek MacBook laptops and powerful iPads, Apple offers a seamless ecosystem of devices." +
                     " Discover high-quality craftsmanship, stunning displays, and user-friendly interfaces that redefine technology." +
@@ -1921,7 +1931,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"), 
+                    Id = new Guid("1a97e5e2-07b6-4388-bce0-c16c99e3262a"),
                     Name = "MSI",
                     Description = "Elevate your gaming and computing experience with MSI." +
                     " Known for high-performance laptops, motherboards, and graphics cards," +
@@ -1966,7 +1976,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),    
+                    Id = new Guid("ab334357-7842-4f11-82e9-91706f1cd590"),
                     Name = "Asus",
                     Description = "Dive into innovation with ASUS." +
                     " Known for cutting-edge laptops, motherboards," +
@@ -2054,7 +2064,7 @@ namespace Final_project_crud_endpoints.DataBase
                 },
                 new Deepcategory
                 {
-                    Id= new Guid("a039a892-bf21-440b-869f-d8ee4155d18c"),
+                    Id = new Guid("a039a892-bf21-440b-869f-d8ee4155d18c"),
                     Name = "Dell",
                     Description = "Transform your computing experience with Dell." +
                     " From powerful laptops to versatile desktops and premium monitors," +
@@ -2189,11 +2199,14 @@ namespace Final_project_crud_endpoints.DataBase
             #endregion
         }
         public DbSet<RandomPassword> Passwords { get; set; }
-        public DbSet<Product> Products { get; set; }    
+        public DbSet<Product> Products { get; set; }
         public DbSet<Color> Colors { get; set; }
-        public DbSet<Category> Categories { get; set; } 
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Subcategory> Subcategories { get; set; }
-        public DbSet<Deepcategory> Deepcategories { get; set; }    
-        public DbSet<Brand> Brands { get; set; }   
+        public DbSet<Deepcategory> Deepcategories { get; set; }
+        public DbSet<Brand> Brands { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<ActivationToken> ActivationTokens { get; set; }
+        public DbSet<Email> Emails { get; set; } 
     }
 }
