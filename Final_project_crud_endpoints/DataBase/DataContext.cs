@@ -2197,6 +2197,56 @@ namespace Final_project_crud_endpoints.DataBase
                 }
             );
             #endregion
+
+            #region Size seeding...
+
+            modelBuilder.Entity<Size>().HasData
+            (
+                new Size
+                {
+                    Id = new Guid("8bd829a6-34ba-44a7-8b4d-0ad93f90d484"),
+                    Name = "XXS",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Size
+                {
+                    Id = new Guid("eb3f62f7-cc00-4398-8f29-3c517fb1f6c7"),
+                    Name = "XS",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Size
+                {
+                    Id = new Guid("9041cdfa-244d-4f0d-bbd1-704f28c406a2"),
+                    Name = "S",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Size
+                {
+                    Id = new Guid("5b1dfdff-da43-4d89-a7c4-b70ea1059f11"),
+                    Name = "M",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Size
+                { 
+                    Id = new Guid("df31d3cc-7b41-43f0-af17-125cdd195c3f"),
+                    Name="L",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Size
+                {
+                    Id = new Guid("13fd75d0-496f-49cb-bb8c-b7bd75b81d74"),
+                    Name = "XL",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Size
+                {
+                    Id = new Guid("ac49680d-c4d1-49c0-a73c-55fb4eeeec78"),
+                    Name = "XXL",
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                }
+            );
+
+            #endregion
         }
         public DbSet<RandomPassword> Passwords { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -2204,6 +2254,8 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<Category> Categories { get; set; }
         public DbSet<Subcategory> Subcategories { get; set; }
         public DbSet<Deepcategory> Deepcategories { get; set; }
+        public DbSet<Store> Stores { get; set; }    
+        public DbSet<Size> Sizes { get; set; }  
         public DbSet<Brand> Brands { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<ActivationToken> ActivationTokens { get; set; }

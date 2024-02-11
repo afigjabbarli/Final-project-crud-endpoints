@@ -6,6 +6,7 @@ using Final_project_crud_endpoints.DataBase.DTOs.User;
 using Final_project_crud_endpoints.DataBase.Entities.Identity;
 using Final_project_crud_endpoints.Errors;
 using Final_project_crud_endpoints.Services.Abstracts;
+using Final_project_crud_endpoints.Validations;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -18,7 +19,7 @@ namespace Final_project_crud_endpoints.Controllers
 {
     [ApiController]
     [Route("api/v1/users")]
-    public class UserController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly DataContext _data_context;
         private readonly IVerificationService _verification_service;
@@ -26,9 +27,11 @@ namespace Final_project_crud_endpoints.Controllers
         private readonly IActivationService _activation_service;
         private readonly INotificationService _notification_service;
         private readonly IUserService _user_service;
-        public UserController(DataContext data_context, IVerificationService verification_service,
+        private readonly ILogger<AuthController> _logger;
+        public AuthController(DataContext data_context, IVerificationService verification_service,
             IFileService file_service, IActivationService activation_service,
-            INotificationService notification_service, IEmailService email_service, IUserService user_service)
+            INotificationService notification_service, IEmailService email_service,
+            IUserService user_service, ILogger<AuthController> logger)
         {
             _data_context = data_context;
             _verification_service = verification_service;
@@ -36,6 +39,7 @@ namespace Final_project_crud_endpoints.Controllers
             _activation_service = activation_service;
             _notification_service = notification_service;
             _user_service = user_service;
+            _logger = logger;
         }
         [HttpPost("auth/register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -91,7 +95,7 @@ namespace Final_project_crud_endpoints.Controllers
             };
 
             if (DTO.File is not null)
-                user.PhisicalImageURL = await _file_service
+                user.Phisical_image_name = await _file_service
                     .UploadAsync(CustomUploadDirectories.Users, DTO.File, user.User_Code);
 
             using (var transaction = await _data_context.Database.BeginTransactionAsync())
@@ -124,7 +128,7 @@ namespace Final_project_crud_endpoints.Controllers
                         ReferenceHandler = ReferenceHandler.Preserve
                     };
 
-                    var URL = "https://localhost:7069/api/v1/users/details" + user.Id;
+                    var URL = "https://localhost:7069/api/v1/users/details/" + user.Id;
                     return Created(URL, JsonSerializer.Serialize(user, jsonOptions));
                 }
                 catch (Exception ex)
@@ -213,14 +217,14 @@ namespace Final_project_crud_endpoints.Controllers
             if (!string.IsNullOrEmpty(DTO.Email) && !string.IsNullOrEmpty(DTO.Username))
             {
                 ModelState.Clear();
-                ModelState.AddModelError("Login-Error", "Username and email cannot be provided simultaneously!");
+                ModelState.AddModelError("LoginError", "Username and email cannot be provided simultaneously!");
                 return BadRequest(ModelState);
             }
 
             else if (string.IsNullOrEmpty(DTO.Email) && string.IsNullOrEmpty(DTO.Username))
             {
                 ModelState.Clear();
-                ModelState.AddModelError("Login", "Username or email must be provided.");
+                ModelState.AddModelError("LoginError", "Username or email must be provided.");
                 return BadRequest(ModelState);
             }
 
@@ -253,7 +257,7 @@ namespace Final_project_crud_endpoints.Controllers
             if (!user.IsConfirmed)
             {
                 ModelState.Clear();
-                ModelState.AddModelError("Login-Error", "Sorry dear user, your account has not been approved!");
+                ModelState.AddModelError("LoginError", "Sorry dear user, your account has not been approved!");
                 return BadRequest(ModelState);
             }
 
@@ -279,6 +283,275 @@ namespace Final_project_crud_endpoints.Controllers
 
             return NoContent();
         }
+
+        [HttpGet("get-all")]
+        [Produces(type: typeof(List<UserListItemDTO>))]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                var users = await _data_context.Users.Where(u => u.IsConfirmed == true && u.Role == Role.Values.User)
+                   .Select(u => new UserListItemDTO
+                   {
+                       Name = u.Name,
+                       Surname = u.Surname,
+                       PhoneNumber = u.PhoneNumber,
+                       Username = u.Username,
+                       Email = u.Email,
+                       CreatedAt = u.CreatedAt,
+                       LastUpdatedAt = u.LastUpdatedAt,
+                       IsBanned = u.IsBanned,
+                       PhisicalImageURL = _file_service
+                       .ReadStaticFiles(u.User_Code, CustomUploadDirectories.Users, u.Phisical_image_name)
+                   }).OrderBy(u => u.Name).OrderBy(u => u.CreatedAt).ToListAsync();
+
+                return Ok(users);
+
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+        [HttpGet("get/{Id}")]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        [Produces(type: typeof(UserListItemDTO))]
+        public async Task<IActionResult> Get([FromRoute] Guid Id)
+        {
+            try
+            {
+                var user = await _data_context.Users.SingleOrDefaultAsync(u => u.Id.Equals(Id));
+                if (user is null)
+                    return NotFound($"The user with the << {Id} >> number you are looking for does not already exist in the database!");
+
+                var response = new UserListItemDTO
+                {
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    PhoneNumber = user.PhoneNumber,
+                    Username = user.Username,
+                    Email = user.Email,
+                    CreatedAt = user.CreatedAt,
+                    LastUpdatedAt = user.LastUpdatedAt,
+                    IsBanned = user.IsBanned,
+                    PhisicalImageURL = _file_service
+                        .ReadStaticFiles(user.User_Code, CustomUploadDirectories.Users, user.Phisical_image_name)
+                };
+
+                return Ok(response);
+
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+        [HttpDelete("delete/{appPassword}")]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(statusCode: StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> Delete([FromRoute] string appPassword)
+        {
+            try
+            {
+                var user = await _data_context.Users.SingleOrDefaultAsync(u => u.ApplicationPassword.Equals(appPassword));
+                if (user == null) return NotFound($"The user with this <<{appPassword}>> password was not found in the database!");
+
+                if (user.Phisical_image_name is not null)
+                {
+                    _file_service.RemoveStaticFiles(user.User_Code,
+                        CustomUploadDirectories.Users, user.Phisical_image_name);
+                }
+
+                _data_context.Users.Remove(user);
+                await _data_context.SaveChangesAsync();
+                return NoContent();
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+        [HttpPut("update/{appPassword}")]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Update([FromRoute] string appPassword, [FromForm] UserUpdateDTO DTO)
+        {
+            try
+            {
+                var user = await _data_context.Users.SingleOrDefaultAsync(u => u.ApplicationPassword.Equals(appPassword));
+                if (user == null) return NotFound($"The user with this <<{appPassword}>> password was not found in the database!");
+
+                if (!ModelState.IsValid) return BadRequest(ModelState);
+
+                if (DTO.File is not null)
+                {
+                    _file_service.RemoveStaticFiles(user.User_Code, CustomUploadDirectories.Users, user.Phisical_image_name);
+                    await _file_service.UploadAsync(CustomUploadDirectories.Users, DTO.File, user.User_Code);
+
+                }
+                user.Name = DTO.Name;
+                user.Surname = DTO.Surname;
+                user.PhoneNumber = DTO.PhoneNumber;
+                user.LastUpdatedAt = DateTime.UtcNow;
+
+                _data_context.Users.Update(user);
+                await _data_context.SaveChangesAsync();
+
+                return Ok(user);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        [HttpPut("block-account/{Id}")]
+        public async Task<IActionResult> Block([FromRoute] Guid Id)
+        {
+            try
+            {
+                var account = await _data_context.Users.SingleOrDefaultAsync(u => u.Id.Equals(Id));
+                if (account is null) return NotFound($"The user with this <<{Id}>> Id was not found in the database!");
+
+                account.IsBanned = true;
+
+                _data_context.Users.Update(account);
+                await _data_context.SaveChangesAsync();
+
+                return Ok(account);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+        [HttpGet("details/{Id}")]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        [Produces(type: typeof(UserListItemDTO))]
+        public async Task<IActionResult> Details([FromRoute] Guid Id)
+        {
+            try
+            {
+                var user = await _data_context.Users.SingleOrDefaultAsync(u => u.Id.Equals(Id));
+                if (user is null)
+                    return NotFound($"The user with the << {Id} >> Id number you are looking for does not already exist in the database!");
+
+                var response = new UserDetailsDTO
+                {
+                    Name = user.Name,
+                    Surname = user.Surname,
+                    PhoneNumber = user.PhoneNumber,
+                    Username = user.Username,
+                    Password = user.Password,
+                    Email = user.Email,
+                    CreatedAt = user.CreatedAt,
+                    ConfirmedDate = user.ConfirmedDate,
+                    LastUpdatedAt = user.LastUpdatedAt,
+                    ApplicationPassword = user.ApplicationPassword,
+                    IsConfirmed = user.IsConfirmed,
+                    PhisicalImageURL = _file_service
+                        .ReadStaticFiles(user.User_Code, CustomUploadDirectories.Users, user.Phisical_image_name)
+                };
+
+                return Ok(response);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+        [HttpGet("search")]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
+        [Produces(type: typeof(List<UserListItemDTO>))]
+        public async Task<IActionResult> Search([FromQuery(Name = "query")] string query)
+        {
+            if (!CustomValidations.IsValidQueryString(query))
+                return BadRequest("The search query is invalid!");
+
+            var users = await _data_context.Users.ToListAsync();
+
+            if (users.Count == 0)
+                return Ok(new List<UserListItemDTO>());
+
+            var response = users.Where(u => (u.Name + u.Surname)
+            .Contains(query, StringComparison.OrdinalIgnoreCase))
+            .Select(u => new UserListItemDTO
+            {
+
+                Name = u.Name,
+                Surname = u.Surname,
+                PhoneNumber = u.PhoneNumber,
+                Username = u.Username,
+                Email = u.Email,
+                CreatedAt = u.CreatedAt,
+                LastUpdatedAt = u.LastUpdatedAt,
+                IsBanned = u.IsBanned,
+                PhisicalImageURL = _file_service
+                .ReadStaticFiles(u.User_Code, CustomUploadDirectories.Users, u.Phisical_image_name)
+
+            }).ToList();
+
+            return Ok(response);
+        }
+        [HttpGet("get/current-user")]
+        public IActionResult GetCurrentUser()
+        {
+            try
+            {
+                var current_user = _user_service.CurrentUser;
+
+                var isAuthenticated = _user_service.IsCurrentUserAuthenticated();
+
+                if (isAuthenticated is false || current_user is null)
+                {
+                    return BadRequest("The user was not authenticated!");
+                }
+
+                var userDetails = new AuthDetailsDTO
+                {
+                    Id = current_user.Id,
+                    Name = current_user.Name,
+                    Surname = current_user.Surname,
+                    IsAuthenticated = isAuthenticated,
+                    IsBanned = current_user.IsBanned,
+                    Role = current_user.Role.ToString(),
+                };
+
+                return Ok(userDetails);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+      
 
     }
 

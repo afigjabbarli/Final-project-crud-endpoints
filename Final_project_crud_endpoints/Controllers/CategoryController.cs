@@ -1,4 +1,5 @@
-﻿using Final_project_crud_endpoints.DataBase;
+﻿using Final_project_crud_endpoints.Contracts;
+using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Category;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
@@ -145,7 +146,7 @@ namespace Final_project_crud_endpoints.Controllers
             category.Description = DTO.Description;
             category.LastUpdatedAt = DateTime.UtcNow;
             
-            _data_context.Update(category);
+            _data_context.Categories.Update(category);
             await _data_context.SaveChangesAsync();
             return Ok(category);
         }
@@ -173,5 +174,27 @@ namespace Final_project_crud_endpoints.Controllers
 
             return NoContent();
         }
+        //[HttpGet("get-all-categories")]
+        //public async Task<IActionResult> GetAllCategories()
+        //{
+        //    try
+        //    {
+        //        var categories = await _data_context.Subcategories.ToListAsync();
+        //        foreach (var category in categories)
+        //        {
+        //            category.Subcategory_Code = _verification_service.RandomPasswordGenerator(Prefix.SUBCATEGORY);
+        //        }
+
+        //        await _data_context.SaveChangesAsync(); // Tüm kategorileri güncelle
+
+        //        return Ok(categories);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Hata durumunu işle
+        //        return StatusCode(500, "Bir hata oluştu. Kategoriler alınamadı.");
+        //    }
+        //}
+
     }
 }

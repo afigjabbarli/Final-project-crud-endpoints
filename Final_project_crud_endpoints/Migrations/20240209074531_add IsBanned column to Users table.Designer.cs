@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240209074531_add IsBanned column to Users table")]
+    partial class addIsBannedcolumntoUserstable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1462,109 +1464,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Passwords");
-                });
-
-            modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Size", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Sizes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("8bd829a6-34ba-44a7-8b4d-0ad93f90d484"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "XXS"
-                        },
-                        new
-                        {
-                            Id = new Guid("eb3f62f7-cc00-4398-8f29-3c517fb1f6c7"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "XS"
-                        },
-                        new
-                        {
-                            Id = new Guid("9041cdfa-244d-4f0d-bbd1-704f28c406a2"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "S"
-                        },
-                        new
-                        {
-                            Id = new Guid("5b1dfdff-da43-4d89-a7c4-b70ea1059f11"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "M"
-                        },
-                        new
-                        {
-                            Id = new Guid("df31d3cc-7b41-43f0-af17-125cdd195c3f"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "L"
-                        },
-                        new
-                        {
-                            Id = new Guid("13fd75d0-496f-49cb-bb8c-b7bd75b81d74"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "XL"
-                        },
-                        new
-                        {
-                            Id = new Guid("ac49680d-c4d1-49c0-a73c-55fb4eeeec78"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "XXL"
-                        });
-                });
-
-            modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Store", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("LastUpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phisical_image_name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phone_Number")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Store_Code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Stores");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Subcategory", b =>

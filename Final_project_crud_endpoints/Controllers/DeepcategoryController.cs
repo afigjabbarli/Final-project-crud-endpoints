@@ -1,6 +1,7 @@
 ﻿using Final_project_crud_endpoints.Contracts;
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Deepcategory;
+using Final_project_crud_endpoints.DataBase.DTOs.User;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Validations;
@@ -152,7 +153,7 @@ namespace Final_project_crud_endpoints.Controllers
             deepcategory.LastUpdatedAt = DateTime.UtcNow;
             deepcategory.Current_Subcategory_Id = DTO.Current_Subcategory_Id;
 
-            _data_context.Update(deepcategory);
+            _data_context.Deepcategories.Update(deepcategory);
             await _data_context.SaveChangesAsync();
             return Ok(deepcategory);
         }
@@ -191,6 +192,9 @@ namespace Final_project_crud_endpoints.Controllers
             }
 
             var deepcategories = await _data_context.Deepcategories.ToListAsync();
+
+            if (deepcategories.Count == 0)
+                return Ok(new List<DeepcategoryListItemDTO>());
 
             var result = deepcategories.Where(dc => dc.Name
             .Contains(query, StringComparison.OrdinalIgnoreCase))

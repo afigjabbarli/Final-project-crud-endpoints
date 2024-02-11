@@ -1,12 +1,10 @@
 using Final_project_crud_endpoints.DataBase;
-using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Services.Concretes;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
-using Twilio.Base;
 
 namespace Final_project_crud_endpoints
 {
@@ -23,10 +21,10 @@ namespace Final_project_crud_endpoints
            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
            .AddCookie(options =>
            {
-                options.Cookie.Name = "MyCustomCookie";
-                options.LoginPath = "/auth/login";
-                options.LogoutPath = "/auth/logout";
-                options.ExpireTimeSpan = TimeSpan.FromHours(48); 
+               options.Cookie.Name = "MyCustomCookie";
+               options.LoginPath = "/api/v1/users/auth/login";
+               options.LogoutPath = "/api/v1/users/auth/logout";
+               options.ExpireTimeSpan = TimeSpan.FromHours(48);
            });
 
             builder.Services.AddEndpointsApiExplorer();
@@ -42,22 +40,30 @@ namespace Final_project_crud_endpoints
             })
              .AddScoped<IVerificationService, VerificationService>()
              .AddScoped<IFileService, FileService>()
-             .AddScoped<IEmailService, EmailService>()  
+             .AddScoped<IEmailService, EmailService>()
              .AddScoped<ISMSService, SMSService>()
-             .AddScoped<IActivationService, ActivationService>()    
+             .AddScoped<IActivationService, ActivationService>()
              .AddScoped<INotificationService, NotificationService>()
              .AddScoped<IUserService, UserService>()
              .AddHttpContextAccessor()
 
             .AddCors(options =>
             {
-                options.AddPolicy("AllowAll",
+                options.AddPolicy("AllowReactApp",
                     builder =>
                     {
-                        builder.AllowAnyOrigin()
+                        builder.WithOrigins("http://localhost:3000")
                                .AllowAnyMethod()
-                               .AllowAnyHeader();
+                               .AllowAnyHeader()
+                               .AllowCredentials();
                     });
+            });
+
+            builder.Services.Configure<CookiePolicyOptions>(options =>
+            {
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+                options.HttpOnly = HttpOnlyPolicy.Always;
+                options.Secure = CookieSecurePolicy.Always;
             });
 
             builder.Services.Configure<ApiBehaviorOptions>(c =>
@@ -66,7 +72,7 @@ namespace Final_project_crud_endpoints
             });
 
             var app = builder.Build();
-            
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -78,11 +84,9 @@ namespace Final_project_crud_endpoints
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseCors("AllowAll");
+            app.UseCors("AllowReactApp");
 
             app.UseHttpsRedirection();
-
-            app.UseAuthorization();
 
 
             app.MapControllers();

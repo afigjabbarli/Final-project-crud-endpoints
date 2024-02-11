@@ -8,5 +8,6 @@
         public const string CATEGORY = "CTG";
         public const string SUBCATEGORY = "SUB_CTG";
         public const string DEEPCATEGORY = "DEEP_CTG";
+        public const string STORE = "STR";
     }
 }

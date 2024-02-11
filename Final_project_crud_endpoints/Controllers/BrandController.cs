@@ -1,7 +1,6 @@
 ﻿using Final_project_crud_endpoints.Contracts;
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Brand;
-using Final_project_crud_endpoints.DataBase.DTOs.Email;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Validations;
@@ -169,7 +168,7 @@ namespace Final_project_crud_endpoints.Controllers
                 brand.Since = DTO.Since;
                 brand.LastUpdatedAt = DateTime.UtcNow;
 
-                _data_context.Update(brand);
+                _data_context.Brands.Update(brand);
                 await _data_context.SaveChangesAsync();
 
                 return Ok(brand);
@@ -224,6 +223,9 @@ namespace Final_project_crud_endpoints.Controllers
             {
                 var brands = await _data_context.Brands.ToListAsync();
 
+                if (brands.Count == 0)
+                    return Ok(new List<BrandListItemDTO>());
+
                 var responses = brands.Where(br => br.Name.Contains(query, StringComparison.OrdinalIgnoreCase))
                     .Select(br => new BrandListItemDTO
                     {
@@ -247,11 +249,6 @@ namespace Final_project_crud_endpoints.Controllers
                 return StatusCode(500, "An error occurred while processing the request. Please try again later.");
             }
         }
-        [HttpPost]
-        public async Task<IActionResult> Email(string recipient, string subject, string body)
-        {
-            await _email_service.SendEmailAsync(recipient, subject, body);
-            return Ok();
-        }
+
     }
 }

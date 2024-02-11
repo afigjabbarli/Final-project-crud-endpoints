@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240211143130_Add Store table to database")]
+    partial class AddStoretabletodatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1479,7 +1481,7 @@ namespace Final_project_crud_endpoints.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Sizes");
+                    b.ToTable("Size");
 
                     b.HasData(
                         new
@@ -1524,47 +1526,6 @@ namespace Final_project_crud_endpoints.Migrations
                             CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
                             Name = "XXL"
                         });
-                });
-
-            modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Store", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<DateTime>("LastUpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phisical_image_name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Phone_Number")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("State")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Store_Code")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Stores");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Subcategory", b =>

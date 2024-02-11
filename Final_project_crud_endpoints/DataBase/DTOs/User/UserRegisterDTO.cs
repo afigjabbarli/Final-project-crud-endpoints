@@ -21,7 +21,7 @@ namespace Final_project_crud_endpoints.DataBase.DTOs.User
         public string Username { get; set; } = string.Empty;
         [Required(ErrorMessage = "Email field cannot be left blank! Please fill in the relevant field...")]
         [EmailAddress(ErrorMessage = "Invalid email format! Please enter a valid email address...")]
-        [RegularExpression(pattern: @"^[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]{1,255}\.[a-zA-Z]{2,}$", ErrorMessage = "Invalid email format! Please enter a valid email address...")]
+        [RegularExpression(pattern: @"^[a-zA-Z0-9._%+-]{1,64}@[a-zA-Z0-9.-]{1,255}\.[a-zA-Z]{2,}$", ErrorMessage = "The entered value does not match the format! Please enter a valid email address...")]
         public string Email { get; set; } = string.Empty;
         [Required(ErrorMessage = "Password field cannot be left blank! Please fill in the relevant field...")]
         [StringLength(16, MinimumLength = 10, ErrorMessage = "Password length must be minimum 10 characters and maximum 16 characters!")]
@@ -33,7 +33,7 @@ namespace Final_project_crud_endpoints.DataBase.DTOs.User
         [RegularExpression(pattern: @"^[a-zA-Z0-9]+$", ErrorMessage = "The entered confirm password must consist of only uppercase, lowercase letters and numbers!")]
         public string ConfirmPassword { get; set; } = string.Empty;
         [Required(ErrorMessage = "Phone number field cannot be left blank! Please fill in the relevant field...")]
-        [RegularExpression(@"^\+[1-9]\d{1,14}$", ErrorMessage = "Invalid phone number format! Please enter a valid phone number...")]
+        [RegularExpression(@"^\+[1-9]\d{1,14}$", ErrorMessage = "The entered value does not match the format! Please enter a valid phone number...")]
         [StringLength(20, ErrorMessage = "Phone number must be at most 20 characters long!")]
         [Phone(ErrorMessage = "Invalid phone number format! Please enter a valid phone number...")]
         public string PhoneNumber { get; set; } = string.Empty;

@@ -1,6 +1,7 @@
 ﻿using Final_project_crud_endpoints.Contracts;
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Subcategory;
+using Final_project_crud_endpoints.DataBase.DTOs.User;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Validations;
@@ -149,7 +150,7 @@ namespace Final_project_crud_endpoints.Controllers
             subcategory.LastUpdatedAt = DateTime.UtcNow;
             subcategory.Current_Category_Id = DTO.Current_Category_Id;
 
-            _data_context.Update(subcategory);
+            _data_context.Subcategories.Update(subcategory);
             await _data_context.SaveChangesAsync();
             return Ok(subcategory);
         }
@@ -186,6 +187,9 @@ namespace Final_project_crud_endpoints.Controllers
             }
 
             var subcategories = await _data_context.Subcategories.ToListAsync();
+
+            if (subcategories.Count == 0)
+                return Ok(new List<SubcategoryListItemDTO>());
 
             var result = subcategories.Where(sc => sc.Name
             .Contains(query, StringComparison.OrdinalIgnoreCase))
