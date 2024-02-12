@@ -12,26 +12,110 @@ namespace Final_project_crud_endpoints.DataBase
         {
             base.OnModelCreating(modelBuilder);
 
+            //One to many relationship between sategory and subcategory
 
             modelBuilder.Entity<Subcategory>()
                 .HasOne<Category>(sc => sc.Category)
                 .WithMany(c => c.Subcategories)
                 .HasForeignKey(sc => sc.Current_Category_Id);
 
+            //One to many relationship between sategory and subcategory
+
+            //One to many relationship between user and email
+
             modelBuilder.Entity<Email>()
                .HasOne<User>(e => e.User)
                .WithMany(u => u.Emails)
                .HasForeignKey(e => e.UserId);
+
+            //One to many relationship between user and email
+
+            //One to many relationship between subcategory and deepcategory
 
             modelBuilder.Entity<Deepcategory>()
                 .HasOne<Subcategory>(dc => dc.Subcategory)
                 .WithMany(sc => sc.Deepcategories)
                 .HasForeignKey(dc => dc.Current_Subcategory_Id);
 
+            //One to many relationship between subcategory and deepcategory
+
+            //One to one relationship between user and activation token
+
             modelBuilder.Entity<User>()
                 .HasOne<ActivationToken>(u => u.ActivationToken)
                 .WithOne(act => act.User)
                 .HasForeignKey<ActivationToken>(act => act.UserId);
+
+            //One to one relationship between user and activation token
+
+            //One to many relationship between deepcategory and product
+
+            modelBuilder.Entity<Product>()
+                .HasOne<Deepcategory>(p => p.Deepcategory)
+                .WithMany(dc => dc.Products)
+                .HasForeignKey(p => p.Current_Deepcategory_Id);
+
+            //One to many relationship between deepcategory and product
+
+            //One to many relationship between brand and product
+
+            modelBuilder.Entity<Product>()
+                .HasOne<Brand>(p => p.Brand)
+                .WithMany(br => br.Products)
+                .HasForeignKey(p => p.Current_Brand_Id);
+
+            //One to many relationship between brand and product
+
+            //Many to many relationship between store and product
+
+            modelBuilder.Entity<ProductStore>().HasKey(ps => new { ps.Product_Id, ps.Store_Id });
+
+            modelBuilder.Entity<ProductStore>()
+                .HasOne<Product>(ps => ps.Product)
+                .WithMany(p => p.ProductStores)
+                .HasForeignKey(ps => ps.Product_Id);
+
+
+            modelBuilder.Entity<ProductStore>()
+                .HasOne<Store>(ps => ps.Store)
+                .WithMany(s => s.ProductStores)
+                .HasForeignKey(ps => ps.Store_Id);
+
+            //Many to many relationship between store and product
+
+            //Many to many relationship between size and product
+
+            modelBuilder.Entity<ProductSize>().HasKey(ps => new { ps.Product_Id, ps.Size_Id });
+
+            modelBuilder.Entity<ProductSize>()
+                .HasOne<Product>(ps => ps.Product)
+                .WithMany(p => p.ProductSizes)
+                .HasForeignKey(ps => ps.Product_Id);
+
+
+            modelBuilder.Entity<ProductSize>()
+                .HasOne<Size>(ps => ps.Size)
+                .WithMany(s => s.ProductSizes)
+                .HasForeignKey(ps => ps.Size_Id);
+
+            //Many to many relationship between size and product
+
+            //Many to many relationship between color and product
+
+            modelBuilder.Entity<ProductColor>().HasKey(pc => new { pc.Product_Id, pc.Color_Id });
+
+            modelBuilder.Entity<ProductColor>()
+                .HasOne<Product>(pc => pc.Product)
+                .WithMany(p => p.ProductColors)
+                .HasForeignKey(pc => pc.Product_Id);
+
+            modelBuilder.Entity<ProductColor>()
+                .HasOne<Color>(pc => pc.Color)
+                .WithMany(c => c.ProductColors)
+                .HasForeignKey(pc => pc.Color_Id);
+
+            //Many to many relationship between color and product
+
 
             #region Category seeding...
             modelBuilder.Entity<Category>().HasData

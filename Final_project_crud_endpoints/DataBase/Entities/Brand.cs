@@ -12,5 +12,6 @@ namespace Final_project_crud_endpoints.DataBase.Entities
         public string Location { get; set; } = string.Empty;    
         public DateTime CreatedAt { get; set; }
         public DateTime LastUpdatedAt { get; set; }
+        public List<Product> Products { get; set; } 
     }
 }

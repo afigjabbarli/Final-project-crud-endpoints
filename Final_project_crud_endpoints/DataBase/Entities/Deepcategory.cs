@@ -12,5 +12,6 @@ namespace Final_project_crud_endpoints.DataBase.Entities
         public DateTime LastUpdatedAt { get; set; }
         public Guid Current_Subcategory_Id { get; set; }
         public Subcategory Subcategory { get; set; }    
+        public List<Product> Products { get; set; } 
     }
 }

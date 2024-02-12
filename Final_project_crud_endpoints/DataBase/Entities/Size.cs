@@ -6,5 +6,6 @@ namespace Final_project_crud_endpoints.DataBase.Entities
     {
         public string Name { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; }
+        public List<ProductSize> ProductSizes { get; set; } 
     }
 }
