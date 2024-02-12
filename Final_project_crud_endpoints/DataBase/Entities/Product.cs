@@ -45,7 +45,7 @@ namespace Final_project_crud_endpoints.DataBase.Entities
             get { return _offer; }
             private set { }
         }
-
+        public DateTime ManufacturedAt { get; set; }    
         public DateTime CreatedAt { get; set; }
         public DateTime LastUpdatedAt { get; set; }
 
@@ -57,5 +57,6 @@ namespace Final_project_crud_endpoints.DataBase.Entities
         public List<ProductStore> ProductStores { get; set; }
         public List<ProductSize> ProductSizes { get; set; }
         public List<ProductColor> ProductColors { get; set; }
+        public List<ProductWarranty> ProductWarranties { get; set; }
     }
 }

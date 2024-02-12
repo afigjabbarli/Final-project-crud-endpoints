@@ -116,6 +116,21 @@ namespace Final_project_crud_endpoints.DataBase
 
             //Many to many relationship between color and product
 
+            //Many to many relationship between warranty and product
+
+            modelBuilder.Entity<ProductWarranty>().HasKey(pw => new { pw.Product_Id, pw.Warranty_Id });
+
+            modelBuilder.Entity<ProductWarranty>()
+                .HasOne<Product>(pw => pw.Product)  
+                .WithMany(p => p.ProductWarranties)
+                .HasForeignKey(pw => pw.Product_Id);
+
+            modelBuilder.Entity<ProductWarranty>()
+                .HasOne<Warranty>(pw => pw.Warranty)
+                .WithMany(w => w.ProductWarranties)
+                .HasForeignKey(pw => pw.Warranty_Id);
+
+            //Many to many relationship between warranty and product
 
             #region Category seeding...
             modelBuilder.Entity<Category>().HasData
@@ -2331,6 +2346,64 @@ namespace Final_project_crud_endpoints.DataBase
             );
 
             #endregion
+
+            #region Warranty seeding...
+
+            modelBuilder.Entity<Warranty>().HasData
+            (
+                new Warranty
+                {
+                    Id = new Guid("da9360f7-4c2d-495a-b8d1-514f700000a9"),
+                    Name = "Manufacturer's Warranty",
+                    Description = "Provided by the manufacturer or brand, this type of warranty typically covers the product against specific defects for a certain period." +
+                    " In case of product failure, the manufacturer warranty may offer free repair or replacement service.",
+                    ExpireYear = 1,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Warranty
+                {
+                    Id = new Guid("a23d7953-d26c-445a-a094-9dfb4803db32"),
+                    Name = "Seller's Warranty",
+                    Description = " Offered by the seller, this type of warranty assures protection against specific defects for a certain duration." +
+                    " Also known as a store warranty, it remains valid regardless of where the product was purchased.",
+                    ExpireYear = 1,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Warranty
+                {
+                    Id = new Guid("2bc1d548-e721-4c4a-a866-607b1697f792"),
+                    Name = "Extended Warranty",
+                    Description = "Some sellers or manufacturers may offer extended warranty options, extending the standard warranty period." +
+                    " This provides additional protection after the expiration of the standard warranty period, usually for an extra fee.",
+                    ExpireYear = 2,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Warranty
+                {
+                    Id = new Guid("befd7bb6-29aa-46c0-b5dd-3047456eafa5"),
+                    Name = "Statutory Warranty",
+                    Description = "A statutory warranty is based on laws that dictate certain standards a product must meet for a specific period." +
+                    " It's intended to protect consumer rights and is generally valid throughout the expected lifespan of the product.",
+                    ExpireYear = 2,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Warranty
+                {
+                    Id = new Guid("aee92391-3cbf-41f3-9d9d-95fee80b0c6d"),
+                    Name = "Parts Warranty",
+                    Description = "This type of warranty covers specific parts of a product." +
+                    " For example, separate warranties might be provided for certain parts of a car, such as the engine or transmission.",
+                    ExpireYear = 2,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                }
+            );
+
+            #endregion
         }
         public DbSet<RandomPassword> Passwords { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -2344,5 +2417,10 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<User> Users { get; set; }
         public DbSet<ActivationToken> ActivationTokens { get; set; }
         public DbSet<Email> Emails { get; set; } 
+        public DbSet<Warranty> Warranties { get; set; }
+        public DbSet<ProductWarranty> ProductWarranties { get; set; }   
+        public DbSet<ProductColor> ProductColors { get; set; }  
+        public DbSet<ProductSize> ProductSizes { get; set; }    
+        public DbSet<ProductStore> ProductStores { get; set; }  
     }
 }

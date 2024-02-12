@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240212182210_Add warranty table to database and established many to many relationship between warranty and product table")]
+    partial class Addwarrantytabletodatabaseandestablishedmanytomanyrelationshipbetweenwarrantyandproducttable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1474,7 +1476,7 @@ namespace Final_project_crud_endpoints.Migrations
 
                     b.HasIndex("Color_Id");
 
-                    b.ToTable("ProductColors");
+                    b.ToTable("ProductColor");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.ProductSize", b =>
@@ -1489,7 +1491,7 @@ namespace Final_project_crud_endpoints.Migrations
 
                     b.HasIndex("Size_Id");
 
-                    b.ToTable("ProductSizes");
+                    b.ToTable("ProductSize");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.ProductStore", b =>
@@ -1504,7 +1506,7 @@ namespace Final_project_crud_endpoints.Migrations
 
                     b.HasIndex("Store_Id");
 
-                    b.ToTable("ProductStores");
+                    b.ToTable("ProductStore");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.ProductWarranty", b =>
@@ -1519,7 +1521,7 @@ namespace Final_project_crud_endpoints.Migrations
 
                     b.HasIndex("Warranty_Id");
 
-                    b.ToTable("ProductWarranties");
+                    b.ToTable("ProductWarranty");
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.RandomPassword", b =>
@@ -2674,53 +2676,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Warranties");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("da9360f7-4c2d-495a-b8d1-514f700000a9"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Provided by the manufacturer or brand, this type of warranty typically covers the product against specific defects for a certain period. In case of product failure, the manufacturer warranty may offer free repair or replacement service.",
-                            ExpireYear = 1,
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Manufacturer's Warranty"
-                        },
-                        new
-                        {
-                            Id = new Guid("a23d7953-d26c-445a-a094-9dfb4803db32"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = " Offered by the seller, this type of warranty assures protection against specific defects for a certain duration. Also known as a store warranty, it remains valid regardless of where the product was purchased.",
-                            ExpireYear = 1,
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Seller's Warranty"
-                        },
-                        new
-                        {
-                            Id = new Guid("2bc1d548-e721-4c4a-a866-607b1697f792"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Some sellers or manufacturers may offer extended warranty options, extending the standard warranty period. This provides additional protection after the expiration of the standard warranty period, usually for an extra fee.",
-                            ExpireYear = 2,
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Extended Warranty"
-                        },
-                        new
-                        {
-                            Id = new Guid("befd7bb6-29aa-46c0-b5dd-3047456eafa5"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "A statutory warranty is based on laws that dictate certain standards a product must meet for a specific period. It's intended to protect consumer rights and is generally valid throughout the expected lifespan of the product.",
-                            ExpireYear = 2,
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Statutory Warranty"
-                        },
-                        new
-                        {
-                            Id = new Guid("aee92391-3cbf-41f3-9d9d-95fee80b0c6d"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "This type of warranty covers specific parts of a product. For example, separate warranties might be provided for certain parts of a car, such as the engine or transmission.",
-                            ExpireYear = 2,
-                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Name = "Parts Warranty"
-                        });
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Deepcategory", b =>
