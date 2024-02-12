@@ -187,7 +187,7 @@ namespace Final_project_crud_endpoints.Controllers
         {
             try
             {
-                var brand = await _data_context.Brands.SingleOrDefaultAsync(br => br.Equals(Id));
+                var brand = await _data_context.Brands.SingleOrDefaultAsync(br => br.Id.Equals(Id));
                 if (brand is null)
                     return NotFound($"The brand with this <<{Id}>> number was not found in the database!");
 
