@@ -2,7 +2,6 @@
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Product;
 using Final_project_crud_endpoints.DataBase.Entities;
-using Final_project_crud_endpoints.Migrations;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -495,7 +494,7 @@ namespace Final_project_crud_endpoints.Controllers
                 if (product is null)
                     return NotFound($"The product with the << {Id} >> number you are looking for does not already exist in the database!");
 
-                if(product.Phisical_image_names.Count > 0)
+                if (product.Phisical_image_names.Count > 0)
                 {
                     _file_service
                        .RemoveStaticFiles(product.Product_Code, CustomUploadDirectories.Products, product.Phisical_image_names);
@@ -503,30 +502,30 @@ namespace Final_project_crud_endpoints.Controllers
 
                 var removeableProductColors = await _data_context.ProductColors
                     .Where(pc => pc.Product_Id.Equals(product.Id)).ToListAsync();
-                if(removeableProductColors.Count > 0)
+                if (removeableProductColors.Count > 0)
                 {
                     _data_context.ProductColors.RemoveRange(removeableProductColors);
                 }
 
                 var removeableProductSizes = await _data_context.ProductSizes
                     .Where(ps => ps.Product_Id.Equals(product.Id)).ToListAsync();
-                if(removeableProductSizes.Count > 0)
+                if (removeableProductSizes.Count > 0)
                 {
                     _data_context.ProductSizes.RemoveRange(removeableProductSizes);
                 }
 
                 var removeableProductStores = await _data_context.ProductStores
                     .Where(ps => ps.Product_Id.Equals(product.Id)).ToListAsync();
-                if(removeableProductStores.Count > 0)
+                if (removeableProductStores.Count > 0)
                 {
                     _data_context.ProductStores.RemoveRange(removeableProductStores);
                 }
 
                 var removeableProductWarranties = await _data_context.ProductWarranties
                     .Where(pw => pw.Product_Id.Equals(product.Id)).ToListAsync();
-                if(removeableProductWarranties.Count > 0)
+                if (removeableProductWarranties.Count > 0)
                 {
-                    _data_context.ProductWarranties.RemoveRange(removeableProductWarranties);   
+                    _data_context.ProductWarranties.RemoveRange(removeableProductWarranties);
                 }
 
                 _data_context.Products.Remove(product);
