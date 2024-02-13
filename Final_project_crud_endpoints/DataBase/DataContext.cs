@@ -2400,6 +2400,26 @@ namespace Final_project_crud_endpoints.DataBase
                     ExpireYear = 2,
                     CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Warranty
+                {
+                    Id = new Guid("00f0c335-f171-49b1-85c2-b506f51f4919"),
+                    Name = "Gold Warranty",
+                    Description = "This type of warranty covers specific parts of a product." +
+                    " For example, separate warranties might be provided for certain parts of a car, such as the engine or transmission.",
+                    ExpireYear = 5,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
+                },
+                new Warranty
+                {
+                    Id = new Guid("29b6f35a-db7c-43f6-bb3b-5d0a2bd794d6"),
+                    Name = "V.I.P Warranty",
+                    Description = "This type of warranty covers specific parts of a product." +
+                    " For example, separate warranties might be provided for certain parts of a car, such as the engine or transmission.",
+                    ExpireYear = 5,
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 }
             );
 
