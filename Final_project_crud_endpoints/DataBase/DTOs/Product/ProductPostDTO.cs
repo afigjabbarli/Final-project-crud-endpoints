@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Final_project_crud_endpoints.Validations;
 using System.ComponentModel.DataAnnotations;
-using Final_project_crud_endpoints.Validations;
-using Microsoft.AspNetCore.Http;
 
 public class ProductPostDTO
 {
@@ -11,7 +8,7 @@ public class ProductPostDTO
     [RegularExpression(pattern: @"^[a-zA-Z0-9\s\""'\-+\*,()]*$", ErrorMessage = "The product name contains invalid characters. Please use only letters, numbers, and the following special characters: ")]
     [StringLength(50, MinimumLength = 5, ErrorMessage = "Product name must be between 5 and 50 characters!")]
     public string Name { get; set; } = string.Empty;
-    [Display(Name = "Description")]  
+    [Display(Name = "Description")]
     [Required(ErrorMessage = "Product description is required!")]
     [RegularExpression(pattern: @"^[a-zA-Z0-9\s\""'\-+\*,()]*$", ErrorMessage = "The entered product description must consist of only uppercase, lowercase letters, numbers and special characters!")]
     [StringLength(360, MinimumLength = 60, ErrorMessage = "Product description must be between 60 and 360 characters!")]
@@ -26,14 +23,14 @@ public class ProductPostDTO
     [MaxFileSize(5 * 1024 * 1024, ErrorMessage = "Each file must be no larger than 5MB.")]
     [AllowedExtensions(new string[] { ".jpg", ".jpeg", ".png", ".gif" }, ErrorMessage = "Only image files are supported.")]
     public IFormFileCollection Files { get; set; }
-    [Display(Name= "Quantity")]
+    [Display(Name = "Quantity")]
     [Required(ErrorMessage = "Product quantity is required.")]
     [Range(5, int.MaxValue, ErrorMessage = "Quantity must be at least 5.")]
     public int Quantity { get; set; }
     [Display(Name = "Discount")]
     [Range(0, 100, ErrorMessage = "Discount must be between 0 and 100.")]
     public int Discount { get; set; }
-    [Display(Name= "Manufacturing date")]
+    [Display(Name = "Manufacturing date")]
     [Required(ErrorMessage = "Manufacturing date is required.")]
     [DataType(DataType.Date, ErrorMessage = "Invalid date format.")]
     [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

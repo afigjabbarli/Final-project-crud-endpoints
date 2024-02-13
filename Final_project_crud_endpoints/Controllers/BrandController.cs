@@ -195,9 +195,10 @@ namespace Final_project_crud_endpoints.Controllers
                 {
                     _file_service.RemoveStaticFiles(brand.Brand_Code, CustomUploadDirectories.Brands, brand.Phisical_Logo_Name);
 
-                    _data_context.Brands.Remove(brand);
-                    await _data_context.SaveChangesAsync();
                 }
+
+                _data_context.Brands.Remove(brand);
+                await _data_context.SaveChangesAsync();
 
                 return NoContent();
             }

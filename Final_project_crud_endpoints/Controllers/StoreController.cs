@@ -196,9 +196,15 @@ namespace Final_project_crud_endpoints.Controllers
                     _file_service
                         .RemoveStaticFiles(store.Store_Code, CustomUploadDirectories.Stores, store.Phisical_image_name);
 
-                    _data_context.Stores.Remove(store);
-                    await _data_context.SaveChangesAsync();
                 }
+
+                var productStores = await _data_context.ProductStores
+                    .Where(ps => ps.Store_Id.Equals(store.Id)).ToListAsync();
+
+                _data_context.ProductStores.RemoveRange(productStores);
+                _data_context.Stores.Remove(store);
+                await _data_context.SaveChangesAsync();
+
                 return NoContent();
             }
             catch (Exception exception)
