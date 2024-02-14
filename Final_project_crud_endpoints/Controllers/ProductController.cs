@@ -3,6 +3,7 @@ using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Product;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Services.Abstracts;
+using Final_project_crud_endpoints.Validations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
@@ -532,6 +533,79 @@ namespace Final_project_crud_endpoints.Controllers
                 await _data_context.SaveChangesAsync();
 
                 return NoContent(); //Daha sonra bura qayit mutleq burda bezi ishler qalib...
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+        }
+
+        [HttpGet("search")]
+        [Produces(type: typeof(List<ProductListItemDTO>))]
+        [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Search([FromQuery(Name = "query")] string query)
+        {
+            try
+            {
+                if (!CustomValidations.IsValidQueryString(query))
+                {
+                    return BadRequest("The search query is invalid!");
+                }
+
+                var products = await _data_context.Products.ToListAsync();
+
+                if (products.Count == 0)
+                {
+                    return Ok(new List<ProductListItemDTO>());
+                }
+
+                var response = products
+                    .Where(pr => pr.Name.Contains(query, StringComparison.OrdinalIgnoreCase))
+                    .Select(pr => new ProductListItemDTO
+                    {
+                        Id = pr.Id,
+                        Name = pr.Name,
+                        Description = pr.Description,
+                        Price = pr.Price,
+                        Product_Code = pr.Product_Code,
+                        Quantity = pr.Quantity,
+                        IsAvailable = pr.IsAvailable,
+                        Discount = pr.Discount,
+                        IsOffer = pr.IsOffer,
+                        ManufacturedAt = pr.ManufacturedAt,
+                        CreatedAt = pr.CreatedAt,
+                        LastUpdatedAt = pr.LastUpdatedAt,
+                        Phisical_image_URLs = _file_service
+                         .ReadStaticFiles(pr.Product_Code, CustomUploadDirectories.Products, pr.Phisical_image_names),
+
+                        Current_Deepcategory = _data_context.Deepcategories
+                        .SingleOrDefault(dp => dp.Id.Equals(pr.Current_Deepcategory_Id))!,
+
+                        Current_Brand = _data_context.Brands
+                        .SingleOrDefault(br => br.Id.Equals(pr.Current_Brand_Id))!,
+
+                        Colors = _data_context.ProductColors
+                        .Where(pc => pc.Product_Id.Equals(pr.Id))
+                        .Select(pc => pc.Color).ToList(),
+
+                        Sizes = _data_context.ProductSizes
+                        .Where(ps => ps.Product_Id.Equals(pr.Id))
+                        .Select(ps => ps.Size).ToList(),
+
+                        Stores = _data_context.ProductStores
+                        .Where(ps => ps.Product_Id.Equals(pr.Id))
+                        .Select(ps => ps.Store).ToList(),
+
+                        Warranties = _data_context.ProductWarranties
+                        .Where(pw => pw.Product_Id.Equals(pr.Id))
+                        .Select(pw => pw.Warranty).ToList(),
+                    }).ToList();
+
+                return Ok(response);
             }
             catch (Exception exception)
             {
