@@ -8,6 +8,6 @@
         Subcategories = 3,
         Deepcategories = 4,
         Users = 5,
-        Stores = 6
+        ProductStores = 6
     }
 }

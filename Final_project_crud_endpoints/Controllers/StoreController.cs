@@ -54,7 +54,7 @@ namespace Final_project_crud_endpoints.Controllers
             if (DTO.File is not null)
             {
                 store.Phisical_image_name = await _file_service
-                    .UploadAsync(CustomUploadDirectories.Stores, DTO.File, store.Store_Code);
+                    .UploadAsync(CustomUploadDirectories.ProductStores, DTO.File, store.Store_Code);
             }
 
             try
@@ -91,7 +91,7 @@ namespace Final_project_crud_endpoints.Controllers
                     CreatedAt = s.CreatedAt,
                     LastUpdatedAt = s.LastUpdatedAt,
                     Phone_Number = s.Phone_Number,
-                    Phisical_image_URL = _file_service.ReadStaticFiles(s.Store_Code, CustomUploadDirectories.Stores, s.Phisical_image_name)
+                    Phisical_image_URL = _file_service.ReadStaticFiles(s.Store_Code, CustomUploadDirectories.ProductStores, s.Phisical_image_name)
                 }).ToListAsync();
 
                 return Ok(response);
@@ -124,7 +124,7 @@ namespace Final_project_crud_endpoints.Controllers
                     CreatedAt = store.CreatedAt,
                     LastUpdatedAt = store.LastUpdatedAt,
                     Phone_Number = store.Phone_Number,
-                    Phisical_image_URL = _file_service.ReadStaticFiles(store.Store_Code, CustomUploadDirectories.Stores, store.Phisical_image_name)
+                    Phisical_image_URL = _file_service.ReadStaticFiles(store.Store_Code, CustomUploadDirectories.ProductStores, store.Phisical_image_name)
                 };
 
                 return Ok(response);
@@ -158,9 +158,9 @@ namespace Final_project_crud_endpoints.Controllers
                 if (DTO.File is not null)
                 {
                     _file_service
-                        .RemoveStaticFiles(store.Store_Code, CustomUploadDirectories.Stores, store.Phisical_image_name);
+                        .RemoveStaticFiles(store.Store_Code, CustomUploadDirectories.ProductStores, store.Phisical_image_name);
                     store.Phisical_image_name = await _file_service
-                        .UploadAsync(CustomUploadDirectories.Stores, DTO.File, store.Store_Code);
+                        .UploadAsync(CustomUploadDirectories.ProductStores, DTO.File, store.Store_Code);
                 }
 
                 store.Name = DTO.Name;
@@ -194,7 +194,7 @@ namespace Final_project_crud_endpoints.Controllers
                 if (store.Phisical_image_name is not null)
                 {
                     _file_service
-                        .RemoveStaticFiles(store.Store_Code, CustomUploadDirectories.Stores, store.Phisical_image_name);
+                        .RemoveStaticFiles(store.Store_Code, CustomUploadDirectories.ProductStores, store.Phisical_image_name);
 
                 }
 
@@ -240,7 +240,7 @@ namespace Final_project_crud_endpoints.Controllers
                         CreatedAt = s.CreatedAt,
                         LastUpdatedAt = s.LastUpdatedAt,
                         Phone_Number = s.Phone_Number,
-                        Phisical_image_URL = _file_service.ReadStaticFiles(s.Store_Code, CustomUploadDirectories.Stores, s.Phisical_image_name)
+                        Phisical_image_URL = _file_service.ReadStaticFiles(s.Store_Code, CustomUploadDirectories.ProductStores, s.Phisical_image_name)
                     }).ToList();  
 
                 return Ok(response);

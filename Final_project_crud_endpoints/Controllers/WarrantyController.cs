@@ -163,6 +163,11 @@ namespace Final_project_crud_endpoints.Controllers
                 if(warranty is null)
                     return NotFound($"The warranty with the << {Id} >> number you are looking for does not already exist in the database!");
 
+                var productWarranties = await _data_context.ProductWarranties
+                    .Where(pw => pw.Warranty_Id.Equals(warranty.Id)).ToListAsync();
+
+                _data_context.ProductWarranties.RemoveRange(productWarranties);
+
                 _data_context.Warranties.Remove(warranty);
                 await _data_context.SaveChangesAsync();
 
