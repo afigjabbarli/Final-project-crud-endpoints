@@ -2281,8 +2281,8 @@ namespace Final_project_crud_endpoints.DataBase
                 new Color
                 {
                     Id = new Guid("9a305d7f-5c8f-4fe1-9c0d-d8a8eb4a17c3"),
-                    Color_Code = "#ffe4c4",
-                    Name = "bisque",
+                    Color_Code = "#5f9ea0",
+                    Name = "cadetblue",
                     CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
                     LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc)
                 },

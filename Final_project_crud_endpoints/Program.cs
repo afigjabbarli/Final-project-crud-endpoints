@@ -17,6 +17,8 @@ namespace Final_project_crud_endpoints
 
             builder.Services.AddControllers();
 
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
             builder.Services
            .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
            .AddCookie(options =>

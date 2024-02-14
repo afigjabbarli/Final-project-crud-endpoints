@@ -5,12 +5,12 @@ public class ProductPostDTO
 {
     [Display(Name = "Name")]
     [Required(ErrorMessage = "Product name is required!")]
-    [RegularExpression(pattern: @"^[a-zA-Z0-9\s\""'\-+\*,()]*$", ErrorMessage = "The product name contains invalid characters. Please use only letters, numbers, and the following special characters: ")]
+    [RegularExpression(pattern: @"^[a-zA-Z0-9\s\""'\-+\*,.()]*$", ErrorMessage = "The product name contains invalid characters. Please use only letters, numbers, and the following special characters: ")]
     [StringLength(50, MinimumLength = 5, ErrorMessage = "Product name must be between 5 and 50 characters!")]
     public string Name { get; set; } = string.Empty;
     [Display(Name = "Description")]
     [Required(ErrorMessage = "Product description is required!")]
-    [RegularExpression(pattern: @"^[a-zA-Z0-9\s\""'\-+\*,()]*$", ErrorMessage = "The entered product description must consist of only uppercase, lowercase letters, numbers and special characters!")]
+    [RegularExpression(pattern: @"^[a-zA-Z0-9\s\""'\-+\*,.()]*$", ErrorMessage = "The entered product description must consist of only uppercase, lowercase letters, numbers and special characters!")]
     [StringLength(360, MinimumLength = 60, ErrorMessage = "Product description must be between 60 and 360 characters!")]
     public string Description { get; set; } = string.Empty;
     [Display(Name = "Price")]

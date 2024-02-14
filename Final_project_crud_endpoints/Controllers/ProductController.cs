@@ -275,7 +275,9 @@ namespace Final_project_crud_endpoints.Controllers
                     .Select(pw => pw.Warranty).ToListAsync(),
                 };
 
-                return Ok(response);
+                var jsonOptions = new JsonSerializerOptions { ReferenceHandler = ReferenceHandler.Preserve };
+
+                return Ok(JsonSerializer.Serialize(response, jsonOptions));
 
             }
             catch (Exception exception)
@@ -426,7 +428,7 @@ namespace Final_project_crud_endpoints.Controllers
                                 Store_Id = storeId
                             };
 
-                            await _data_context.AddAsync(productStore);
+                            await _data_context.ProductStores.AddAsync(productStore);
                         }
 
                         else
@@ -605,7 +607,12 @@ namespace Final_project_crud_endpoints.Controllers
                         .Select(pw => pw.Warranty).ToList(),
                     }).ToList();
 
-                return Ok(response);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                return Ok(JsonSerializer.Serialize(response, jsonOptions));
             }
             catch (Exception exception)
             {
