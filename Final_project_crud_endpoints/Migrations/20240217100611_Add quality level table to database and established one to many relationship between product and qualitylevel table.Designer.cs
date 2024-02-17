@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240217100611_Add quality level table to database and established one to many relationship between product and qualitylevel table")]
+    partial class Addqualityleveltabletodatabaseandestablishedonetomanyrelationshipbetweenproductandqualityleveltable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1533,9 +1535,6 @@ namespace Final_project_crud_endpoints.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uuid");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("timestamp without time zone");
-
                     b.Property<string>("Level")
                         .IsRequired()
                         .HasColumnType("text");
@@ -1543,50 +1542,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("QualityLevels");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("9b7aaf5b-785f-4f0b-9477-fefbffba1d94"),
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "NOVICE"
-                        },
-                        new
-                        {
-                            Id = new Guid("af52d28e-a9b3-4537-b46e-640cc66bc637"),
-                            CreatedAt = new DateTime(2018, 2, 14, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "ECONOMY"
-                        },
-                        new
-                        {
-                            Id = new Guid("49ae595c-37be-47e8-ba8f-9fb78354b4ae"),
-                            CreatedAt = new DateTime(2019, 12, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "ESSENTIAL"
-                        },
-                        new
-                        {
-                            Id = new Guid("f33ca602-3d70-4840-830d-91616e20e28a"),
-                            CreatedAt = new DateTime(2020, 4, 7, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "STANDARD"
-                        },
-                        new
-                        {
-                            Id = new Guid("2b15840b-5559-40b1-b234-f5bdd36bcc58"),
-                            CreatedAt = new DateTime(2021, 9, 25, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "PREMIUM"
-                        },
-                        new
-                        {
-                            Id = new Guid("71224665-b59d-4186-b35e-a3091b02684f"),
-                            CreatedAt = new DateTime(2022, 6, 15, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "LUXE"
-                        },
-                        new
-                        {
-                            Id = new Guid("1ff5f48a-c831-4dff-9509-5b44fd5df76f"),
-                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Level = "ELITE"
-                        });
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.RandomPassword", b =>

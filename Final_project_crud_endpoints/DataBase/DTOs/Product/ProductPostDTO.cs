@@ -48,6 +48,12 @@ public class ProductPostDTO
     [RegularExpression(@"^(?:\{{0,1}(?:[0-9a-fA-F]){8}-(?:[0-9a-fA-F]){4}-(?:[0-9a-fA-F]){4}-(?:[0-9a-fA-F]){4}-(?:[0-9a-fA-F]){12}\}{0,1})$",
     ErrorMessage = "The field must be a valid GUID.")]
     public Guid Current_Brand_Id { get; set; }
+    [Display(Name = "Current product quality level ID")]
+    [Required(ErrorMessage = "Valid product quality level ID is required.")]
+    [FixedLength(36, ErrorMessage = "The field must be exactly 36 characters long!")]
+    [RegularExpression(@"^(?:\{{0,1}(?:[0-9a-fA-F]){8}-(?:[0-9a-fA-F]){4}-(?:[0-9a-fA-F]){4}-(?:[0-9a-fA-F]){4}-(?:[0-9a-fA-F]){12}\}{0,1})$",
+   ErrorMessage = "The field must be a valid GUID.")]
+    public Guid Current_Product_Quality_Level_Id { get; set; }
     [Display(Name = "Color IDs")]
     [Required(ErrorMessage = "Valid Color IDs is required.")]
     public Guid[] ColorIds { get; set; }

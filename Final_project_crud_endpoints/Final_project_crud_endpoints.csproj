@@ -36,6 +36,13 @@
     <Folder Include="wwwroot\Upload\images\Brands\" />
     <Folder Include="wwwroot\Upload\images\Categories\" />
     <Folder Include="wwwroot\Upload\images\Deepcategories\" />
+    <Folder Include="wwwroot\Upload\images\Brands\" />
+    <Folder Include="wwwroot\Upload\images\Categories\" />
+    <Folder Include="wwwroot\Upload\images\Deepcategories\" />
+    <Folder Include="wwwroot\Upload\images\Users\" />
+    <Folder Include="wwwroot\Upload\images\Subcategories\" />
+    <Folder Include="wwwroot\Upload\images\ProductStores\" />
+    <Folder Include="wwwroot\Upload\images\Products\" />
     <Folder Include="wwwroot\Upload\images\Users\" />
     <Folder Include="wwwroot\Upload\images\Subcategories\" />
     <Folder Include="wwwroot\Upload\images\ProductStores\" />

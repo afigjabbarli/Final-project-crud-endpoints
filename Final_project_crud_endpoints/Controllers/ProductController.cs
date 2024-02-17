@@ -67,6 +67,13 @@ namespace Final_project_crud_endpoints.Controllers
 
                 product.Current_Deepcategory_Id = DTO.Current_Deepcategory_Id;
 
+                if((await  _data_context.QualityLevels.AnyAsync(ql => ql.Id.Equals(DTO.Current_Product_Quality_Level_Id))) is false)
+                {
+                    return NotFound($"The quality level with the << {DTO.Current_Product_Quality_Level_Id} >> number you are looking for does not already exist in the database!");
+                }
+
+                product.Current_Quality_Level_Id = DTO.Current_Product_Quality_Level_Id;
+
                 if (DTO.Files.Count > 0)
                 {
                     product.Phisical_image_names = await _file_service
@@ -194,6 +201,9 @@ namespace Final_project_crud_endpoints.Controllers
                     Current_Brand = _data_context.Brands
                     .SingleOrDefault(br => br.Id.Equals(p.Current_Brand_Id))!,
 
+                    Current_QualityLevel = _data_context.QualityLevels
+                    .SingleOrDefault(ql => ql.Id.Equals(p.Current_Quality_Level_Id))!,
+
                     Colors = _data_context.ProductColors
                     .Where(pc => pc.Product_Id.Equals(p.Id))
                     .Select(pc => pc.Color).ToList(),
@@ -257,6 +267,9 @@ namespace Final_project_crud_endpoints.Controllers
 
                     Current_Deepcategory = _data_context.Deepcategories
                     .SingleOrDefault(dp => dp.Id.Equals(product.Current_Deepcategory_Id))!,
+
+                    Current_QualityLevel = _data_context.QualityLevels
+                    .SingleOrDefault(ql => ql.Id.Equals(product.Current_Quality_Level_Id))!,
 
                     Colors = await _data_context.ProductColors
                     .Where(pc => pc.Product_Id.Equals(product.Id))
@@ -326,6 +339,13 @@ namespace Final_project_crud_endpoints.Controllers
                 }
 
                 product.Current_Brand_Id = DTO.Current_Brand_Id;
+
+                if((await _data_context.QualityLevels.AnyAsync(ql => ql.Id.Equals(DTO.Current_Product_Quality_Level_Id))) is false)
+                {
+                    return NotFound($"The quality level with the << {DTO.Current_Product_Quality_Level_Id} >> number you are looking for does not already exist in the database!");
+                }
+
+                product.Current_Quality_Level_Id = DTO.Current_Product_Quality_Level_Id;
 
                 if (DTO.Files.Count > 0)
                 {
@@ -589,6 +609,9 @@ namespace Final_project_crud_endpoints.Controllers
 
                         Current_Brand = _data_context.Brands
                         .SingleOrDefault(br => br.Id.Equals(pr.Current_Brand_Id))!,
+
+                        Current_QualityLevel = _data_context.QualityLevels
+                        .SingleOrDefault(ql => ql.Id.Equals(pr.Current_Quality_Level_Id))!,
 
                         Colors = _data_context.ProductColors
                         .Where(pc => pc.Product_Id.Equals(pr.Id))

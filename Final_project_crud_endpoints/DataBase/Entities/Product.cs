@@ -45,10 +45,11 @@ namespace Final_project_crud_endpoints.DataBase.Entities
             get { return _offer; }
             private set { }
         }
-        public DateTime ManufacturedAt { get; set; }    
+        public DateTime ManufacturedAt { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastUpdatedAt { get; set; }
-
+        public QualityLevel QualityLevel { get; set; }
+        public Guid Current_Quality_Level_Id { get; set; }
         public Deepcategory Deepcategory { get; set; }
         public Guid Current_Deepcategory_Id { get; set; }
 

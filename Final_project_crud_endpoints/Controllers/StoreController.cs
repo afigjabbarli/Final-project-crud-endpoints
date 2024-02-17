@@ -252,5 +252,45 @@ namespace Final_project_crud_endpoints.Controllers
                 return StatusCode(500, "An error occurred while processing the request. Please try again later.");
             }
         }
+        [HttpGet("filter")]
+        [Produces(type: typeof(List<StoreListItemDTO>))]
+        [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> FilterByStateName([FromQuery(Name = "state_name")] string state_name)
+        {
+            try
+            {
+                if (state_name is null)
+                    return BadRequest("State name is required!");
+
+                var stores = await _data_context.Stores.ToListAsync();
+
+                if (stores.Count == 0)
+                    return Ok(new List<StoreListItemDTO>());
+
+                var response = stores
+                    .Where(s => s.State.Equals(state_name, StringComparison.OrdinalIgnoreCase)).Select(s => new StoreListItemDTO
+                    {
+                        Id = s.Id,
+                        Name = s.Name,
+                        State = s.State,
+                        Address = s.Address,
+                        CreatedAt = s.CreatedAt,
+                        LastUpdatedAt = s.LastUpdatedAt,
+                        Phone_Number = s.Phone_Number,
+                        Phisical_image_URL = _file_service
+                        .ReadStaticFiles(s.Store_Code, CustomUploadDirectories.ProductStores, s.Phisical_image_name)
+                    }).ToList();
+
+                return Ok(response);
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+
+        }
     }
 }

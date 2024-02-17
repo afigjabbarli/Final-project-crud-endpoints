@@ -20,6 +20,7 @@ namespace Final_project_crud_endpoints.DataBase.DTOs.Product
         public List<string> Phisical_image_URLs { get; set; } = new List<string>();
         public Entities.Deepcategory Current_Deepcategory { get; set; }
         public Entities.Brand Current_Brand { get; set; }
+        public Entities.QualityLevel Current_QualityLevel { get; set; } 
         public List<Color> Colors { get; set; } 
         public List<Size> Sizes { get; set; }   
         public List<entities_exist_path.Warranty> Warranties { get; set; }    

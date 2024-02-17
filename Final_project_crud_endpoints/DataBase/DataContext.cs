@@ -66,6 +66,15 @@ namespace Final_project_crud_endpoints.DataBase
 
             //One to many relationship between brand and product
 
+            //One to many relationship between brand and product
+
+            modelBuilder.Entity<Product>()
+                .HasOne<QualityLevel>(p => p.QualityLevel)
+                .WithMany(ql => ql.Products)
+                .HasForeignKey(p => p.Current_Quality_Level_Id);
+
+            //One to many relationship between brand and product
+
             //Many to many relationship between store and product
 
             modelBuilder.Entity<ProductStore>().HasKey(ps => new { ps.Product_Id, ps.Store_Id });
@@ -2872,6 +2881,64 @@ namespace Final_project_crud_endpoints.DataBase
             );
 
             #endregion
+
+            #region QualityLevel seeding...
+
+            modelBuilder.Entity<QualityLevel>().HasData
+            (
+
+                new QualityLevel
+                {
+                    Id = new Guid("9b7aaf5b-785f-4f0b-9477-fefbffba1d94"),
+                    CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "NOVICE"
+                },
+
+                new QualityLevel
+                {
+                    Id = new Guid("af52d28e-a9b3-4537-b46e-640cc66bc637"),
+                    CreatedAt = new DateTime(2018, 2, 14, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "ECONOMY"
+                },
+
+                new QualityLevel
+                {
+                    Id = new Guid("49ae595c-37be-47e8-ba8f-9fb78354b4ae"),
+                    CreatedAt = new DateTime(2019, 12, 1, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "ESSENTIAL"
+                },
+
+                new QualityLevel
+                {
+                    Id = new Guid("f33ca602-3d70-4840-830d-91616e20e28a"),
+                    CreatedAt = new DateTime(2020, 4, 7, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "STANDARD"
+                },
+
+                new QualityLevel
+                {
+                    Id = new Guid("2b15840b-5559-40b1-b234-f5bdd36bcc58"),
+                    CreatedAt = new DateTime(2021, 9, 25, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "PREMIUM"
+                },
+
+                new QualityLevel
+                {
+                    Id = new Guid("71224665-b59d-4186-b35e-a3091b02684f"),
+                    CreatedAt = new DateTime(2022, 6, 15, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "LUXE"
+                },
+
+                new QualityLevel
+                {
+                    Id = new Guid("1ff5f48a-c831-4dff-9509-5b44fd5df76f"),
+                    CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, DateTimeKind.Utc),
+                    Level = "ELITE"
+                }
+
+            );
+
+            #endregion
         }
         public DbSet<RandomPassword> Passwords { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -2890,5 +2957,6 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<ProductColor> ProductColors { get; set; }  
         public DbSet<ProductSize> ProductSizes { get; set; }    
         public DbSet<ProductStore> ProductStores { get; set; }  
+        public DbSet<QualityLevel> QualityLevels { get; set; }      
     }
 }
