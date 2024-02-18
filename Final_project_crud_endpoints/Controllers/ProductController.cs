@@ -2,6 +2,8 @@
 using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Product;
 using Final_project_crud_endpoints.DataBase.Entities;
+using Final_project_crud_endpoints.Helpers;
+using Final_project_crud_endpoints.Migrations;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Validations;
 using Microsoft.AspNetCore.Mvc;
@@ -67,7 +69,7 @@ namespace Final_project_crud_endpoints.Controllers
 
                 product.Current_Deepcategory_Id = DTO.Current_Deepcategory_Id;
 
-                if((await  _data_context.QualityLevels.AnyAsync(ql => ql.Id.Equals(DTO.Current_Product_Quality_Level_Id))) is false)
+                if ((await _data_context.QualityLevels.AnyAsync(ql => ql.Id.Equals(DTO.Current_Product_Quality_Level_Id))) is false)
                 {
                     return NotFound($"The quality level with the << {DTO.Current_Product_Quality_Level_Id} >> number you are looking for does not already exist in the database!");
                 }
@@ -222,7 +224,12 @@ namespace Final_project_crud_endpoints.Controllers
 
                 }).ToListAsync();
 
-                return Ok(response);
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                return Ok(JsonSerializer.Serialize(response, jsonOptions));
             }
             catch (Exception exception)
             {
@@ -340,7 +347,7 @@ namespace Final_project_crud_endpoints.Controllers
 
                 product.Current_Brand_Id = DTO.Current_Brand_Id;
 
-                if((await _data_context.QualityLevels.AnyAsync(ql => ql.Id.Equals(DTO.Current_Product_Quality_Level_Id))) is false)
+                if ((await _data_context.QualityLevels.AnyAsync(ql => ql.Id.Equals(DTO.Current_Product_Quality_Level_Id))) is false)
                 {
                     return NotFound($"The quality level with the << {DTO.Current_Product_Quality_Level_Id} >> number you are looking for does not already exist in the database!");
                 }
@@ -569,7 +576,7 @@ namespace Final_project_crud_endpoints.Controllers
         [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
         [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
         [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Search([FromQuery(Name = "query")] string query)
+        public async Task<IActionResult> Search([FromQuery(Name = "query")] string query, [FromQuery(Name = "current_category_id")] Guid current_category_id)
         {
             try
             {
@@ -586,7 +593,8 @@ namespace Final_project_crud_endpoints.Controllers
                 }
 
                 var response = products
-                    .Where(pr => pr.Name.Contains(query, StringComparison.OrdinalIgnoreCase))
+                    .Where(pr => pr.Name.Contains(query, StringComparison.OrdinalIgnoreCase)
+                    && pr.Current_Deepcategory_Id.Equals(current_category_id))
                     .Select(pr => new ProductListItemDTO
                     {
                         Id = pr.Id,
@@ -643,6 +651,130 @@ namespace Final_project_crud_endpoints.Controllers
 
                 return StatusCode(500, "An error occurred while processing the request. Please try again later.");
             }
+        }
+        [HttpPost("filter")]
+        [Produces(type: typeof(List<ProductListItemDTO>))]
+        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
+        [ProducesResponseType(statusCode: StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(statusCode: StatusCodes.Status404NotFound)]
+        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Filter([FromForm] ProductFilterRequest request)
+        {
+            if(request is null)
+                return BadRequest("Invalid request.");
+
+            try
+            {
+                var products = await _data_context.Products.ToListAsync();
+
+                if (products.Count == 0)
+                    return NotFound("Products not found...");
+
+                products = products.Where(pr => pr.IsOffer.Equals(request.Is_Offer)
+                && pr.IsAvailable.Equals(request.Is_Available)).ToList();
+
+                if (request.Current_Category_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => pr.Current_Deepcategory_Id.Equals(request.Current_Category_ID)).ToList();
+                }
+
+                if(request.Current_Brand_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => pr.Current_Brand_Id.Equals(request.Current_Brand_ID)).ToList();
+                }
+
+                if(request.Current_Quality_Level_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => pr.Current_Quality_Level_Id.Equals(request.Current_Quality_Level_ID)).ToList(); 
+                }
+
+                if(request.Minimum_Price != 0 && request.Maximum_Price != 0 && request.Minimum_Price < request.Maximum_Price)
+                {
+                    products = products.Where(pr => request.Minimum_Price <= pr.Price && pr.Price <= request.Maximum_Price).ToList();
+                }
+
+                if(request.Current_Color_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => _data_context.ProductColors
+                    .Any(pc => pc.Color_Id.Equals(request.Current_Color_ID) && pc.Product_Id.Equals(pr.Id))).ToList();
+                }
+
+                if(request.Current_Size_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => _data_context.ProductSizes
+                    .Any(ps => ps.Product_Id.Equals(pr.Id) && ps.Size_Id.Equals(request.Current_Size_ID))).ToList();
+                }
+
+                if(request.Current_Warranty_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => _data_context.ProductWarranties
+                    .Any(pw => pw.Product_Id.Equals(pr.Id) && pw.Warranty_Id.Equals(request.Current_Warranty_ID))).ToList();
+                }
+
+                if(request.Current_Store_ID != Guid.Empty)
+                {
+                    products = products.Where(pr => _data_context.ProductStores
+                    .Any(ps => ps.Product_Id.Equals(pr.Id) && ps.Store_Id.Equals(request.Current_Store_ID))).ToList();  
+                }
+
+                var response = products.Select(pr => new ProductListItemDTO
+                {
+                    Id = pr.Id,
+                    Name = pr.Name,
+                    Description = pr.Description,
+                    Price = pr.Price,
+                    Product_Code = pr.Product_Code,
+                    Quantity = pr.Quantity,
+                    IsAvailable = pr.IsAvailable,
+                    Discount = pr.Discount,
+                    IsOffer = pr.IsOffer,
+                    ManufacturedAt = pr.ManufacturedAt,
+                    CreatedAt = pr.CreatedAt,
+                    LastUpdatedAt = pr.LastUpdatedAt,
+                    Phisical_image_URLs = _file_service
+                         .ReadStaticFiles(pr.Product_Code, CustomUploadDirectories.Products, pr.Phisical_image_names),
+
+                    Current_Deepcategory = _data_context.Deepcategories
+                        .SingleOrDefault(dp => dp.Id.Equals(pr.Current_Deepcategory_Id))!,
+
+                    Current_Brand = _data_context.Brands
+                        .SingleOrDefault(br => br.Id.Equals(pr.Current_Brand_Id))!,
+
+                    Current_QualityLevel = _data_context.QualityLevels
+                        .SingleOrDefault(ql => ql.Id.Equals(pr.Current_Quality_Level_Id))!,
+
+                    Colors = _data_context.ProductColors
+                        .Where(pc => pc.Product_Id.Equals(pr.Id))
+                        .Select(pc => pc.Color).ToList(),
+
+                    Sizes = _data_context.ProductSizes
+                        .Where(ps => ps.Product_Id.Equals(pr.Id))
+                        .Select(ps => ps.Size).ToList(),
+
+                    Stores = _data_context.ProductStores
+                        .Where(ps => ps.Product_Id.Equals(pr.Id))
+                        .Select(ps => ps.Store).ToList(),
+
+                    Warranties = _data_context.ProductWarranties
+                        .Where(pw => pw.Product_Id.Equals(pr.Id))
+                        .Select(pw => pw.Warranty).ToList(),
+
+                }).ToList();
+
+                var jsonOptions = new JsonSerializerOptions
+                {
+                    ReferenceHandler = ReferenceHandler.Preserve
+                };
+
+                return Ok(JsonSerializer.Serialize(response, jsonOptions));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, "An error occurred while processing the request.");
+
+                return StatusCode(500, "An error occurred while processing the request. Please try again later.");
+            }
+
         }
     }
 }

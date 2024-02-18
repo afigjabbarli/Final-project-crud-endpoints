@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240217182544_2 part of product seeding")]
+    partial class _2partofproductseeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,392 +63,6 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Brands");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("49f291ab-3817-401b-958c-032626fd611f"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Apple Inc. is an American multinational technology company",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Cupertino, California, United States",
-                            Name = "Apple",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1976, 4, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("1e47e670-0628-4de9-9611-ab1231d33fc2"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "OPPO is a Chinese consumer electronics and mobile communications company",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Dongguan, Guangdong, China",
-                            Name = "OPPO",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(2001, 12, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("c9372f89-7541-4c63-a484-85385288f152"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Samsung is a South Korean multinational conglomerate",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Seoul, South Korea",
-                            Name = "Samsung",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1938, 3, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("f3bd0853-9079-491a-8b25-e41d40d3e922"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Xiaomi Corporation is a Chinese multinational electronics company",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Beijing, China",
-                            Name = "Xiaomi",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(2010, 4, 6, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("174a35aa-842a-4c36-a87c-873592f30b7f"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "HUAWEI is a Chinese multinational technology company headquartered in Shenzhen, Guangdong, China. It designs, develops, and sells telecommunications equipment, consumer electronics, and smartphones.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Shenzhen, Guangdong, China",
-                            Name = "HUAWEI",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1987, 9, 15, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("dfe7933d-6502-474d-8f13-d0e3703a2800"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Motorola, Inc. was an American multinational telecommunications company founded on September 25, 1928, based in Schaumburg, Illinois. After having lost $4.3 billion from 2007 to 2009, the company demerged into two independent public companies, Motorola Mobility and Motorola Solutions on January 4, 2011.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Chicago, Illinois, United States",
-                            Name = "Motorola",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1928, 9, 25, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("4836ab7d-98ba-4076-bcec-d63ec704acf9"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Google is an American multinational technology company that specializes in Internet-related services and products.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Mountain View, California, United States",
-                            Name = "Google",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1998, 9, 4, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("799e6cef-0b58-4e78-aef9-036b2d63d23f"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "ASUS is a multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Beitou District, Taipei, Taiwan",
-                            Name = "ASUS",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1989, 4, 2, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("39561cb1-4970-46b6-a20e-7d9007e21b1e"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Honor is a smartphone brand owned by Huawei Technologies Co., Ltd.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Shenzhen, Guangdong, China",
-                            Name = "Honor",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(2013, 12, 16, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("5bf60494-87be-405d-bb0e-08399df0ac81"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "AIWA Corporation is a consumer electronics company that primarily specializes in audio equipment.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Tokyo, Japan",
-                            Name = "AIWA",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1951, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("4c7de52b-cbb6-481e-870b-6f0ce45792c1"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "BANG & OLUFSEN is a Danish company that designs and manufactures audio products, television sets, and telephones.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Struer, Denmark",
-                            Name = "BANG & OLUFSEN",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1925, 10, 17, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("960df5d6-b7d5-455f-b7dc-21b0d5409250"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "JBL is an American company that manufactures loudspeakers and other audio equipment.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Los Angeles, California, United States",
-                            Name = "JBL",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1946, 10, 27, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("986026a7-9dc0-4e9f-b874-974cafc01f02"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Logitech International S.A. is a Swiss-American manufacturer of computer peripherals and software, with headquarters in Lausanne, Switzerland and Newark, California.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Lausanne, Switzerland and Newark, California",
-                            Name = "Logitech",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1981, 10, 2, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("cfb3e5a2-29ad-4622-958d-29b358a3a182"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Panasonic Corporation is a Japanese multinational electronics corporation headquartered in Kadoma, Osaka, Japan.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Kadoma, Osaka, Japan",
-                            Name = "Panasonic",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1918, 3, 13, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("9ca42a34-34b6-4f3e-85f7-43898f4c9634"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Koninklijke Philips N.V. is a Dutch multinational conglomerate corporation that was founded in Eindhoven. Since 1997, it has been mostly headquartered in Amsterdam, though the Benelux headquarters is still in Eindhoven.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Amsterdam, Netherlands",
-                            Name = "Philips",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1891, 5, 15, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("52894712-8b19-400a-9831-d7695785d1b8"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Sony Corporation is a Japanese multinational conglomerate corporation headquartered in Kōnan, Minato, Tokyo.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Tokyo, Japan",
-                            Name = "Sony",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1946, 5, 7, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("a6bfd0b3-7219-47e4-b1d3-d86b9270ec4f"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "TRUST is a Dutch computer hardware and software company, which sells a wide range of products that includes computer peripherals such as keyboards, mice, USB hubs, speakers, webcams, and networking products such as routers and switches.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Dordrecht, Netherlands",
-                            Name = "TRUST",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1983, 5, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("09e8be79-96f0-4c9d-a080-24e1e99e22a1"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Urbanista is a Swedish brand that offers a wide range of headphones and earphones designed for urban living.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Stockholm, Sweden",
-                            Name = "Urbanista",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(2010, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("9065f70b-5c76-499c-aca9-07334773ed28"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Gelius is a brand that offers a variety of electronic accessories and gadgets.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Unknown",
-                            Name = "Gelius",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(2005, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("49c11372-bc3f-4c6c-947f-4b2b4e0062c6"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Beats by Dre is a subsidiary of Apple Inc. that produces audio products. The company was founded by music producer Dr. Dre and record company executive Jimmy Iovine.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Culver City, California, United States",
-                            Name = "Beats",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(2006, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("57bf27de-49f3-484e-b8be-deba5cf6ed27"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "MSI (Micro-Star International Co., Ltd) is a Taiwanese multinational information technology corporation headquartered in New Taipei City, Taiwan.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "New Taipei City, Taiwan",
-                            Name = "MSI",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1986, 8, 4, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("c0a2690f-bb81-46d6-b758-aa113e77e798"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Lenovo Group Limited is a Chinese multinational technology company headquartered in Beijing. It designs, develops, manufactures, and sells personal computers, tablet computers, smartphones, workstations, servers, electronic storage devices, IT management software, and smart televisions.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Beijing, China",
-                            Name = "Lenovo",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1984, 11, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("7096389a-10f7-4b4c-936b-c97c3e871535"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Acer Inc. is a Taiwanese multinational hardware and electronics corporation specializing in advanced electronics technology.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "New Taipei City, Taiwan",
-                            Name = "Acer",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1976, 8, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("feda98d0-2c07-440d-aaaa-ff00983e9125"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Redmond, Washington, United States",
-                            Name = "Microsoft",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1975, 4, 4, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("57ef2517-6d90-47af-8127-50bb0e0e6068"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Dell Technologies Inc. is an American multinational technology company headquartered in Round Rock, Texas. It designs, develops, manufactures, markets, and sells computer hardware, software, and related services.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Round Rock, Texas, United States",
-                            Name = "Dell",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1984, 2, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("542de3c2-2a08-45dc-808c-8e6a15feac89"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "HP Inc. is an American multinational information technology company that develops personal computers, printers, and related supplies.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Palo Alto, California, United States",
-                            Name = "HP",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1939, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("14d4f153-90f6-4fd8-a3a2-d07121be1501"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Canon Inc. is a Japanese multinational corporation specializing in the manufacture of imaging and optical products, including cameras, camcorders, photocopiers, steppers, computer printers, and medical equipment.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Tokyo, Japan",
-                            Name = "Canon",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1937, 8, 10, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("401c2a61-395b-4eaa-9857-1c6923ee50eb"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Leica Camera AG is a German company that manufactures cameras, lenses, binoculars, rifle scopes, microscopes, and ophthalmic lenses. The company was founded by Ernst Leitz in 1914.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Wetzlar, Germany",
-                            Name = "Leica",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1914, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("c0f66be8-096c-43f9-9523-0291d328ab13"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Nikon Corporation, also known just as Nikon, is a Japanese multinational corporation headquartered in Tokyo, Japan, specializing in optics and imaging products.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Tokyo, Japan",
-                            Name = "Nikon",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1917, 7, 25, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("e550d6c6-e22f-48e7-b9fc-4732b69982ec"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "LG Corporation, formerly Lucky-Goldstar, is a South Korean multinational conglomerate corporation. It is the fourth-largest chaebol in South Korea.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Seoul, South Korea",
-                            Name = "LG",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1947, 1, 5, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("7c06af60-6e98-4ed7-82aa-fc5b1ca8a0dd"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Toshiba Corporation is a Japanese multinational conglomerate headquartered in Minato, Tokyo, Japan. Its diversified products and services include information technology and communications equipment and systems, electronic components and materials, power systems, industrial and social infrastructure systems, consumer electronics, household appliances, medical equipment, office equipment, as well as lighting and logistics.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Minato, Tokyo, Japan",
-                            Name = "Toshiba",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1938, 7, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("a14cfa60-37d3-42c3-b717-3517d756461e"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Beko is a Turkish domestic appliance and consumer electronics brand of Arcelik AS, controlled by Koc Holding, which started operating in 1955.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Istanbul, Turkey",
-                            Name = "Beko",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1955, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        });
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.Category", b =>
@@ -1847,6 +1463,116 @@ namespace Final_project_crud_endpoints.Migrations
                     b.HasIndex("Current_Quality_Level_Id");
 
                     b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("a04a27c5-bffc-42de-a9b1-bf2751f99022"),
+                            CreatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Current_Brand_Id = new Guid("67e43826-095f-42ba-9f18-6a65316fa950"),
+                            Current_Deepcategory_Id = new Guid("ff7f0ed7-33f4-4067-8278-d291bc6cab0b"),
+                            Current_Quality_Level_Id = new Guid("1ff5f48a-c831-4dff-9509-5b44fd5df76f"),
+                            Description = "The iPhone 15 Pro 512 GB Blue is a cutting-edge smartphone packed with powerful features. With its advanced A-series processor, it delivers smooth performance for gaming, multitasking, and demanding apps. The 512 GB storage capacity provides ample space for your photos, videos, and files. Its vibrant blue color adds a touch of elegance to its modern design. The high-resolution display showcases your content with vivid clarity. Equipped with an advanced camera system, it captures stunning photos and videos. The iPhone 15 Pro is also water and dust resistant, making it ideal for daily use. With state-of-the-art security features and long battery life, it meets the needs of those seeking performance, beauty, and functionality.",
+                            Discount = 25,
+                            IsAvailable = true,
+                            IsOffer = true,
+                            LastUpdatedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ManufacturedAt = new DateTime(2023, 10, 19, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Name = "iPhone 15 Pro 512 GB Blue",
+                            Price = 3599m,
+                            Product_Code = "",
+                            Quantity = 100m
+                        },
+                        new
+                        {
+                            Id = new Guid("38110fb3-0ee0-4d2a-8a6b-9149f816d7f0"),
+                            CreatedAt = new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Current_Brand_Id = new Guid("67e43826-095f-42ba-9f18-6a65316fa950"),
+                            Current_Deepcategory_Id = new Guid("ff7f0ed7-33f4-4067-8278-d291bc6cab0b"),
+                            Current_Quality_Level_Id = new Guid("1ff5f48a-c831-4dff-9509-5b44fd5df76f"),
+                            Description = "Introducing the iPhone 13 Pro Max 1TB Alpine Green, the pinnacle of Apple's smartphone technology. With its expansive 1TB storage capacity, you'll never have to worry about running out of space for your photos, videos, and apps. The stunning Alpine Green finish adds a touch of luxury to its sleek and elegant design. Featuring the powerful A15 Bionic chip, it delivers blazing-fast performance and unmatched efficiency. The Pro Max's advanced camera system captures breathtaking photos and videos in any lighting condition. With 5G connectivity, you can download and stream content at lightning speed. And with all-day battery life and iOS 15, it's designed to keep up with your busy lifestyle.",
+                            Discount = 10,
+                            IsAvailable = true,
+                            IsOffer = true,
+                            LastUpdatedAt = new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ManufacturedAt = new DateTime(2023, 9, 30, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Name = "iPhone 13 Pro Max 1TB Alpine Green",
+                            Price = 1699m,
+                            Product_Code = "",
+                            Quantity = 150m
+                        },
+                        new
+                        {
+                            Id = new Guid("d4bf6e7d-06f6-44b8-aa2f-06386b18baf0"),
+                            CreatedAt = new DateTime(2024, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Current_Brand_Id = new Guid("67e43826-095f-42ba-9f18-6a65316fa950"),
+                            Current_Deepcategory_Id = new Guid("ff7f0ed7-33f4-4067-8278-d291bc6cab0b"),
+                            Current_Quality_Level_Id = new Guid("1ff5f48a-c831-4dff-9509-5b44fd5df76f"),
+                            Description = "Experience the future of smartphones with the iPhone 14 Pro 512 GB Silver. Boasting a sleek and elegant design, the Silver variant adds a touch of sophistication to your everyday life. With its powerful A16 chip, it delivers lightning-fast performance and unrivaled efficiency. The expansive 512 GB storage capacity ensures you have ample space for all your photos, videos, and apps. Its advanced camera system captures stunning images and videos with remarkable clarity and detail. Featuring 5G connectivity, you can download, stream, and share content at incredible speeds. And with its long-lasting battery life and iOS 16, it's designed to keep up with your busy lifestyle.",
+                            Discount = 15,
+                            IsAvailable = true,
+                            IsOffer = true,
+                            LastUpdatedAt = new DateTime(2024, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ManufacturedAt = new DateTime(2024, 1, 15, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Name = "iPhone 14 Pro 512 GB Silver",
+                            Price = 1899m,
+                            Product_Code = "",
+                            Quantity = 200m
+                        },
+                        new
+                        {
+                            Id = new Guid("b963251f-d17a-4e47-8382-b53ab275e2a8"),
+                            CreatedAt = new DateTime(2023, 5, 12, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Current_Brand_Id = new Guid("5244689f-5409-4be0-8932-dc8e5548c3cd"),
+                            Current_Deepcategory_Id = new Guid("fd235119-1ca2-40f2-956e-17b040dd0d3a"),
+                            Current_Quality_Level_Id = new Guid("2b15840b-5559-40b1-b234-f5bdd36bcc58"),
+                            Description = "Discover the perfect balance of style and performance with the OPPO A58 8/128 GB Black. Featuring a sleek and modern design, it's sure to turn heads wherever you go. With its powerful octa-core processor and 8 GB of RAM, it delivers smooth multitasking and responsive performance. The generous 128 GB of internal storage provides ample space for all your apps, photos, and videos. Its vibrant display brings your content to life with vivid colors and sharp details. Capture every moment with the high-resolution rear camera, and take stunning selfies with the front-facing camera. And with its long-lasting battery life, you can stay connected all day long without interruption.",
+                            Discount = 0,
+                            IsAvailable = true,
+                            IsOffer = false,
+                            LastUpdatedAt = new DateTime(2023, 5, 12, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ManufacturedAt = new DateTime(2023, 5, 12, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Name = "OPPO A58 8/128 GB Black",
+                            Price = 299m,
+                            Product_Code = "",
+                            Quantity = 100m
+                        },
+                        new
+                        {
+                            Id = new Guid("65e30d8f-02cd-4e50-aead-49e98bf1c29d"),
+                            CreatedAt = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Current_Brand_Id = new Guid("5244689f-5409-4be0-8932-dc8e5548c3cd"),
+                            Current_Deepcategory_Id = new Guid("fd235119-1ca2-40f2-956e-17b040dd0d3a"),
+                            Current_Quality_Level_Id = new Guid("2b15840b-5559-40b1-b234-f5bdd36bcc58"),
+                            Description = "Experience luxury and innovation with the OPPO Find N3 16/512 GB Gold. With its exquisite design and cutting-edge features, it redefines what a smartphone can be. The stunning gold finish adds a touch of elegance to its sleek and modern design. Featuring 16 GB of RAM and 512 GB of internal storage, it offers blazing-fast performance and ample space for all your files and apps. Its immersive display delivers vibrant colors and sharp details, making every visual experience unforgettable. Capture stunning photos and videos with the high-resolution camera system, and take crystal-clear selfies with the front-facing camera. And with its long-lasting battery life and advanced features, it's designed to keep up with your busy lifestyle.",
+                            Discount = 0,
+                            IsAvailable = true,
+                            IsOffer = false,
+                            LastUpdatedAt = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ManufacturedAt = new DateTime(2023, 8, 25, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Name = "OPPO Find N3 16/512 GB Gold",
+                            Price = 1299m,
+                            Product_Code = "",
+                            Quantity = 50m
+                        },
+                        new
+                        {
+                            Id = new Guid("593ed06c-0e43-4e6a-8b9c-8484656d636d"),
+                            CreatedAt = new DateTime(2023, 11, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Current_Brand_Id = new Guid("5244689f-5409-4be0-8932-dc8e5548c3cd"),
+                            Current_Deepcategory_Id = new Guid("fd235119-1ca2-40f2-956e-17b040dd0d3a"),
+                            Current_Quality_Level_Id = new Guid("2b15840b-5559-40b1-b234-f5bdd36bcc58"),
+                            Description = "Explore the future of smartphone design with the OPPO Find N3 Flip 12/256 GB Gold. This innovative device features a unique flip design that combines style and functionality. The luxurious gold finish adds a touch of sophistication to its sleek exterior. With 12 GB of RAM and 256 GB of internal storage, it delivers powerful performance and ample space for your apps and files. Its flexible display can be flipped open to reveal a larger screen for immersive multimedia experiences. Capture stunning photos and videos with the high-resolution camera system, and enjoy crystal-clear video calls with the front-facing camera. And with its long-lasting battery life and advanced features, it's the perfect companion for your on-the-go lifestyle.",
+                            Discount = 0,
+                            IsAvailable = true,
+                            IsOffer = false,
+                            LastUpdatedAt = new DateTime(2023, 11, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            ManufacturedAt = new DateTime(2023, 11, 8, 0, 0, 0, 0, DateTimeKind.Utc),
+                            Name = "OPPO Find N3 Flip 12/256 GB Gold",
+                            Price = 1499m,
+                            Product_Code = "",
+                            Quantity = 75m
+                        });
                 });
 
             modelBuilder.Entity("Final_project_crud_endpoints.DataBase.Entities.ProductColor", b =>

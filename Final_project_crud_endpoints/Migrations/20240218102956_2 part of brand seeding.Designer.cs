@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240218102956_2 part of brand seeding")]
+    partial class _2partofbrandseeding
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -302,150 +304,6 @@ namespace Final_project_crud_endpoints.Migrations
                             Name = "Beats",
                             Phisical_Logo_Name = "",
                             Since = new DateTime(2006, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("57bf27de-49f3-484e-b8be-deba5cf6ed27"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "MSI (Micro-Star International Co., Ltd) is a Taiwanese multinational information technology corporation headquartered in New Taipei City, Taiwan.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "New Taipei City, Taiwan",
-                            Name = "MSI",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1986, 8, 4, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("c0a2690f-bb81-46d6-b758-aa113e77e798"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Lenovo Group Limited is a Chinese multinational technology company headquartered in Beijing. It designs, develops, manufactures, and sells personal computers, tablet computers, smartphones, workstations, servers, electronic storage devices, IT management software, and smart televisions.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Beijing, China",
-                            Name = "Lenovo",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1984, 11, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("7096389a-10f7-4b4c-936b-c97c3e871535"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Acer Inc. is a Taiwanese multinational hardware and electronics corporation specializing in advanced electronics technology.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "New Taipei City, Taiwan",
-                            Name = "Acer",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1976, 8, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("feda98d0-2c07-440d-aaaa-ff00983e9125"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Redmond, Washington, United States",
-                            Name = "Microsoft",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1975, 4, 4, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("57ef2517-6d90-47af-8127-50bb0e0e6068"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Dell Technologies Inc. is an American multinational technology company headquartered in Round Rock, Texas. It designs, develops, manufactures, markets, and sells computer hardware, software, and related services.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Round Rock, Texas, United States",
-                            Name = "Dell",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1984, 2, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("542de3c2-2a08-45dc-808c-8e6a15feac89"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "HP Inc. is an American multinational information technology company that develops personal computers, printers, and related supplies.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Palo Alto, California, United States",
-                            Name = "HP",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1939, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("14d4f153-90f6-4fd8-a3a2-d07121be1501"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Canon Inc. is a Japanese multinational corporation specializing in the manufacture of imaging and optical products, including cameras, camcorders, photocopiers, steppers, computer printers, and medical equipment.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Tokyo, Japan",
-                            Name = "Canon",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1937, 8, 10, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("401c2a61-395b-4eaa-9857-1c6923ee50eb"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Leica Camera AG is a German company that manufactures cameras, lenses, binoculars, rifle scopes, microscopes, and ophthalmic lenses. The company was founded by Ernst Leitz in 1914.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Wetzlar, Germany",
-                            Name = "Leica",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1914, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("c0f66be8-096c-43f9-9523-0291d328ab13"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Nikon Corporation, also known just as Nikon, is a Japanese multinational corporation headquartered in Tokyo, Japan, specializing in optics and imaging products.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Tokyo, Japan",
-                            Name = "Nikon",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1917, 7, 25, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("e550d6c6-e22f-48e7-b9fc-4732b69982ec"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "LG Corporation, formerly Lucky-Goldstar, is a South Korean multinational conglomerate corporation. It is the fourth-largest chaebol in South Korea.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Seoul, South Korea",
-                            Name = "LG",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1947, 1, 5, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("7c06af60-6e98-4ed7-82aa-fc5b1ca8a0dd"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Toshiba Corporation is a Japanese multinational conglomerate headquartered in Minato, Tokyo, Japan. Its diversified products and services include information technology and communications equipment and systems, electronic components and materials, power systems, industrial and social infrastructure systems, consumer electronics, household appliances, medical equipment, office equipment, as well as lighting and logistics.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Minato, Tokyo, Japan",
-                            Name = "Toshiba",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1938, 7, 1, 0, 0, 0, 0, DateTimeKind.Utc)
-                        },
-                        new
-                        {
-                            Id = new Guid("a14cfa60-37d3-42c3-b717-3517d756461e"),
-                            Brand_Code = "",
-                            CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Description = "Beko is a Turkish domestic appliance and consumer electronics brand of Arcelik AS, controlled by Koc Holding, which started operating in 1955.",
-                            LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, 0, DateTimeKind.Utc),
-                            Location = "Istanbul, Turkey",
-                            Name = "Beko",
-                            Phisical_Logo_Name = "",
-                            Since = new DateTime(1955, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc)
                         });
                 });
 

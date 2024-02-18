@@ -1,6 +1,7 @@
 ﻿using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.DataBase.Entities.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Final_project_crud_endpoints.DataBase
 {
@@ -2936,6 +2937,337 @@ namespace Final_project_crud_endpoints.DataBase
                     Level = "ELITE"
                 }
 
+            );
+
+            #endregion
+
+            #region Brand seeding...
+
+            modelBuilder.Entity<Brand>().HasData
+            (
+                  new Brand
+                  {
+                      Id = new Guid("49f291ab-3817-401b-958c-032626fd611f"),
+                      Name = "Apple",
+                      Description = "Apple Inc. is an American multinational technology company",
+                      Since = new DateTime(1976, 4, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Cupertino, California, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("1e47e670-0628-4de9-9611-ab1231d33fc2"),
+                      Name = "OPPO",
+                      Description = "OPPO is a Chinese consumer electronics and mobile communications company",
+                      Since = new DateTime(2001, 12, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Dongguan, Guangdong, China",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("c9372f89-7541-4c63-a484-85385288f152"),
+                      Name = "Samsung",
+                      Description = "Samsung is a South Korean multinational conglomerate",
+                      Since = new DateTime(1938, 3, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Seoul, South Korea",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("f3bd0853-9079-491a-8b25-e41d40d3e922"),
+                      Name = "Xiaomi",
+                      Description = "Xiaomi Corporation is a Chinese multinational electronics company",
+                      Since = new DateTime(2010, 4, 6, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Beijing, China",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("174a35aa-842a-4c36-a87c-873592f30b7f"),
+                      Name = "HUAWEI",
+                      Description = "HUAWEI is a Chinese multinational technology company headquartered in Shenzhen, Guangdong, China." +
+                      " It designs, develops, and sells telecommunications equipment, consumer electronics, and smartphones.",
+                      Since = new DateTime(1987, 9, 15, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Shenzhen, Guangdong, China",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("dfe7933d-6502-474d-8f13-d0e3703a2800"),
+                      Name = "Motorola",
+                      Description = "Motorola, Inc. was an American multinational telecommunications company founded on September 25, 1928, based in Schaumburg, Illinois." +
+                      " After having lost $4.3 billion from 2007 to 2009, the company demerged into two independent public companies, Motorola Mobility and Motorola Solutions on January 4, 2011.",
+                      Since = new DateTime(1928, 9, 25, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Chicago, Illinois, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("4836ab7d-98ba-4076-bcec-d63ec704acf9"),
+                      Name = "Google",
+                      Description = "Google is an American multinational technology company that specializes in Internet-related services and products.",
+                      Since = new DateTime(1998, 9, 4, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Mountain View, California, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("799e6cef-0b58-4e78-aef9-036b2d63d23f"),
+                      Name = "ASUS",
+                      Description = "ASUS is a multinational computer and phone hardware and electronics company headquartered in Beitou District, Taipei, Taiwan.",
+                      Since = new DateTime(1989, 4, 2, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Beitou District, Taipei, Taiwan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("39561cb1-4970-46b6-a20e-7d9007e21b1e"),
+                      Name = "Honor",
+                      Description = "Honor is a smartphone brand owned by Huawei Technologies Co., Ltd.",
+                      Since = new DateTime(2013, 12, 16, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Shenzhen, Guangdong, China",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("5bf60494-87be-405d-bb0e-08399df0ac81"),
+                      Name = "AIWA",
+                      Description = "AIWA Corporation is a consumer electronics company that primarily specializes in audio equipment.",
+                      Since = new DateTime(1951, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Tokyo, Japan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("4c7de52b-cbb6-481e-870b-6f0ce45792c1"),
+                      Name = "BANG & OLUFSEN",
+                      Description = "BANG & OLUFSEN is a Danish company that designs and manufactures audio products, television sets, and telephones.",
+                      Since = new DateTime(1925, 10, 17, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Struer, Denmark",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("960df5d6-b7d5-455f-b7dc-21b0d5409250"),
+                      Name = "JBL",
+                      Description = "JBL is an American company that manufactures loudspeakers and other audio equipment.",
+                      Since = new DateTime(1946, 10, 27, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Los Angeles, California, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("986026a7-9dc0-4e9f-b874-974cafc01f02"),
+                      Name = "Logitech",
+                      Description = "Logitech International S.A. is a Swiss-American manufacturer of computer peripherals and software, with headquarters in Lausanne, Switzerland and Newark, California.",
+                      Since = new DateTime(1981, 10, 2, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Lausanne, Switzerland and Newark, California",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("cfb3e5a2-29ad-4622-958d-29b358a3a182"),
+                      Name = "Panasonic",
+                      Description = "Panasonic Corporation is a Japanese multinational electronics corporation headquartered in Kadoma, Osaka, Japan.",
+                      Since = new DateTime(1918, 3, 13, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Kadoma, Osaka, Japan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("9ca42a34-34b6-4f3e-85f7-43898f4c9634"),
+                      Name = "Philips",
+                      Description = "Koninklijke Philips N.V. is a Dutch multinational conglomerate corporation that was founded in Eindhoven. Since 1997, it has been mostly headquartered in Amsterdam, though the Benelux headquarters is still in Eindhoven.",
+                      Since = new DateTime(1891, 5, 15, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Amsterdam, Netherlands",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("52894712-8b19-400a-9831-d7695785d1b8"),
+                      Name = "Sony",
+                      Description = "Sony Corporation is a Japanese multinational conglomerate corporation headquartered in Kōnan, Minato, Tokyo.",
+                      Since = new DateTime(1946, 5, 7, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Tokyo, Japan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("a6bfd0b3-7219-47e4-b1d3-d86b9270ec4f"),
+                      Name = "TRUST",
+                      Description = "TRUST is a Dutch computer hardware and software company, which sells a wide range of products that includes computer peripherals such as keyboards, mice, USB hubs, speakers, webcams, and networking products such as routers and switches.",
+                      Since = new DateTime(1983, 5, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Dordrecht, Netherlands",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("09e8be79-96f0-4c9d-a080-24e1e99e22a1"),
+                      Name = "Urbanista",
+                      Description = "Urbanista is a Swedish brand that offers a wide range of headphones and earphones designed for urban living.",
+                      Since = new DateTime(2010, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Stockholm, Sweden",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("9065f70b-5c76-499c-aca9-07334773ed28"),
+                      Name = "Gelius",
+                      Description = "Gelius is a brand that offers a variety of electronic accessories and gadgets.",
+                      Since = new DateTime(2005, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Unknown",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("49c11372-bc3f-4c6c-947f-4b2b4e0062c6"),
+                      Name = "Beats",
+                      Description = "Beats by Dre is a subsidiary of Apple Inc. that produces audio products. The company was founded by music producer Dr. Dre and record company executive Jimmy Iovine.",
+                      Since = new DateTime(2006, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Culver City, California, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  //Elave edilib artiq....
+                  new Brand
+                  {
+                      Id = new Guid("57bf27de-49f3-484e-b8be-deba5cf6ed27"),
+                      Name = "MSI",
+                      Description = "MSI (Micro-Star International Co., Ltd) is a Taiwanese multinational information technology corporation headquartered in New Taipei City, Taiwan.",
+                      Since = new DateTime(1986, 8, 4, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "New Taipei City, Taiwan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("c0a2690f-bb81-46d6-b758-aa113e77e798"),
+                      Name = "Lenovo",
+                      Description = "Lenovo Group Limited is a Chinese multinational technology company headquartered in Beijing. It designs, develops, manufactures, and sells personal computers, tablet computers, smartphones, workstations, servers, electronic storage devices, IT management software, and smart televisions.",
+                      Since = new DateTime(1984, 11, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Beijing, China",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("7096389a-10f7-4b4c-936b-c97c3e871535"),
+                      Name = "Acer",
+                      Description = "Acer Inc. is a Taiwanese multinational hardware and electronics corporation specializing in advanced electronics technology.",
+                      Since = new DateTime(1976, 8, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "New Taipei City, Taiwan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("feda98d0-2c07-440d-aaaa-ff00983e9125"),
+                      Name = "Microsoft",
+                      Description = "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services.",
+                      Since = new DateTime(1975, 4, 4, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Redmond, Washington, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("57ef2517-6d90-47af-8127-50bb0e0e6068"),
+                      Name = "Dell",
+                      Description = "Dell Technologies Inc. is an American multinational technology company headquartered in Round Rock, Texas. It designs, develops, manufactures, markets, and sells computer hardware, software, and related services.",
+                      Since = new DateTime(1984, 2, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Round Rock, Texas, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("542de3c2-2a08-45dc-808c-8e6a15feac89"),
+                      Name = "HP",
+                      Description = "HP Inc. is an American multinational information technology company that develops personal computers, printers, and related supplies.",
+                      Since = new DateTime(1939, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Palo Alto, California, United States",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("14d4f153-90f6-4fd8-a3a2-d07121be1501"),
+                      Name = "Canon",
+                      Description = "Canon Inc. is a Japanese multinational corporation specializing in the manufacture of imaging and optical products, including cameras, camcorders, photocopiers, steppers, computer printers, and medical equipment.",
+                      Since = new DateTime(1937, 8, 10, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Tokyo, Japan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("401c2a61-395b-4eaa-9857-1c6923ee50eb"),
+                      Name = "Leica",
+                      Description = "Leica Camera AG is a German company that manufactures cameras, lenses, binoculars, rifle scopes, microscopes, and ophthalmic lenses. The company was founded by Ernst Leitz in 1914.",
+                      Since = new DateTime(1914, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Wetzlar, Germany",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("c0f66be8-096c-43f9-9523-0291d328ab13"),
+                      Name = "Nikon",
+                      Description = "Nikon Corporation, also known just as Nikon, is a Japanese multinational corporation headquartered in Tokyo, Japan, specializing in optics and imaging products.",
+                      Since = new DateTime(1917, 7, 25, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Tokyo, Japan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("e550d6c6-e22f-48e7-b9fc-4732b69982ec"),
+                      Name = "LG",
+                      Description = "LG Corporation, formerly Lucky-Goldstar, is a South Korean multinational conglomerate corporation. It is the fourth-largest chaebol in South Korea.",
+                      Since = new DateTime(1947, 1, 5, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Seoul, South Korea",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("7c06af60-6e98-4ed7-82aa-fc5b1ca8a0dd"),
+                      Name = "Toshiba",
+                      Description = "Toshiba Corporation is a Japanese multinational conglomerate headquartered in Minato, Tokyo, Japan. Its diversified products and services include information technology and communications equipment and systems, electronic components and materials, power systems, industrial and social infrastructure systems, consumer electronics, household appliances, medical equipment, office equipment, as well as lighting and logistics.",
+                      Since = new DateTime(1938, 7, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Minato, Tokyo, Japan",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  },
+                  new Brand
+                  {
+                      Id = new Guid("a14cfa60-37d3-42c3-b717-3517d756461e"),
+                      Name = "Beko",
+                      Description = "Beko is a Turkish domestic appliance and consumer electronics brand of Arcelik AS, controlled by Koc Holding, which started operating in 1955.",
+                      Since = new DateTime(1955, 1, 1, 0, 0, 0, DateTimeKind.Utc),
+                      Location = "Istanbul, Turkey",
+                      CreatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc),
+                      LastUpdatedAt = new DateTime(2017, 7, 10, 0, 0, 0, DateTimeKind.Utc)
+                  }
             );
 
             #endregion
