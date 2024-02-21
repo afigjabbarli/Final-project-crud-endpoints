@@ -1,5 +1,4 @@
 ﻿using Final_project_crud_endpoints.DataBase.Entities.Base;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Final_project_crud_endpoints.DataBase.Entities
 {
@@ -9,8 +8,7 @@ namespace Final_project_crud_endpoints.DataBase.Entities
         public string Name { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
         public decimal Price { get; set; }
-        [NotMapped]
-        public List<string> Phisical_image_names { get; set; } = new List<string>();
+        public string[] Phisical_image_names { get; set; } = new string[] { };
         public string Product_Code { get; set; } = string.Empty;
         private decimal _quantity;
         private bool _isAvailable = true;

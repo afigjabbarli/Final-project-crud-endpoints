@@ -1,5 +1,6 @@
 ﻿using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

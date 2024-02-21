@@ -28,10 +28,11 @@ namespace Final_project_crud_endpoints.Controllers
         private readonly INotificationService _notification_service;
         private readonly IUserService _user_service;
         private readonly ILogger<AuthController> _logger;
+        private readonly IBasketService _basket_service;
         public AuthController(DataContext data_context, IVerificationService verification_service,
             IFileService file_service, IActivationService activation_service,
             INotificationService notification_service, IEmailService email_service,
-            IUserService user_service, ILogger<AuthController> logger)
+            IUserService user_service, ILogger<AuthController> logger, IBasketService basket_service)
         {
             _data_context = data_context;
             _verification_service = verification_service;
@@ -40,6 +41,7 @@ namespace Final_project_crud_endpoints.Controllers
             _notification_service = notification_service;
             _user_service = user_service;
             _logger = logger;
+            _basket_service = basket_service;
         }
         [HttpPost("auth/register")]
         [ProducesResponseType(StatusCodes.Status201Created)]
@@ -279,6 +281,9 @@ namespace Final_project_crud_endpoints.Controllers
         [HttpGet("auth/logout")]
         public async Task<IActionResult> Logout()
         {
+            _basket_service.ClearBasketItems();
+            _data_context.BasketItems.RemoveRange(_data_context.BasketItems
+                .Where(bi => bi.Current_User_ID.Equals(_user_service.CurrentUser.Id)));
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return NoContent();
@@ -551,7 +556,7 @@ namespace Final_project_crud_endpoints.Controllers
                 return StatusCode(500, "An error occurred while processing the request. Please try again later.");
             }
         }
-      
+
 
     }
 

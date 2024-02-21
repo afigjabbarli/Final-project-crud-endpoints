@@ -3,7 +3,6 @@ using Final_project_crud_endpoints.DataBase;
 using Final_project_crud_endpoints.DataBase.DTOs.Product;
 using Final_project_crud_endpoints.DataBase.Entities;
 using Final_project_crud_endpoints.Helpers;
-using Final_project_crud_endpoints.Migrations;
 using Final_project_crud_endpoints.Services.Abstracts;
 using Final_project_crud_endpoints.Validations;
 using Microsoft.AspNetCore.Mvc;
@@ -78,8 +77,8 @@ namespace Final_project_crud_endpoints.Controllers
 
                 if (DTO.Files.Count > 0)
                 {
-                    product.Phisical_image_names = await _file_service
-                        .UploadAsync(CustomUploadDirectories.Products, DTO.Files, product.Product_Code);
+                    product.Phisical_image_names = (await _file_service
+                        .UploadAsync(CustomUploadDirectories.Products, DTO.Files, product.Product_Code)).ToArray();
                 }
 
                 await _data_context.Products.AddAsync(product);
@@ -195,7 +194,7 @@ namespace Final_project_crud_endpoints.Controllers
                     CreatedAt = p.CreatedAt,
                     LastUpdatedAt = p.LastUpdatedAt,
                     Phisical_image_URLs = _file_service
-                     .ReadStaticFiles(p.Product_Code, CustomUploadDirectories.Products, p.Phisical_image_names),
+                     .ReadStaticFiles(p.Product_Code, CustomUploadDirectories.Products, p.Phisical_image_names.ToList()),
 
                     Current_Deepcategory = _data_context.Deepcategories
                     .SingleOrDefault(dp => dp.Id.Equals(p.Current_Deepcategory_Id))!,
@@ -267,7 +266,7 @@ namespace Final_project_crud_endpoints.Controllers
                     CreatedAt = product.CreatedAt,
                     LastUpdatedAt = product.LastUpdatedAt,
                     Phisical_image_URLs = _file_service
-                    .ReadStaticFiles(product.Product_Code, CustomUploadDirectories.Products, product.Phisical_image_names),
+                    .ReadStaticFiles(product.Product_Code, CustomUploadDirectories.Products, product.Phisical_image_names.ToList()),
 
                     Current_Brand = _data_context.Brands
                     .SingleOrDefault(br => br.Id.Equals(product.Current_Brand_Id))!,
@@ -359,11 +358,11 @@ namespace Final_project_crud_endpoints.Controllers
                     _file_service
                         .RemoveStaticFiles(product.Product_Code,
                         CustomUploadDirectories.Products,
-                        product.Phisical_image_names);
+                        product.Phisical_image_names.ToList());
 
-                    product.Phisical_image_names = await _file_service
+                    product.Phisical_image_names = (await _file_service
                         .UploadAsync(CustomUploadDirectories.Products,
-                        DTO.Files, product.Product_Code);
+                        DTO.Files, product.Product_Code)).ToArray();
                 }
 
                 _data_context.Products.Update(product);
@@ -524,10 +523,10 @@ namespace Final_project_crud_endpoints.Controllers
                 if (product is null)
                     return NotFound($"The product with the << {Id} >> number you are looking for does not already exist in the database!");
 
-                if (product.Phisical_image_names.Count > 0)
+                if (product.Phisical_image_names.ToList().Count > 0)
                 {
                     _file_service
-                       .RemoveStaticFiles(product.Product_Code, CustomUploadDirectories.Products, product.Phisical_image_names);
+                       .RemoveStaticFiles(product.Product_Code, CustomUploadDirectories.Products, product.Phisical_image_names.ToList());
                 }
 
                 var removeableProductColors = await _data_context.ProductColors
@@ -610,7 +609,7 @@ namespace Final_project_crud_endpoints.Controllers
                         CreatedAt = pr.CreatedAt,
                         LastUpdatedAt = pr.LastUpdatedAt,
                         Phisical_image_URLs = _file_service
-                         .ReadStaticFiles(pr.Product_Code, CustomUploadDirectories.Products, pr.Phisical_image_names),
+                         .ReadStaticFiles(pr.Product_Code, CustomUploadDirectories.Products, pr.Phisical_image_names.ToList()),
 
                         Current_Deepcategory = _data_context.Deepcategories
                         .SingleOrDefault(dp => dp.Id.Equals(pr.Current_Deepcategory_Id))!,
@@ -660,7 +659,7 @@ namespace Final_project_crud_endpoints.Controllers
         [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Filter([FromForm] ProductFilterRequest request)
         {
-            if(request is null)
+            if (request is null)
                 return BadRequest("Invalid request.");
 
             try
@@ -678,43 +677,43 @@ namespace Final_project_crud_endpoints.Controllers
                     products = products.Where(pr => pr.Current_Deepcategory_Id.Equals(request.Current_Category_ID)).ToList();
                 }
 
-                if(request.Current_Brand_ID != Guid.Empty)
+                if (request.Current_Brand_ID != Guid.Empty)
                 {
                     products = products.Where(pr => pr.Current_Brand_Id.Equals(request.Current_Brand_ID)).ToList();
                 }
 
-                if(request.Current_Quality_Level_ID != Guid.Empty)
+                if (request.Current_Quality_Level_ID != Guid.Empty)
                 {
-                    products = products.Where(pr => pr.Current_Quality_Level_Id.Equals(request.Current_Quality_Level_ID)).ToList(); 
+                    products = products.Where(pr => pr.Current_Quality_Level_Id.Equals(request.Current_Quality_Level_ID)).ToList();
                 }
 
-                if(request.Minimum_Price != 0 && request.Maximum_Price != 0 && request.Minimum_Price < request.Maximum_Price)
+                if (request.Minimum_Price != 0 && request.Maximum_Price != 0 && request.Minimum_Price < request.Maximum_Price)
                 {
                     products = products.Where(pr => request.Minimum_Price <= pr.Price && pr.Price <= request.Maximum_Price).ToList();
                 }
 
-                if(request.Current_Color_ID != Guid.Empty)
+                if (request.Current_Color_ID != Guid.Empty)
                 {
                     products = products.Where(pr => _data_context.ProductColors
                     .Any(pc => pc.Color_Id.Equals(request.Current_Color_ID) && pc.Product_Id.Equals(pr.Id))).ToList();
                 }
 
-                if(request.Current_Size_ID != Guid.Empty)
+                if (request.Current_Size_ID != Guid.Empty)
                 {
                     products = products.Where(pr => _data_context.ProductSizes
                     .Any(ps => ps.Product_Id.Equals(pr.Id) && ps.Size_Id.Equals(request.Current_Size_ID))).ToList();
                 }
 
-                if(request.Current_Warranty_ID != Guid.Empty)
+                if (request.Current_Warranty_ID != Guid.Empty)
                 {
                     products = products.Where(pr => _data_context.ProductWarranties
                     .Any(pw => pw.Product_Id.Equals(pr.Id) && pw.Warranty_Id.Equals(request.Current_Warranty_ID))).ToList();
                 }
 
-                if(request.Current_Store_ID != Guid.Empty)
+                if (request.Current_Store_ID != Guid.Empty)
                 {
                     products = products.Where(pr => _data_context.ProductStores
-                    .Any(ps => ps.Product_Id.Equals(pr.Id) && ps.Store_Id.Equals(request.Current_Store_ID))).ToList();  
+                    .Any(ps => ps.Product_Id.Equals(pr.Id) && ps.Store_Id.Equals(request.Current_Store_ID))).ToList();
                 }
 
                 var response = products.Select(pr => new ProductListItemDTO
@@ -732,7 +731,7 @@ namespace Final_project_crud_endpoints.Controllers
                     CreatedAt = pr.CreatedAt,
                     LastUpdatedAt = pr.LastUpdatedAt,
                     Phisical_image_URLs = _file_service
-                         .ReadStaticFiles(pr.Product_Code, CustomUploadDirectories.Products, pr.Phisical_image_names),
+                         .ReadStaticFiles(pr.Product_Code, CustomUploadDirectories.Products, pr.Phisical_image_names.ToList()),
 
                     Current_Deepcategory = _data_context.Deepcategories
                         .SingleOrDefault(dp => dp.Id.Equals(pr.Current_Deepcategory_Id))!,

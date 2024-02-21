@@ -21,6 +21,7 @@ namespace Final_project_crud_endpoints.DataBase.Entities.Identity
         public string User_Code { get; set; } = string.Empty;
         public string ApplicationPassword { get; set; } = string.Empty; 
         public ActivationToken ActivationToken { get; set; }
-        public List<Email> Emails { get; set; } 
+        public List<Email> Emails { get; set; }
+        public List<BasketItem> BasketItems { get; set; }   
     }
 }

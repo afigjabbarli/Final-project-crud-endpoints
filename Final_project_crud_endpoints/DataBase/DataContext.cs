@@ -13,6 +13,15 @@ namespace Final_project_crud_endpoints.DataBase
         {
             base.OnModelCreating(modelBuilder);
 
+            //One to many relationship between user and basketItems
+
+            modelBuilder.Entity<BasketItem>()
+                .HasOne<User>(bi => bi.User)
+                .WithMany(u => u.BasketItems)
+                .HasForeignKey(bi => bi.Current_User_ID);
+
+            //One to many relationship between user and basketItems
+
             //One to many relationship between sategory and subcategory
 
             modelBuilder.Entity<Subcategory>()
@@ -3271,6 +3280,12 @@ namespace Final_project_crud_endpoints.DataBase
             );
 
             #endregion
+
+            #region Product seeding...
+
+            
+
+            #endregion
         }
         public DbSet<RandomPassword> Passwords { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -3290,5 +3305,6 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<ProductSize> ProductSizes { get; set; }    
         public DbSet<ProductStore> ProductStores { get; set; }  
         public DbSet<QualityLevel> QualityLevels { get; set; }      
+        public DbSet<BasketItem> BasketItems { get; set; }
     }
 }
