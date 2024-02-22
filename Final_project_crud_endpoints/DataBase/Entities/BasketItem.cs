@@ -5,11 +5,11 @@ namespace Final_project_crud_endpoints.DataBase.Entities
 {
     public class BasketItem : BaseEntity<Guid>, IAuditable
     {
-        public Guid Product_ID { get; set; }    
-        public Guid[] Color_IDs { get; set; } = new Guid[] { };  
-        public Guid[] Size_IDs { get; set; } = new Guid[] { };  
-        public Guid[] Store_IDs { get; set;} = new Guid[] { };  
-        public Guid[] Warranty_IDs { get; set; } = new Guid[] { };  
+        public Guid Product_ID { get; set; }
+        public Guid ColorID { get; set; }
+        public Guid SizeID { get; set; }
+        public Guid StoreID { get; set; }
+        public Guid WarrantyID { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime LastUpdatedAt { get; set; }
         public byte Quantity { get; set; }  

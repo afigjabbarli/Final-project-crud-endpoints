@@ -13,9 +13,9 @@ namespace Final_project_crud_endpoints.DataBase.DTOs.Basket
         public decimal Price { get; set; }
         public byte Quantity { get; set; }   
         public bool IsAviable { get; set; } 
-        public List<Guid> ColorIDs { get; set; } = new List<Guid>();
-        public List<Guid> SizeIDs { get; set; } = new List<Guid>();
-        public List<Guid> StoreIDs { get; set; } = new List<Guid>();
-        public List<Guid> WarrantyIDs { get; set; } = new List<Guid>();
+        public Guid ColorID { get; set; }
+        public Guid SizeID { get; set; }
+        public Guid StoreID { get; set; }
+        public Guid WarrantyID { get; set; }
     }
 }

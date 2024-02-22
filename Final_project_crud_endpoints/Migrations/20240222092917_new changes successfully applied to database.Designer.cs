@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Final_project_crud_endpoints.DataBase;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -12,9 +13,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Final_project_crud_endpoints.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240222092917_new changes successfully applied to database")]
+    partial class newchangessuccessfullyappliedtodatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -1864,7 +1866,7 @@ namespace Final_project_crud_endpoints.Migrations
                     b.Property<decimal>("Order_Total_Price")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Tracking_ID")
+                    b.Property<string>("Trackin_ID")
                         .IsRequired()
                         .HasColumnType("text");
 
@@ -1893,19 +1895,8 @@ namespace Final_project_crud_endpoints.Migrations
                     b.Property<Guid>("Order_ID")
                         .HasColumnType("uuid");
 
-                    b.Property<decimal>("Order_Item_Single_Price")
-                        .HasColumnType("numeric");
-
                     b.Property<decimal>("Order_Item_Total_Price")
                         .HasColumnType("numeric");
-
-                    b.Property<string>("Phisical_Image_Name")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<string>("Product_Code")
-                        .IsRequired()
-                        .HasColumnType("text");
 
                     b.Property<Guid>("Product_Color_ID")
                         .HasColumnType("uuid");

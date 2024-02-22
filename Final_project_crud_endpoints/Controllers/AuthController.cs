@@ -282,8 +282,11 @@ namespace Final_project_crud_endpoints.Controllers
         public async Task<IActionResult> Logout()
         {
             _basket_service.ClearBasketItems();
+
             _data_context.BasketItems.RemoveRange(_data_context.BasketItems
                 .Where(bi => bi.Current_User_ID.Equals(_user_service.CurrentUser.Id)));
+
+            await _data_context.SaveChangesAsync();
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
             return NoContent();

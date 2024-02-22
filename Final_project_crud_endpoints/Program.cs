@@ -48,6 +48,7 @@ namespace Final_project_crud_endpoints
              .AddScoped<INotificationService, NotificationService>()
              .AddScoped<IUserService, UserService>()
              .AddScoped<IBasketService, BasketService>()
+             .AddScoped<IOrderService, OrderService>()  
              .AddHttpContextAccessor()
 
             .AddCors(options =>

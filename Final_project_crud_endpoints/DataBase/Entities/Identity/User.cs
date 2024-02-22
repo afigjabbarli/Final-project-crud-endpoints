@@ -23,5 +23,6 @@ namespace Final_project_crud_endpoints.DataBase.Entities.Identity
         public ActivationToken ActivationToken { get; set; }
         public List<Email> Emails { get; set; }
         public List<BasketItem> BasketItems { get; set; }   
+        public List<Order> Orders { get; set; } 
     }
 }

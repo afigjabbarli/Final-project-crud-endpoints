@@ -16,8 +16,8 @@ namespace Final_project_crud_endpoints.Controllers
         private readonly DataContext _data_context;
         private readonly IUserService _user_service;
         private readonly IBasketService _basket_service;
-        private readonly ILogger _logger;
-        public BasketController(DataContext data_context, IUserService user_service, IBasketService basket_service, ILogger logger)
+        private readonly ILogger<BasketController> _logger;
+        public BasketController(DataContext data_context, IUserService user_service, IBasketService basket_service, ILogger<BasketController> logger)
         {
             _data_context = data_context;
             _user_service = user_service;
@@ -48,6 +48,15 @@ namespace Final_project_crud_endpoints.Controllers
                 return BadRequest(ModelState);
             }
 
+            if (product.Quantity < DTO.Quantity)
+            {
+                ModelState.Clear();
+                ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
+                    CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
+
+                return BadRequest(ModelState);
+            }
+
             cookieItem.ProductID = product.Id;
             cookieItem.Product_Code = product.Product_Code;
             cookieItem.Quantity = DTO.Quantity;
@@ -57,76 +66,58 @@ namespace Final_project_crud_endpoints.Controllers
             cookieItem.Product_Name = product.Name;
             cookieItem.Phisical_image_names = product.Phisical_image_names;
 
-            foreach (var ColorID in DTO.Color_IDs)
+            var color = await _data_context.ProductColors
+                .Where(pc => pc.Color_Id.Equals(DTO.ColorID) && pc.Product_Id.Equals(product.Id))
+                .Select(pc => pc.Color).SingleOrDefaultAsync();
+            if (color is null)
             {
-                var color = await _data_context.ProductColors
-                    .Where(pc => pc.Color_Id.Equals(ColorID) && pc.Product_Id.Equals(product.Id))
-                    .Select(pc => pc.Color).SingleOrDefaultAsync();
-                if (color is null)
-                {
-                    ModelState.Clear();
-                    ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
-                        CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
+                ModelState.Clear();
+                ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
+                    CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
 
-                    return BadRequest(ModelState);
-                }
-
-                cookieItem.ColorIDs.Add(color.Id);
+                return BadRequest(ModelState);
             }
 
-            foreach (var SizeID in DTO.Size_IDs)
+            var size = await _data_context.ProductSizes
+                .Where(ps => ps.Size_Id.Equals(DTO.SizeID) && ps.Product_Id.Equals(product.Id))
+                .Select(ps => ps.Size).SingleOrDefaultAsync();
+            if (size is null)
             {
-                var size = await _data_context.ProductSizes
-                    .Where(ps => ps.Size_Id.Equals(SizeID) && ps.Product_Id.Equals(product.Id))
-                    .Select(ps => ps.Size).SingleOrDefaultAsync();
+                ModelState.Clear();
+                ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
+                    CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
 
-                if (size is null)
-                {
-                    ModelState.Clear();
-                    ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
-                        CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
-
-                    return BadRequest(ModelState);
-                }
-
-                cookieItem.SizeIDs.Add(size.Id);
+                return BadRequest(ModelState);
             }
 
-            foreach (var WarrantyID in DTO.Warranty_IDs)
+            var warranty = await _data_context.ProductWarranties
+                .Where(pw => pw.Warranty_Id.Equals(DTO.WarrantyID) && pw.Product_Id.Equals(product.Id))
+                .Select(pw => pw.Warranty).SingleOrDefaultAsync();
+            if (warranty is null)
             {
-                var warranty = await _data_context.ProductWarranties
-                    .Where(pw => pw.Warranty_Id.Equals(WarrantyID) && pw.Product_Id.Equals(product.Id))
-                    .Select(pw => pw.Warranty).SingleOrDefaultAsync();
+                ModelState.Clear();
+                ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
+                    CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
 
-                if (warranty is null)
-                {
-                    ModelState.Clear();
-                    ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
-                        CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
-
-                    return BadRequest(ModelState);
-                }
-
-                cookieItem.WarrantyIDs.Add(warranty.Id);
+                return BadRequest(ModelState);
             }
 
-            foreach (var StoreID in DTO.Store_IDs)
+            var store = await _data_context.ProductStores
+                .Where(ps => ps.Store_Id.Equals(DTO.StoreID) && ps.Product_Id.Equals(product.Id))
+                .Select(ps => ps.Store).SingleOrDefaultAsync();
+            if (store is null)
             {
-                var store = await _data_context.ProductStores
-                    .Where(ps => ps.Store_Id.Equals(StoreID) && ps.Product_Id.Equals(product.Id))
-                    .Select(ps => ps.Store).SingleOrDefaultAsync();
+                ModelState.Clear();
+                ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
+                    CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
 
-                if (store is null)
-                {
-                    ModelState.Clear();
-                    ModelState.AddModelError(CustomValidationErrors.Key.BasketItemPost.ToString(),
-                        CustomValidationErrors.Value.BASKET_ITEM_NULL_POSTED);
-
-                    return BadRequest(ModelState);
-                }
-
-                cookieItem.StoreIDs.Add(store.Id);
+                return BadRequest(ModelState);
             }
+
+            cookieItem.ColorID = color.Id;
+            cookieItem.SizeID = size.Id;
+            cookieItem.WarrantyID = warranty.Id;
+            cookieItem.StoreID = store.Id;
 
             var basket_item = _basket_service.AppendProductToBasket(cookieItem);
 
@@ -140,10 +131,8 @@ namespace Final_project_crud_endpoints.Controllers
 
             return Ok(JsonSerializer.Serialize(basket_item, jsonOptions));
         }
+
         [HttpGet(template: "get-all")]
-        [Produces(type: typeof(List<BasketListItemDTO>))]
-        [ProducesResponseType(statusCode: StatusCodes.Status200OK)]
-        [ProducesResponseType(statusCode: StatusCodes.Status500InternalServerError)]
         public IActionResult Get()
         {
             try
@@ -156,6 +145,40 @@ namespace Final_project_crud_endpoints.Controllers
 
                 return StatusCode(500, "An error occurred while processing the request. Please try again later.");
             }
+        }
+        [HttpGet(template: "get/{ID}")]
+        public IActionResult Get(Guid ID)
+        {
+            try
+            {
+                var DTO = _basket_service.FetchSingleBasketItem(ID);
+
+                return Ok(DTO);
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message, exception);  
+            }
+        }
+        [HttpDelete(template: "delete/{ID}")]
+        public IActionResult Delete(Guid ID)
+        {
+            try
+            {
+                _basket_service.ClearSingleBasketItemFromBasketData(ID);    
+                return NoContent();
+            }
+            catch (Exception exception)
+            {
+                throw new Exception(exception.Message, exception);
+            }
+        }
+        [HttpDelete(template: "delete-all")]
+        public IActionResult Delete()
+        {
+            _basket_service.ClearBasketItems();
+
+            return NoContent();
         }
     }
 }

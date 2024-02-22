@@ -14,6 +14,7 @@
             public const string Activation_Email = "Activation Email";
             public const string Expired_Token = "Expired Token";
             public const string Success_Activation = "Successful activation";
+            public const string Order_Invoice = "Walmart E - Commerce Order Invoice";
         }
     }
 }

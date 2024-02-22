@@ -9,5 +9,6 @@
         public const string SUBCATEGORY = "SUB_CTG";
         public const string DEEPCATEGORY = "DEEP_CTG";
         public const string STORE = "STR";
+        public const string ORDER = "OR";
     }
 }

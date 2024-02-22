@@ -10,14 +10,14 @@ namespace Final_project_crud_endpoints.DataBase.DTOs.Basket
         public Guid Product_ID { get; set; }
         [Required]
         public byte Quantity { get; set; }
-        [Required]  
-        public Guid[] Color_IDs { get; set; }
         [Required]
-        public Guid[] Size_IDs { get; set; }
-        [Required]  
-        public Guid[] Warranty_IDs { get; set; }
+        public Guid ColorID { get; set; }
         [Required]
-        public Guid[] Store_IDs { get; set; }
+        public Guid SizeID { get; set; }
+        [Required]
+        public Guid StoreID { get; set; }
+        [Required]
+        public Guid WarrantyID { get; set; }
     }
 
 }

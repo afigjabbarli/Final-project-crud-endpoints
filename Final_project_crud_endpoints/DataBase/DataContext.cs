@@ -13,6 +13,16 @@ namespace Final_project_crud_endpoints.DataBase
         {
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Entity<Order>()
+               .HasOne<User>(o => o.User)
+               .WithMany(u => u.Orders)
+               .HasForeignKey(o => o.User_ID);
+
+            modelBuilder.Entity<OrderItem>()
+               .HasOne<Order>(oi => oi.Order)
+               .WithMany(o => o.OrderItems)
+               .HasForeignKey(oi => oi.Order_ID);
+
             //One to many relationship between user and basketItems
 
             modelBuilder.Entity<BasketItem>()
@@ -3306,5 +3316,7 @@ namespace Final_project_crud_endpoints.DataBase
         public DbSet<ProductStore> ProductStores { get; set; }  
         public DbSet<QualityLevel> QualityLevels { get; set; }      
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Order> Orders { get; set; }    
+        public DbSet<OrderItem> OrderItems { get; set; }    
     }
 }
